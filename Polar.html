@@ -1,0 +1,258 @@
+
+
+<html> 
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="ROBOTS" content="NOARCHIVE">
+	<meta name = "viewport" content = "width = device-width">
+	<title>Luen Hing Survey Program</title>
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+<body onLoad="functionfirst();">
+<script src="station.js">
+</script>
+
+<script>
+
+
+
+function functionfirst()
+{
+   var contractnumber=new Array()
+   j=0
+   temp=""
+   contractnumber[0]=st[1][0]
+   for(i=2;i<(st.length);i++)
+   {
+     temp=st[i][0]    
+     if (temp!=contractnumber[j])
+     {
+      j=j+1
+      contractnumber[j]=temp
+     }
+   }// End For
+
+        
+
+
+        z=0  // 設定Z=0 (找出相同數目 & 除清空)
+        for(i=(contractnumber.length);i>0;i--) // 設定LOOP 1 i= 由尾至頭
+
+        {
+          for(j=i-1;j>(-1);j--) // 設定LOOP 2 = j由i-1至頭
+        {
+           
+         
+        if (contractnumber[i]==contractnumber[j]) // 如果出現相同 i=j
+         {
+      
+         z=z+1 // 相同次數加一次
+         contractnumber[i]=""  // 重複位置=空
+         break;                // 跳出LOOP 2
+         }//End if
+         }//End for 
+         }//End for
+         
+         j=0 // 設定j=0 (找出空格 & NEW Array)
+         for(i=0;i<(contractnumber.length);i++) // 設定LOOP 1 i= 由頭至尾
+          {
+          if (contractnumber[i]!="") // 如果出現相同 i不等於空格
+          {
+          contractnumber[j]=contractnumber[i] 
+          j=j+1
+          }
+           }
+
+
+F= (contractnumber.length) - z
+
+
+  
+              
+
+j=1
+for(i=0;i<F;i++)
+{
+//alert(countnumber);
+document.STN.contact[j]=new Option(contractnumber[i], contractnumber[i]);  // 設定新選項
+
+j=j+1
+}//End For
+document.STN.contact.length=F+1  // 刪除多餘的選項
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function CheckIt3(index)
+{
+contactno=document.STN.contact.value
+countnumber=1
+temp=""
+j=1
+for(i=0;i<(st.length);i++)
+{
+temp=st[i][0]
+if (temp==contactno)
+{
+//alert(countnumber);
+countnumber=countnumber+1
+document.STN.staionselect1[j]=new Option(st[i][1], st[i][1]);  // 設定新選項
+
+j=j+1
+}
+}//End For
+document.STN.staionselect1.length=countnumber  // 刪除多餘的選項
+
+}
+function checkst(stationname,contactno)
+{
+k=0
+for (i=1;i<st.length;i++)
+{
+c=st[i][1]
+d=st[i][0]
+if (c == stationname && d == contactno)
+{
+k=i
+}
+}
+
+return k}
+
+function CLSIt2()
+{
+document.STN.text4.value = ""
+document.STN.text5.value = ""
+document.STN.text6.value = ""
+document.STN.text7.value = ""
+}
+
+function CheckIt1()
+{
+k=1
+Name = document.STN.staionselect1.value
+contactno = document.STN.contact.value
+k=checkst(Name,contactno)
+n=st[k][2]
+e=st[k][3]
+document.STN.text2.value = n
+document.STN.text3.value = e
+}
+
+function RUNIt( )
+
+
+{
+pi = 3.14159265358979
+stn = document.STN.text2.value 
+ste= document.STN.text3.value
+b = document.STN.text4.value
+d = document.STN.text5.value
+
+b = deg(b)
+
+
+nx = fix4((Math.cos(b*pi/180))*d+fix4(stn))
+ex = fix4((Math.sin(b*pi/180))*d+fix4(ste))
+
+
+
+
+
+document.STN.text6.value=nx
+document.STN.text7.value=ex
+}
+
+function deg(z)
+{ return z=(Math.floor(z)) + (Math.floor((z - (Math.floor(z))) * 100)) / 60 + ((100 * z - (Math.floor(100 * z))) * 100) / 3600}
+
+function fix4(z)
+{return z=(Math.floor(z * 10000 + 0.5)) / 10000}
+
+
+
+
+
+
+</script>
+
+
+
+<h3>Kin Write Polar
+<p>
+Email: kin525@yahoo.com.hk
+<p>
+</h3>
+<form name="STN">
+<p>
+
+
+</script>
+<p>
+Contract Number:<select name="contact"  onChange="CheckIt3(this.selectedIndex)" >
+  <option value="Select Site">Select Site
+
+
+</select>
+
+
+<p>
+<select name="staionselect1" onChange="CheckIt1()">
+ <option value="Station Name">Station Name
+</select>
+<p>
+STN : <input name="text2" type="text" size=12>
+<p>
+STE : <input name="text3" type="text" size=12>
+
+<p>
+____________________
+<p>
+Brg  : <input name="text4" type="text" size=12>
+<p>
+Dist  : <input name="text5" type="text" size=12>
+<p>
+<input name="submit" type="button" value="RUN"
+onClick="RUNIt()" >
+<input name="submit" type="button" value="CLS"
+onClick="CLSIt2()" >
+<p>
+<p>
+<p>
+Nx = <input name="text6" type="text" size=12>
+<p>
+Ex = <input name="text7" type="text" size=12>
+<p>
+</form>
+
+
+
+
+
+</body></html>
+
+
+
+

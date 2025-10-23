@@ -1,0 +1,189 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="ROBOTS" content="NOARCHIVE">
+	<meta name = "viewport" content = "width = device-width">
+	<title>Luen Hing Survey Program</title></head>
+
+
+
+<body>
+<script src="station.js">
+</script>
+
+<script type="text/javascript">
+
+
+
+
+
+
+
+
+
+function RUNIt2( )
+{
+
+window.location = "index.htm"
+}
+
+
+
+
+
+
+
+
+
+function RUNIt( )
+{
+
+
+
+
+
+
+
+
+
+
+number=0
+
+contactnumber=document.myform.contact.value
+	if (contactnumber=="Select Site") // ¦pªG¥X²{¬Û¦P i=j
+    		{
+    			alert("Please Select Contract Number");
+    			exit
+    			
+    		}
+
+stname = document.myform.text1.value 
+	if (stname=="") // ¦pªG¥X²{¬Û¦P i=j
+    		{
+    			alert("Please Input Station Name");
+    			exit
+    			
+    		}         
+
+
+
+
+
+stN= document.myform.text2.value 
+
+	if (stN=="") // ¦pªG¥X²{¬Û¦P i=j
+    		{
+    			alert("Please Input Nothing");
+    			exit
+    			
+    		}
+
+
+
+
+
+stE = document.myform.text3.value 
+	if (stE=="") // ¦pªG¥X²{¬Û¦P i=j
+    		{
+    			alert("Please Input Easting");
+    			exit
+    			
+    		}
+
+
+
+
+stRL = document.myform.text4.value  
+	if (stRL=="") // ¦pªG¥X²{¬Û¦P i=j
+    		{
+    			alert("Please Input Level");
+    			exit
+    			
+    		}
+
+
+
+
+	Stationno  ="st["+st.length+"]"
+
+
+//alert(stationname);
+	window.location.href = "writestation.php?Stationno=" + Stationno +"&Contactno=" + contactnumber + "&StName=" + stname + "&StN=" + stN + 
+
+"&StE=" + stE + "&StRL="+stRL;
+	alert("Add station is ok");
+        document.myform.text1.value = ""
+        document.myform.text2.value = ""
+        document.myform.text3.value = ""
+        document.myform.text4.value = ""
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+<h3>Kin Add Station
+<p>
+Email: kin525@yahoo.com.hk
+
+<p>
+</h3>
+<form name="myform">
+<p>  
+  Contract Number:<select name="contact">
+  <option value ="Select Site">Select Site</option>
+  <option value ="HY-2008-11">HY-2008-11</option>
+  <option value="3503">3503</option>
+  <option value="HY-2019-01">HY-2019-01</option>
+  <option value="NE-2017-02">NE-2017-02</option>
+  <option value="SSJ510">SSJ510</option>
+  <option value="C21W18">C21W18</option>
+</select>
+
+<p>
+ST.Name: <input type="text" name="text1" size=12>
+<p>
+ST.N  : <input type="text" name="text2" size=12>
+<p>
+ST.E  : <input type="text" name="text3" size=12>
+<p>
+ST.RL : <input type="text" name="text4" size=12>
+
+<p>
+
+
+<input name="submit" type="button" value="Submit"onClick="RUNIt()" >  <input name="submit" type="button" value="Home"onClick="RUNIt2()" >
+
+
+
+</form>
+
+
+
+
+
+</body>
+</html>
+
+
+

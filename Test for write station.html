@@ -1,0 +1,116 @@
+
+
+
+
+
+
+<html> <body>
+
+
+
+<script src="station.js">
+</script>
+
+<script type="text/javascript">
+
+
+
+
+
+//var stationname = window.location
+
+
+
+
+
+
+
+function RUNIt( )
+{
+
+
+
+contactnumber=document.myform.contact.value
+stname = document.myform.text1.value 
+stN= document.myform.text2.value 
+stE = document.myform.text3.value 
+stRL = document.myform.text4.value  
+Stationno  ="st["+st.length+"]"
+
+
+//alert(stationname);
+window.location.href = "writestation.php?Stationno=" + Stationno +"&Contactno=" + contactnumber + "&StName=" + stname + "&StN=" + stN + "&StE=" + stE + "&StRL="+stRL;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+<h3>Kin Add Station
+<p>
+Email: kin525@yahoo.com.hk
+
+<p>
+</h3>
+<form name="myform">
+<p>  
+  Contract Number:<select name="contact">
+  <option value ="Select Site">Select Site</option>
+  <option value ="HY-2008-11">HY-2008-11</option>
+  <option value="TKO-SITE-E">TKO-SITE-E</option>
+  <option value="HY-2011-09">HY-2011-09</option>
+</select>
+
+<p>
+ST.Name : <input type="text" name="text1" size=12>
+<p>
+ST.N  : <input type="text" name="text2" size=12>
+<p>
+St.E : <input type="text" name="text3" size=12>
+<p>
+St.RL  : <input type="text" name="text4" size=12>
+<p>
+
+<a href="javascript: RUNIt()">Submit</a>
+
+
+
+</form>
+
+
+
+
+
+</body></html>
+
+
+
+
+  
+
+
+
+
+
+
+

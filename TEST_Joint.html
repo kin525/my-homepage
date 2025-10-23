@@ -1,0 +1,264 @@
+
+
+
+
+
+
+<html> 
+<body onLoad="functionfirst();">
+
+
+
+<script src="station.js">
+</script>
+
+<script>
+function functionfirst()
+{
+   var contractnumber=new Array()
+   j=0
+   temp=""
+   contractnumber[0]=st[1][0]
+   for(i=2;i<(st.length);i++)
+   {
+     temp=st[i][0]    
+     if (temp!=contractnumber[j])
+     {
+      j=j+1
+      contractnumber[j]=temp
+     }
+   }// End For
+
+j=1
+for(i=0;i<(contractnumber.length);i++)
+{
+//alert(countnumber);
+document.STN.contact[j]=new Option(contractnumber[i], contractnumber[i]);  // 設定新選項
+
+j=j+1
+}//End For
+document.STN.contact.length=contractnumber.length+1  // 刪除多餘的選項
+}
+
+
+
+
+
+
+
+
+
+function CheckIt3(index)
+{
+contactno=document.STN.contact.value
+countnumber=1
+temp=""
+j=1
+for(i=0;i<(st.length);i++)
+{
+temp=st[i][0]
+if (temp==contactno)
+{
+//alert(countnumber);
+countnumber=countnumber+1
+document.STN.staionselect1[j]=new Option(st[i][1], st[i][1]);  // 設定新選項
+document.STN.staionselect2[j]=new Option(st[i][1], st[i][1]);  // 設定新選項
+j=j+1
+}
+}//End For
+document.STN.staionselect1.length=countnumber  // 刪除多餘的選項
+document.STN.staionselect2.length=countnumber  // 刪除多餘的選項
+}
+
+
+
+function CheckIt1()
+{
+k=1
+Name = document.STN.staionselect1.value
+contactno = document.STN.contact.value
+k=checkst(Name,contactno)
+n=st[k][2]
+e=st[k][3]
+document.STN.text2.value = n
+document.STN.text3.value = e
+}
+
+function CheckIt2()
+{
+k=1
+Name = document.STN.staionselect2.value
+contactno = document.STN.contact.value
+k=checkst(Name,contactno)
+n=st[k][2]
+e=st[k][3]
+document.STN.text5.value = n
+document.STN.text6.value = e
+}
+function checkst(stationname,contactno)
+{
+k=0
+for (i=1;i<st.length;i++)
+{
+c=st[i][1]
+d=st[i][0]
+if (c == stationname && d == contactno)
+{
+k=i
+}
+}
+
+return k}
+
+
+
+
+
+
+
+
+
+
+
+
+
+function RUNIt( )
+{
+stn = document.STN.text2.value 
+ste= document.STN.text3.value
+nx = document.STN.text5.value
+ex = document.STN.text6.value
+
+
+brg = joint(stn,ste,nx,ex)
+dist= jointdist(stn,ste,nx,ex)
+brg = dmscode(brg)
+dist = fix3(dist)
+
+
+
+
+
+document.STN.text7.value=brg
+document.STN.text8.value=dist
+}
+
+//小數後3位
+function fix3(z)
+{return z=(Math.floor(z * 1000 + 0.5)) / 1000}
+//<<<<<<<<<<< Function END  >>>>>>>>>>>>>>>>>>>>>>>>
+//轉度數+Code
+function dmscode(z)
+{
+ d=(Math.floor(z))
+ m=(Math.floor((z - (Math.floor(z))) * 60)) 
+ s=(Math.floor(((((z - (Math.floor(z))) * 60) - (Math.floor((z - (Math.floor(z))) * 60))) * 60)*10+0.5))/10
+
+if (s >= 60)
+{s = s - 60 
+m = m + 1}
+ 
+if (m >= 60)
+{m = m - 60
+d = d + 1}
+
+brg = d+"^"+m+"'"+s+"\""
+return brg}
+//<<<<<<<<<<< Function END  >>>>>>>>>>>>>>>>>>>>>>>>
+//計2點距離
+function jointdist(n,e,n2,e2)
+{x = n2 - n
+ y = e2 - e
+dist = (Math.sqrt((Math.pow(x,2)) + (Math.pow(y,2))))
+return dist}
+//<<<<<<<<<<< Function END  >>>>>>>>>>>>>>>>>>>>>>>>
+//計2點brg
+function joint(n,e,n2,e2)
+{x = n2 - n + 1/100000000000
+ y = e2 - e
+ brg = (Math.atan(y / x))* 180 / 3.14159265358979
+{if (x < 0)
+(brg = brg + 180);
+}
+{if (brg < 0)
+(brg = brg + 360);
+}
+return brg}
+//<<<<<<<<<<< Function END  >>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+<h3>Kin Write Joint
+<p>
+Email: kin525@yahoo.com.hk
+
+<p>
+</h3>
+<form name="STN">
+<p>
+Contract Number:<select name="contact"  onChange="CheckIt3(this.selectedIndex)" >
+  <option value="Select Site">Select Site
+
+
+</select>
+
+
+<p>
+<select name="staionselect1" onChange="CheckIt1()">
+ <option value="Station Name">Station Name
+</select>
+<p>
+ST.N : <input name="text2" type="TYPE_NUMBER_VARIATION_NORMAL" size=12
+
+this.text2.Remove("type");
+this.text2.Add("type", "tel");
+
+>
+<p>
+ST.E  : <input name="text3" type="TYPE_NUMBER_VARIATION_NORMAL" size=12>
+<p>
+____________________
+<p>
+<select name="staionselect2" onChange="CheckIt2()">
+ <option value="Station Name">Station Name
+</select>
+<p>
+Nx : <input name="text5" type="TYPE_NUMBER_VARIATION_NORMAL" size=12>
+<p>
+Ex  : <input name="text6" type="TYPE_NUMBER_VARIATION_NORMAL" size=12>
+<p>
+<input name="submit" type="button" value="RUN"
+onClick="RUNIt()" >
+<p>
+<p>
+BRG = <input name="text7" type="text" size=12>
+<p>
+DIST = <input name="text8" type="text" size=12>
+<p>
+</form>
+
+
+
+
+
+</body></html>
+</html>
+
+
+
+
+
+
+

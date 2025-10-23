@@ -1,0 +1,106 @@
+<html> <body>
+
+
+<script src="station.js">
+</script>
+
+<script type="text/javascript">
+
+
+
+
+
+
+
+
+
+function RUNIt2( )
+{
+
+window.location = "index.htm"
+}
+
+
+
+
+function RUNIt( )
+{
+
+window.location.reload();
+
+contactnumber=document.myform.contact.value
+stname = document.myform.text1.value 
+stN= document.myform.text2.value 
+stE = document.myform.text3.value 
+stRL = document.myform.text4.value  
+Stationno  ="st["+st.length+"]"
+
+
+//alert(stationname);
+window.location.href = "readstation.php?Stationno=" + Stationno +"&Contactno=" + contactnumber + "&StName=" + stname + "&StN=" + stN + "&StE=" + stE + "&StRL="+stRL;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+<h3>Kin Add Station
+<p>
+Email: kin525@yahoo.com.hk
+
+<p>
+</h3>
+<form name="myform">
+<p>  
+  Contract Number:<select name="contact">
+  <option value ="Select Site">Select Site</option>
+  <option value ="HY-2008-11">HY-2008-11</option>
+  <option value="TKO-SITE-E">TKO-SITE-E</option>
+  <option value="SSJ510">SSJ510</option>
+  <option value="C21W18">C21W18</option>
+</select>
+
+<p>
+ST.Name: <input type="text" name="text1" size=12>
+<p>
+ST.N  : <input type="text" name="text2" size=12>
+<p>
+ST.E  : <input type="text" name="text3" size=12>
+<p>
+ST.RL : <input type="text" name="text4" size=12>
+
+<p>
+
+
+<input name="submit" type="button" value="Submit"onClick="RUNIt()" >  <input name="submit" type="button" value="Home"onClick="RUNIt2()" >
+
+
+
+</form>
+
+
+
+
+
+</body></html>
+</html>
