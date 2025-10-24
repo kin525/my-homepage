@@ -60,6 +60,19 @@
       border-color: #007AFF;
     }
 
+    /* Optimize number input for mobile */
+    input[type="text"][inputmode="decimal"] {
+      -webkit-user-select: text;
+      user-select: text;
+    }
+
+    /* iOS Safari optimizations */
+    @supports (-webkit-touch-callout: none) {
+      input[type="text"][inputmode="decimal"] {
+        font-size: 16px; /* Prevent zoom on iOS */
+      }
+    }
+
     fieldset {
       border: 2px solid #e0e0e0;
       border-radius: 8px;
@@ -152,147 +165,28 @@
       display: block;
     }
 
-    /* Number pad styles - SMALLER SIZE */
-    .number-pad-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 1000;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-    }
-
-    .number-pad-container {
-      background: white;
-      width: 100%;
-      max-width: 400px; /* Smaller max width */
-      border-radius: 15px 15px 0 0;
-      padding: 15px; /* Reduced padding */
-      box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
-    }
-
-    .number-pad-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px; /* Reduced margin */
-      padding-bottom: 8px; /* Reduced padding */
-      border-bottom: 1px solid #eee;
-    }
-
-    .number-pad-header span {
-      font-weight: bold;
-      color: #333;
-      font-size: 16px; /* Smaller font */
-    }
-
-    .number-pad-header button {
-      background: none;
-      border: none;
-      font-size: 20px; /* Smaller close button */
-      cursor: pointer;
-      color: #666;
-      padding: 5px;
-    }
-
-    .number-display {
-      background: #f9f9f9;
-      border: 2px solid #ddd;
-      border-radius: 6px;
-      padding: 12px; /* Reduced padding */
-      margin-bottom: 12px; /* Reduced margin */
-      font-size: 16px; /* Smaller font */
-      text-align: center;
-      min-height: 46px; /* Smaller height */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: monospace;
-    }
-
-    .number-pad {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 columns for more compact layout */
-      gap: 8px; /* Smaller gap */
-      margin-bottom: 10px;
-    }
-
-    .num-btn {
-      height: 45px; /* Fixed smaller height */
-      font-size: 16px; /* Smaller font */
-      border: none;
-      border-radius: 6px;
-      background: #f0f0f0;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      -webkit-user-select: none;
-      user-select: none;
-    }
-
-    .num-btn:active {
-      background: #ddd;
-      transform: scale(0.95);
-    }
-
-    .num-btn.zero {
-      grid-column: span 2;
-    }
-
-    .num-btn.backspace {
-      background: #ff6b6b;
-      color: white;
-    }
-
-    .num-btn.decimal {
-      background: #4ecdc4;
-      color: white;
-    }
-
-    .num-btn.clear {
-      background: #ffa726;
-      color: white;
-    }
-
-    .num-btn.input {
-      background: #007AFF;
-      color: white;
-    }
-
-    @media (min-width: 768px) {
-      .number-pad-overlay {
-        align-items: center;
-      }
-      
-      .number-pad-container {
-        width: 350px; /* Smaller desktop width */
-        border-radius: 12px;
-      }
-    }
-
-    /* Input touch area */
-    .input-touch-area {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      cursor: pointer;
-      z-index: 5;
-    }
-
     /* Form labels */
     label {
       display: block;
       margin-bottom: 5px;
       font-weight: bold;
       color: #555;
+    }
+
+    /* Compact layout for coordinate inputs */
+    .coordinate-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .coordinate-input {
+      flex: 1;
+    }
+
+    .coordinate-input label {
+      font-size: 14px;
+      margin-bottom: 3px;
     }
   </style>
   <script src="station.js"></script>
@@ -320,18 +214,30 @@
           </select>
         </div>
         
-        <div class="number-input-container">
-          <label for="stnInput">N :</label>
-          <input id="stnInput" name="text2" type="text" inputmode="none" readonly placeholder="Tap to enter coordinates" size="12">
-          <div class="input-touch-area" onclick="showNumberPad('stnInput', 'N Coordinate')"></div>
-          <button type="button" class="clear-btn" onclick="clearInput('stnInput')">กั</button>
-        </div>
-        
-        <div class="number-input-container">
-          <label for="steInput">E :</label>
-          <input id="steInput" name="text3" type="text" inputmode="none" readonly placeholder="Tap to enter coordinates" size="12">
-          <div class="input-touch-area" onclick="showNumberPad('steInput', 'E Coordinate')"></div>
-          <button type="button" class="clear-btn" onclick="clearInput('steInput')">กั</button>
+        <div class="coordinate-row">
+          <div class="coordinate-input">
+            <label for="stnInput">N:</label>
+            <div class="number-input-container">
+              <input id="stnInput" name="text2" type="text" 
+                     inputmode="decimal" 
+                     pattern="[0-9.]*" 
+                     placeholder="Enter N"
+                     size="12">
+              <button type="button" class="clear-btn" onclick="clearInput('stnInput')">ร—</button>
+            </div>
+          </div>
+          
+          <div class="coordinate-input">
+            <label for="steInput">E:</label>
+            <div class="number-input-container">
+              <input id="steInput" name="text3" type="text" 
+                     inputmode="decimal" 
+                     pattern="[0-9.]*" 
+                     placeholder="Enter E"
+                     size="12">
+              <button type="button" class="clear-btn" onclick="clearInput('steInput')">ร—</button>
+            </div>
+          </div>
         </div>
         
         <input type="button" value="CALL FROM SINSECTION" onclick="CALLSINDATA()">
@@ -346,18 +252,30 @@
           </select>
         </div>
         
-        <div class="number-input-container">
-          <label for="nxInput">Nx :</label>
-          <input id="nxInput" name="text5" type="text" inputmode="none" readonly placeholder="Tap to enter coordinates" size="12">
-          <div class="input-touch-area" onclick="showNumberPad('nxInput', 'Nx Coordinate')"></div>
-          <button type="button" class="clear-btn" onclick="clearInput('nxInput')">กั</button>
-        </div>
-        
-        <div class="number-input-container">
-          <label for="exInput">Ex :</label>
-          <input id="exInput" name="text6" type="text" inputmode="none" readonly placeholder="Tap to enter coordinates" size="12">
-          <div class="input-touch-area" onclick="showNumberPad('exInput', 'Ex Coordinate')"></div>
-          <button type="button" class="clear-btn" onclick="clearInput('exInput')">กั</button>
+        <div class="coordinate-row">
+          <div class="coordinate-input">
+            <label for="nxInput">Nx:</label>
+            <div class="number-input-container">
+              <input id="nxInput" name="text5" type="text" 
+                     inputmode="decimal" 
+                     pattern="[0-9.]*" 
+                     placeholder="Enter Nx"
+                     size="12">
+              <button type="button" class="clear-btn" onclick="clearInput('nxInput')">ร—</button>
+            </div>
+          </div>
+          
+          <div class="coordinate-input">
+            <label for="exInput">Ex:</label>
+            <div class="number-input-container">
+              <input id="exInput" name="text6" type="text" 
+                     inputmode="decimal" 
+                     pattern="[0-9.]*" 
+                     placeholder="Enter Ex"
+                     size="12">
+              <button type="button" class="clear-btn" onclick="clearInput('exInput')">ร—</button>
+            </div>
+          </div>
         </div>
         
         <input type="button" value="CALL ANSWER" onclick="CALL_ANSWER()">
@@ -366,153 +284,26 @@
       <input type="button" value="RUN CALCULATION" onclick="RUNIt()">
 
       <div class="result-section">
-        <p>
-          <span>BRG =</span>
-          <input name="text7" type="text" size="12" readonly style="background: #f0f0f0;">
-        </p>
-        <p>
-          <span>DIST =</span>
-          <input name="text8" type="text" size="12" readonly style="background: #f0f0f0;">
-          <input type="button" value="DIFF CHECK" onclick="DIST_C()" style="width: auto; padding: 8px 12px;">
-        </p>
+        <div class="coordinate-row">
+          <div class="coordinate-input">
+            <label>BRG:</label>
+            <input name="text7" type="text" readonly style="background: #f0f0f0;">
+          </div>
+          
+          <div class="coordinate-input">
+            <label>DIST:</label>
+            <div style="display: flex; gap: 5px;">
+              <input name="text8" type="text" readonly style="background: #f0f0f0; flex: 1;">
+              <input type="button" value="DIFF" onclick="DIST_C()" style="width: auto; padding: 8px 12px;">
+            </div>
+          </div>
+        </div>
       </div>
     </form>
   </div>
 
-  <!-- Number Pad Overlay - Compact Design -->
-  <div id="numberPadOverlay" class="number-pad-overlay" style="display: none;">
-    <div class="number-pad-container">
-      <div class="number-pad-header">
-        <span id="currentInputLabel">Enter Number</span>
-        <button type="button" onclick="hideNumberPad()">กั</button>
-      </div>
-      
-      <div class="number-display" id="numberDisplay">0</div>
-      
-      <div class="number-pad" id="numberPad">
-        <!-- Number pad content will be generated by JavaScript -->
-      </div>
-    </div>
-  </div>
-
   <script>
-    // Number pad state management
-    let currentInputElement = null;
-    let currentDisplayValue = '0';
-
-    // Initialize number pad with compact layout
-    function initNumberPad() {
-      const numberPad = document.getElementById('numberPad');
-      numberPad.innerHTML = ''; // Clear existing content
-      
-      // More compact layout with 4 columns
-      const buttons = [
-        { value: '7', display: '7' },
-        { value: '8', display: '8' },
-        { value: '9', display: '9' },
-        { value: 'backspace', display: '?', class: 'backspace' },
-        { value: '4', display: '4' },
-        { value: '5', display: '5' },
-        { value: '6', display: '6' },
-        { value: 'clear', display: 'CLEAR', class: 'clear' },
-        { value: '1', display: '1' },
-        { value: '2', display: '2' },
-        { value: '3', display: '3' },
-        { value: 'input', display: 'INPUT', class: 'input' },
-        { value: '0', display: '0', class: 'zero' },
-        { value: '.', display: '.', class: 'decimal' }
-      ];
-      
-      buttons.forEach(btn => {
-        const button = document.createElement('button');
-        button.textContent = btn.display;
-        button.className = `num-btn ${btn.class || ''}`;
-        button.onclick = () => handleNumberInput(btn.value);
-        numberPad.appendChild(button);
-      });
-    }
-
-    function showNumberPad(inputId, label) {
-      currentInputElement = document.getElementById(inputId);
-      const currentValue = currentInputElement.value;
-      
-      document.getElementById('currentInputLabel').textContent = label;
-      
-      // Set display value
-      if (currentValue && currentValue !== '0') {
-        currentDisplayValue = currentValue;
-      } else {
-        currentDisplayValue = '0';
-      }
-      
-      updateNumberDisplay();
-      document.getElementById('numberPadOverlay').style.display = 'flex';
-    }
-
-    function hideNumberPad() {
-      document.getElementById('numberPadOverlay').style.display = 'none';
-      currentInputElement = null;
-      currentDisplayValue = '0';
-    }
-
-    function handleNumberInput(value) {
-      switch(value) {
-        case 'backspace':
-          currentDisplayValue = currentDisplayValue.slice(0, -1);
-          if (currentDisplayValue === '' || currentDisplayValue === '-') {
-            currentDisplayValue = '0';
-          }
-          break;
-          
-        case 'clear':
-          currentDisplayValue = '0';
-          break;
-          
-        case 'input':
-          confirmNumberInput();
-          return;
-          
-        case '.':
-          if (!currentDisplayValue.includes('.')) {
-            if (currentDisplayValue === '0') {
-              currentDisplayValue = '0.';
-            } else {
-              currentDisplayValue += '.';
-            }
-          }
-          break;
-          
-        default:
-          if (currentDisplayValue === '0') {
-            currentDisplayValue = value;
-          } else {
-            currentDisplayValue += value;
-          }
-      }
-      
-      updateNumberDisplay();
-    }
-
-    function updateNumberDisplay() {
-      const display = document.getElementById('numberDisplay');
-      display.textContent = currentDisplayValue;
-      
-      // Visual feedback
-      display.style.color = currentDisplayValue === '0' ? '#999' : '#333';
-      display.style.fontWeight = currentDisplayValue === '0' ? 'normal' : 'bold';
-    }
-
-    function confirmNumberInput() {
-      if (currentInputElement) {
-        currentInputElement.value = currentDisplayValue === '0' ? '' : currentDisplayValue;
-        
-        // Trigger input event to update related logic
-        const event = new Event('input', { bubbles: true });
-        currentInputElement.dispatchEvent(event);
-      }
-      hideNumberPad();
-    }
-
+    // Input handling functions
     function clearInput(inputId) {
       const input = document.getElementById(inputId);
       input.value = '';
@@ -520,6 +311,19 @@
       // Trigger input event
       const event = new Event('input', { bubbles: true });
       input.dispatchEvent(event);
+    }
+
+    // Initialize clear button visibility
+    function initClearButtons() {
+      const inputs = document.querySelectorAll('input[inputmode="decimal"]');
+      inputs.forEach(input => {
+        input.addEventListener('input', function() {
+          const clearBtn = this.nextElementSibling;
+          if (clearBtn && clearBtn.classList.contains('clear-btn')) {
+            clearBtn.style.display = this.value ? 'block' : 'none';
+          }
+        });
+      });
     }
 
     // Original functions (unchanged core logic)
@@ -703,7 +507,7 @@
     // Page load initialization
     document.addEventListener('DOMContentLoaded', function() {
       functionfirst();
-      initNumberPad();
+      initClearButtons();
       
       // Add event listeners
       document.getElementById('contractSelect').addEventListener('change', function() {
@@ -712,13 +516,6 @@
       
       document.getElementById('fromStationSelect').addEventListener('change', CheckIt1);
       document.getElementById('toStationSelect').addEventListener('change', CheckIt2);
-      
-      // Click on overlay to close number pad
-      document.getElementById('numberPadOverlay').addEventListener('click', function(e) {
-        if (e.target === this) {
-          hideNumberPad();
-        }
-      });
     });
   </script>
 </body>
