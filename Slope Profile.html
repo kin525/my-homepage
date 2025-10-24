@@ -1,3 +1,489 @@
-<script type="text/javascript"><!--
-document.write(unescape("%0A%0A%3Chtml%3E%20%0A%3Chead%3E%0A%3Cmeta%20http-equiv%3D%22Content-Type%22%20content%3D%22text/html%3B%20charset%3Dutf-8%22%3E%0A%09%3Cmeta%20name%3D%22ROBOTS%22%20content%3D%22NOARCHIVE%22%3E%0A%09%3Cmeta%20name%20%3D%20%22viewport%22%20content%20%3D%20%22width%20%3D%20device-width%22%3E%0A%09%3Ctitle%3ELuen%20Hing%20Survey%20Program%3C/title%3E%0A%0A%3C/head%3E%0A%0A%0A%0A%0A%3Cbody%3E%0A%0A%0A%0A%0A%0A%3Cscript%3E%0A%0A%0A%0Afunction%20RUNIt%28%20%29%0A%0A%0A%7B%0Api%20%3D%203.14159265358979%0Atn%20%3D%20document.STN.text1.value%20%0Ate%3D%20document.STN.text2.value%0Atl%20%3D%20document.STN.text3.value%0Atd%20%3D%20document.STN.text4.value%0Atbrg%20%3D%20document.STN.text5.value%0Anx%20%3D%20document.STN.text6.value%0Aex%20%3D%20document.STN.text7.value%0Arl%3D%20document.STN.text8.value%0A%0A%20x%20%3D%20nx%20-%20tn%0A%20y%20%3D%20ex%20-%20te%0Ad%20%3D%20%28Math.sqrt%28%28Math.pow%28x%2C2%29%29%20+%20%28Math.pow%28y%2C2%29%29%29%29%20%0Abrg%20%3D%20%28Math.atan%28y%20/%20x%29%29*%20180%20/%20pi%0A%7Bif%20%28x%20%3C%200%29%0A%28brg%20%3D%20brg%20+%20180%29%3B%0A%7D%0A%0A%7Bif%20%28brg%20%3C%200%29%0A%28brg%20%3D%20brg%20+%20360%29%3B%0A%7D%0A%0A%0Atb%20%3D%20deg%28tbrg%29%0Aag%20%3D%20brg%20-%20tb%0A%0A%0Ach%20%3D%20fix3%28%28Math.cos%28ag*pi/180%29*d%29%29%0Aos%20%3D%20fix3%28%28Math.sin%28ag*pi/180%29*d%29%29%0A%0Adl%20%3D%20fix3%28%28Math.tan%28td*pi/180%29*ch%29+fix3%28tl%29%29%0Asd%20%3D%20fix3%28%28Math.abs%28ch%29%29/%28Math.cos%28td*pi/180%29%29%29%0Adiff%20%3D%20rl%20-%20dl%0Adist%20%3D%20fix3%28%28Math.abs%28diff%29%29/%28Math.tan%28td*pi/180%29%29%29%0A%0Aif%20%28diff%20%3C%200%29%0A%7B%0A%28diff%20%3D%20%22Up%20%20%22%20+%20%28Math.abs%28diff%29%29%29%3B%0A%28dist%20%3D%20%22Come%20%22%20+%20dist%29%3B%0A%7D%0Aelse%0A%7B%0A%28diff%20%3D%20%22Down%22%20+%20diff%29%3B%0A%28dist%20%3D%20%22Out%20%22%20+%20dist%29%3B%0A%7D%0A%0A%0A%0Adocument.STN.text9.value%3Dch%0Adocument.STN.text10.value%3Dos%0Adocument.STN.text11.value%3Ddiff%0Adocument.STN.text12.value%3Ddist%0Adocument.STN.text13.value%3Dsd%0A%7D%0A%0Afunction%20deg%28z%29%0A%7B%20return%20z%3D%28Math.floor%28z%29%29%20+%20%28Math.floor%28%28z%20-%20%28Math.floor%28z%29%29%29%20*%20100%29%29%20/%2060%20+%20%28%28100%20*%20z%20-%20%28Math.floor%28100%20*%20z%29%29%29%20*%20100%29%20/%203600%7D%0A%0Afunction%20fix3%28z%29%0A%7Breturn%20z%3D%28Math.floor%28z%20*%201000%20+%200.5%29%29%20/%201000%7D%0A%0Afunction%20Clear%28%29%0A%7B%0Adocument.STN.text6.value%3D%22%22%0Adocument.STN.text7.value%3D%22%22%0Adocument.STN.text8.value%3D%22%22%0Adocument.STN.text9.value%3D%22%22%0Adocument.STN.text10.value%3D%22%22%0Adocument.STN.text11.value%3D%22%22%0Adocument.STN.text12.value%3D%22%22%0Adocument.STN.text13.value%3D%22%22%0A%7D%0A%0Afunction%20CALL_ANSWER%28%29%0A%7B%0A%0Adocument.STN.text6.value%3DlocalStorage.ANSWER_N%3B%0Adocument.STN.text7.value%3DlocalStorage.ANSWER_E%3B%0Adocument.STN.text8.value%3DlocalStorage.ANSWER_RL%3B%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%3C/script%3E%0A%0A%0A%0A%3Ch3%3EKin%20Write%20%28Slope%20Profile%29%0A%3Cp%3E%0AEmail%3A%20kin525@yahoo.com.hk%0A%3Cp%3E%0A%3C/h3%3E%0A%3Cform%20name%3D%22STN%22%3E%0A%3Cp%3E%0A%0A%0A%3C/script%3E%0AToe%20N%20%3A%20%3Cinput%20name%3D%22text1%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0AToe%20E%20%3A%20%3Cinput%20name%3D%22text2%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0A%0AToe%20Level%3A%20%3Cinput%20name%3D%22text3%22%20type%3D%22text%22%20size%3D8%3E%0A%3Cp%3E%0AS.%20Degree%20%20%3A%20%3Cinput%20name%3D%22text4%22%20type%3D%22text%22%20size%3D8%3E%0A%3Cp%3E%0A%0ADirect%20Brg%3D%20%3Cinput%20name%3D%22text5%22%20type%3D%22text%22%20size%3D8%3E%0A%3Cp%3E%0A___________________________%0A%0A%3Cp%3E%0ANx%20%3D%20%3Cinput%20name%3D%22text6%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0A%3Cp%3E%0AEx%20%3D%20%3Cinput%20name%3D%22text7%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0A%3Cp%3E%0ARL%20%3D%20%3Cinput%20name%3D%22text8%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22CALL%20ANSWER%22%0AonClick%3D%22CALL_ANSWER%28%29%22%20%3E%0A%0A%0A%0A%3Cp%3E%0A%3C/h2%3E%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22%20RUN%20%22%0AonClick%3D%22RUNIt%28%29%22%20%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22%20CLS%20%22%0AonClick%3D%22Clear%28%29%22%20%3E%0A%0A%0A%0A%0A%3C/h2%3E%0A___________________________%0A%3Cp%3E%0ACH%20%3D%20%3Cinput%20name%3D%22text9%22%20type%3D%22text%22%20size%3D6%3E%0AOS%20%3D%20%3Cinput%20name%3D%22text10%22%20type%3D%22text%22%20size%3D6%3E%0A%3Cp%3E%0ADiff%20%3D%20%3Cinput%20name%3D%22text11%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0ADist%20%3D%20%3Cinput%20name%3D%22text12%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0AS.D.%3D%20%3Cinput%20name%3D%22text13%22%20type%3D%22text%22%20size%3D12%3E%0A%3C/form%3E%0A%0A%0A%0A%0A%0A%3C/body%3E%3C/html%3E%0A%0A"));
-// --></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="ROBOTS" content="NOARCHIVE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Luen Hing Survey Program - Slope Profile</title>
+    <style>
+        /* Base reset and responsive design */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 15px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 24px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Form elements */
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: white;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #007AFF;
+        }
+
+        /* Optimize number input for mobile */
+        input[type="text"][inputmode="decimal"] {
+            -webkit-user-select: text;
+            user-select: text;
+        }
+
+        /* iOS Safari optimizations */
+        @supports (-webkit-touch-callout: none) {
+            input[type="text"][inputmode="decimal"] {
+                font-size: 16px; /* Prevent zoom on iOS */
+            }
+        }
+
+        fieldset {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #fafafa;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+            color: #555;
+        }
+
+        /* Buttons */
+        input[type="button"] {
+            width: 100%;
+            padding: 12px;
+            background: #007AFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-bottom: 10px;
+        }
+
+        input[type="button"]:active {
+            background: #0056cc;
+            transform: scale(0.98);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .button-group input[type="button"] {
+            flex: 1;
+        }
+
+        /* Result section */
+        .result-section {
+            background: #e8f4ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            input[type="text"], input[type="button"] {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        /* Number input container */
+        .number-input-container {
+            position: relative;
+        }
+
+        .number-input-container input {
+            padding-right: 40px;
+        }
+
+        .clear-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: #999;
+            cursor: pointer;
+            display: none;
+            padding: 5px;
+            z-index: 10;
+        }
+
+        input:not(:placeholder-shown) + .clear-btn {
+            display: block;
+        }
+
+        /* Form labels */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Compact layout for coordinate inputs */
+        .input-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .input-group {
+            flex: 1;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        /* Section headers */
+        .section-header {
+            background: #f0f0f0;
+            padding: 8px 15px;
+            margin: 20px 0 15px 0;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: #ddd;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: "Calculation Results";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 10px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Kin Write (Slope Profile)</h3>
+        <p style="text-align: center; color: #666;">Email: kin525@yahoo.com.hk</p>
+
+        <form name="STN" id="slopeForm">
+            <fieldset>
+                <legend>Slope Reference Data</legend>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="toeNInput">Toe N:</label>
+                        <div class="number-input-container">
+                            <input id="toeNInput" name="text1" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter Toe N"
+                                   size="12">
+                            <button type="button" class="clear-btn" onclick="clearInput('toeNInput')">×</button>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="toeEInput">Toe E:</label>
+                        <div class="number-input-container">
+                            <input id="toeEInput" name="text2" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter Toe E"
+                                   size="12">
+                            <button type="button" class="clear-btn" onclick="clearInput('toeEInput')">×</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="toeLevelInput">Toe Level:</label>
+                        <div class="number-input-container">
+                            <input id="toeLevelInput" name="text3" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter level"
+                                   size="8">
+                            <button type="button" class="clear-btn" onclick="clearInput('toeLevelInput')">×</button>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="slopeDegreeInput">S. Degree:</label>
+                        <div class="number-input-container">
+                            <input id="slopeDegreeInput" name="text4" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter slope"
+                                   size="8">
+                            <button type="button" class="clear-btn" onclick="clearInput('slopeDegreeInput')">×</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="directBrgInput">Direct Brg:</label>
+                    <div class="number-input-container">
+                        <input id="directBrgInput" name="text5" type="text" 
+                               inputmode="decimal" 
+                               pattern="[0-9.]*" 
+                               placeholder="Enter bearing"
+                               size="8">
+                        <button type="button" class="clear-btn" onclick="clearInput('directBrgInput')">×</button>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Point Coordinates</legend>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="nxInput">Nx:</label>
+                        <div class="number-input-container">
+                            <input id="nxInput" name="text6" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter Nx"
+                                   size="12">
+                            <button type="button" class="clear-btn" onclick="clearInput('nxInput')">×</button>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="exInput">Ex:</label>
+                        <div class="number-input-container">
+                            <input id="exInput" name="text7" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter Ex"
+                                   size="12">
+                            <button type="button" class="clear-btn" onclick="clearInput('exInput')">×</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="rlInput">RL:</label>
+                    <div class="number-input-container">
+                        <input id="rlInput" name="text8" type="text" 
+                               inputmode="decimal" 
+                               pattern="[0-9.]*" 
+                               placeholder="Enter RL"
+                               size="12">
+                        <button type="button" class="clear-btn" onclick="clearInput('rlInput')">×</button>
+                    </div>
+                </div>
+                
+                <input type="button" value="CALL ANSWER" onclick="CALL_ANSWER()">
+            </fieldset>
+
+            <div class="button-group">
+                <input type="button" value="RUN CALCULATION" onclick="RUNIt()">
+                <input type="button" value="CLEAR DATA" onclick="Clear()">
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="result-section">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>CH:</label>
+                        <input name="text9" type="text" readonly style="background: #f0f0f0;">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>OS:</label>
+                        <input name="text10" type="text" readonly style="background: #f0f0f0;">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label>Diff:</label>
+                    <input name="text11" type="text" readonly style="background: #f0f0f0;">
+                </div>
+                
+                <div class="input-group">
+                    <label>Dist:</label>
+                    <input name="text12" type="text" readonly style="background: #f0f0f0;">
+                </div>
+                
+                <div class="input-group">
+                    <label>S.D.:</label>
+                    <input name="text13" type="text" readonly style="background: #f0f0f0;">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Input handling functions
+        function clearInput(inputId) {
+            const input = document.getElementById(inputId);
+            input.value = '';
+            
+            // Trigger input event
+            const event = new Event('input', { bubbles: true });
+            input.dispatchEvent(event);
+        }
+
+        // Initialize clear button visibility
+        function initClearButtons() {
+            const inputs = document.querySelectorAll('input[inputmode="decimal"]');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const clearBtn = this.nextElementSibling;
+                    if (clearBtn && clearBtn.classList.contains('clear-btn')) {
+                        clearBtn.style.display = this.value ? 'block' : 'none';
+                    }
+                });
+            });
+        }
+
+        // Original functions with modern improvements
+        function RUNIt() {
+            const pi = 3.14159265358979;
+            
+            const tn = parseFloat(document.STN.text1.value) || 0;
+            const te = parseFloat(document.STN.text2.value) || 0;
+            const tl = parseFloat(document.STN.text3.value) || 0;
+            const td = parseFloat(document.STN.text4.value) || 0;
+            const tbrg = parseFloat(document.STN.text5.value) || 0;
+            const nx = parseFloat(document.STN.text6.value) || 0;
+            const ex = parseFloat(document.STN.text7.value) || 0;
+            const rl = parseFloat(document.STN.text8.value) || 0;
+
+            const x = nx - tn;
+            const y = ex - te;
+            const d = Math.sqrt((Math.pow(x, 2)) + (Math.pow(y, 2)));
+            let brg = (Math.atan(y / x)) * 180 / pi;
+            
+            if (x < 0) {
+                brg = brg + 180;
+            }
+            
+            if (brg < 0) {
+                brg = brg + 360;
+            }
+
+            const tb = deg(tbrg);
+            const ag = brg - tb;
+
+            const ch = fix3((Math.cos(ag * pi / 180) * d));
+            const os = fix3((Math.sin(ag * pi / 180) * d));
+
+            const dl = fix3((Math.tan(td * pi / 180) * ch) + fix3(tl));
+            const sd = fix3((Math.abs(ch)) / (Math.cos(td * pi / 180)));
+            let diff = rl - dl;
+            let dist = fix3((Math.abs(diff)) / (Math.tan(td * pi / 180)));
+
+            if (diff < 0) {
+                diff = "Up " + Math.abs(fix3(diff));
+                dist = "Come " + dist;
+            } else {
+                diff = "Down " + fix3(diff);
+                dist = "Out " + dist;
+            }
+
+            document.STN.text9.value = ch;
+            document.STN.text10.value = os;
+            document.STN.text11.value = diff;
+            document.STN.text12.value = dist;
+            document.STN.text13.value = sd;
+        }
+
+        function deg(z) {
+            return z = (Math.floor(z)) + (Math.floor((z - (Math.floor(z))) * 100)) / 60 + ((100 * z - (Math.floor(100 * z))) * 100) / 3600;
+        }
+
+        function fix3(z) {
+            return z = (Math.floor(z * 1000 + 0.5)) / 1000;
+        }
+
+        function Clear() {
+            document.STN.text6.value = "";
+            document.STN.text7.value = "";
+            document.STN.text8.value = "";
+            document.STN.text9.value = "";
+            document.STN.text10.value = "";
+            document.STN.text11.value = "";
+            document.STN.text12.value = "";
+            document.STN.text13.value = "";
+        }
+
+        function CALL_ANSWER() {
+            document.STN.text6.value = localStorage.ANSWER_N || '';
+            document.STN.text7.value = localStorage.ANSWER_E || '';
+            document.STN.text8.value = localStorage.ANSWER_RL || '';
+        }
+
+        // Page load initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            initClearButtons();
+        });
+    </script>
+</body>
+</html>

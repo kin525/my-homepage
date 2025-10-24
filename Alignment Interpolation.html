@@ -1,3 +1,699 @@
-<script type="text/javascript"><!--
-document.write(unescape("%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%3Chtml%3E%0A%3Chead%3E%0A%0A%3Cmeta%20http-equiv%3D%22Content-Type%22%20content%3D%22text/html%3B%20charset%3Dutf-8%22%3E%0A%09%3Cmeta%20name%3D%22ROBOTS%22%20content%3D%22NOARCHIVE%22%3E%0A%09%3Cmeta%20name%20%3D%20%22viewport%22%20content%20%3D%20%22width%20%3D%20device-width%22%3E%0A%09%3Ctitle%3ELuen%20Hing%20Survey%20Program%3C/title%3E%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%3C/head%3E%0A%0A%3Cscript%20src%3D%22Data/liner.js%22%3E%0A%3C/script%3E%0A%3Cscript%20src%3D%22linerfunction.js%22%3E%0A%3C/script%3E%0A%3Cscript%20language%3D%22JavaScript%22%3E%0A%3C%21--%0Afunction%20killErrors%28%29%7B%0Areturn%20true%3B%0A%7D%0Awindow.onerror%20%3D%20killErrors%3B%0A--%3E%0A%3C/script%3E%0A%0A%0A%0A%0A%3Cscript%20type%3D%22text/javascript%22%3E%0A%0A%0A%0A%0A%0A%0Afunction%20CheckIt3%28index%29%0A%7B%0A%0Acontactno%3Ddocument.STN.contact.value%0A//alert%28bslink%5B1%5D%5B0%5D%29%3B%0Acountnumber%3D1%0Atemp%3D%22%22%0Aj%3D1%0Afor%28i%3D0%3Bi%3C%28bslink.length%29%3Bi++%29%0A%7B%0Atemp%3Dbslink%5Bi%5D%5B0%5D%0Aif%20%28temp%3D%3Dcontactno%29%0A%7B%0A%0Acountnumber%3Dcountnumber+1%0Adocument.STN.staionselect1%5Bj%5D%3Dnew%20Option%28bslink%5Bi%5D%5B1%5D%2C%20bslink%5Bi%5D%5B1%5D%29%3B%20%20//%20%u8A2D%u5B9A%u65B0%u9078%u9805%0Adocument.STN.staionselect2%5Bj%5D%3Dnew%20Option%28bslink%5Bi%5D%5B1%5D%2C%20bslink%5Bi%5D%5B1%5D%29%3B%20%20//%20%u8A2D%u5B9A%u65B0%u9078%u9805%0Aj%3Dj+1%0A%7D%0A%7D//End%20For%0Adocument.STN.staionselect1.length%3Dcountnumber%20%20//%20%u522A%u9664%u591A%u9918%u7684%u9078%u9805%0Adocument.STN.staionselect2.length%3Dcountnumber%20%20//%20%u522A%u9664%u591A%u9918%u7684%u9078%u9805%0A%7D%0A/////////////////End%20Function///////////////////////////%0A%0A%0Afunction%20js_include%28%24script%29%7B%0A%20%20%20var%20script%20%3D%20document.createElement%28%27script%27%29%3B%0A%20%20%20script.src%20%3D%20%24script%3B%0A%20%20%20script.type%20%3D%20%27text/javascript%27%3B%0A%20%20%20var%20head%20%3D%20document.getElementsByTagName%28%27head%27%29.item%280%29%3B%0A%20%20%20head.appendChild%28script%29%3B%0A%7D%0A%0A%0Afunction%20Callalignmnetdata%28%29%0A%7B%0AName%20%3D%20%22Data/%22+document.STN.staionselect1.value+%22.js%22%0Ajs_include%28Name%29%0Afor%20%28i%3D1%3Bi%3C30000%3Bi++%29%0A%7B%0Aa%3D3+4%0A%7D%0A%0A%0A%0AChangeBaseinputdata%28%22Inrerprolation.js%22%29%0A%7D%0Afunction%20CallSencondalignmnetdata%28%29%0A%7B%0AName%20%3D%20%22Data/%22+document.STN.staionselect2.value+%22.js%22%0Ajs_include%28Name%29%0A%0A%7D%0A%0A%0A%0A%0A%0Afunction%20ChangeBaseinputdata%28%24script%29%0A%7B%0A%20%20%20var%20script%20%3D%20document.createElement%28%27script%27%29%3B%0A%20%20%20script.src%20%3D%20%24script%3B%0A%20%20%20script.type%20%3D%20%27text/javascript%27%3B%0A%20%20%20var%20head%20%3D%20document.getElementsByTagName%28%27head%27%29.item%280%29%3B%0A%20%20%20head.appendChild%28script%29%3B%0A%7D%0A%0A%0A%0A%0A%0A%0Afunction%20RUNIt1%28%29%0A%7B%0A%0A%0A%0A%0A%0Adocument.STN.text6.value%3D%20%22%22%0Adocument.STN.text7.value%3D%20%22%22%0Adocument.STN.text8.value%3D%20%22%22%0A%0Avar%20datach%3Dnew%20Array%28%29%0Avar%20datanx%3Dnew%20Array%28%29%0Avar%20dataex%3Dnew%20Array%28%29%0Avar%20datarl%3Dnew%20Array%28%29%0A%0A%0Afor%20%28i%3D1%3Bi%3Cbaseline.length%3Bi++%29%0A%7B%0Adatach%5Bi%5D%3Dbaseline%5Bi%5D%5B0%5D%0Adatanx%5Bi%5D%3Dbaseline%5Bi%5D%5B1%5D%0Adataex%5Bi%5D%3Dbaseline%5Bi%5D%5B2%5D%20%20%0Adatarl%5Bi%5D%3Dbaseline%5Bi%5D%5B3%5D%0A%7D%0A%0A%0A%0A%0A//alert%28%221%20st%22%29%3B%0A%0ACH%3Ddocument.STN.text1.value%0AOS%3Ddocument.STN.text2.value%0Afor%20%28i%3D1%3Bi%3Cdatach.length%3Bi++%29%0A%7B%20%0A%20%20%20name%20%3D%20fix3%28datach%5Bi%5D%29%0A%20%20%20//alert%28name+%20%22CH%3D%22%20+temp%29%3B%20%0A%20%20%20if%20%28name%3Cfix3%28CH%29%29%0A%20%20%20%7B%0A%20%20%20Startnumber%3Di%0A%20%20%20%7D%0A%7D%0Atemp%20%3D%20datach.length-1%0Aname%20%3D%20datach%5Btemp%5D%0A//alert%28name%29%3B%0Aif%20%28fix3%28CH%29%3Ename%29%0A%7B%0Aalert%28%22Out%20of%20Range%22%29%3B%20%0AStartnumber%3Ddatach.length-2%0A%7D%0ATBRG%3Djoint%28datanx%5BStartnumber%5D%2Cdataex%5BStartnumber%5D%2Cdatanx%5BStartnumber+1%5D%2Cdataex%5BStartnumber+1%5D%29%0ATBRG%3Ddms%28TBRG%29%0ATlength%3Djointdist%28datanx%5BStartnumber%5D%2Cdataex%5BStartnumber%5D%2Cdatanx%5BStartnumber+1%5D%2Cdataex%5BStartnumber+1%5D%29%0A%0ACHlength%3Ddatach%5BStartnumber+1%5D-datach%5BStartnumber%5D%0AUseCH%20%3D%20%28%28fix3%28CH%29%20-%20fix3%28datach%5BStartnumber%5D%29%29*%28Tlength/CHlength%29%29+fix3%28datach%5BStartnumber%5D%29%0A%0ABaselineLevel%20%3D%20%28fix3%28datarl%5BStartnumber+1%5D%29-fix3%28datarl%5BStartnumber%5D%29%29/Tlength*%28fix3%28UseCH%29%20-%20fix3%28datach%5BStartnumber%5D%29%29+%20fix3%28datarl%5BStartnumber%5D%29%20%0ABaselineNx%20%3D%20fix3%28linenx%28datanx%5BStartnumber%5D%2Cdataex%5BStartnumber%5D%2Cdatach%5BStartnumber%5D%2CTBRG%2CUseCH%2C0%29%29%0ABaselineEx%20%3D%20fix3%28ex%29%20%20%20%20%0A%0A%0ANX%20%3D%20fix3%28linenx%28datanx%5BStartnumber%5D%2Cdataex%5BStartnumber%5D%2Cdatach%5BStartnumber%5D%2CTBRG%2CUseCH%2COS%29%29%0AEX%20%3D%20fix3%28ex%29%0A%0AlocalStorage.JOINT_N%3DNX%3B%0AlocalStorage.JOINT_E%3DEX%3B%0A%0A%0Adocument.STN.text6.value%3D%20%22Nx%20%3D%20%22%20+NX%0Adocument.STN.text7.value%3D%20%22Ex%20%3D%20%22%20+EX%0A%0A%0A%0AName2%3Ddocument.STN.staionselect2.value%0A%0A//alert%28Name2%29%0Aif%20%28Name2%3D%3D%22Sencond%20Alignmnet%22%29%0A%7B%0Adocument.STN.text8.value%3D%20%22DL%20%3D%20%22%20+fix3%28BaselineLevel%29%0A%7D%0Aelse%0A%7B%0ADesignLevel%3DRuncrossfalllevel%28BaselineNx%2CBaselineEx%2CCH%2CNX%2CEX%2CBaselineLevel%29%0Adocument.STN.text8.value%3D%20%22DL%20%3D%20%22%20+fix3%28DesignLevel%29%0A%7D%0A%7D%0A%0A%0A%0A%0A%0A%0A%0Afunction%20Runcrossfalllevel%28BaseN%2CBaseE%2CCH%2CCheckNx%2CCheckEx%2CLevel%29%0A%7B%0Avar%20datach%3Dnew%20Array%28%29%0Avar%20datanx%3Dnew%20Array%28%29%0Avar%20dataex%3Dnew%20Array%28%29%0Avar%20datarl%3Dnew%20Array%28%29%0Afor%20%28i%3D1%3Bi%3Clineinput.length%3Bi++%29%0A%7B%0Adatach%5Bi%5D%3Dlineinput%5Bi%5D%5B0%5D%0Adatanx%5Bi%5D%3Dlineinput%5Bi%5D%5B1%5D%0Adataex%5Bi%5D%3Dlineinput%5Bi%5D%5B2%5D%20%20%0Adatarl%5Bi%5D%3Dlineinput%5Bi%5D%5B3%5D%0A%7D%0A%0A%0A%0A%0A//alert%28%221%20st%22%29%3B%0A%0Afor%20%28i%3D1%3Bi%3Cdatach.length%3Bi++%29%0A%7B%20%0A%20%20%20name%20%3D%20fix3%28datach%5Bi%5D%29%0A%20%20%20//alert%28name+%20%22CH%3D%22%20+temp%29%3B%20%0A%20%20%20if%20%28name%3Cfix3%28CH%29%29%0A%20%20%20%7B%0A%20%20%20Startnumber%3Di%0A%20%20%20%7D%0A%7D%0Atemp%20%3D%20datach.length-1%0Aname%20%3D%20datach%5Btemp%5D%0A//alert%28name%29%3B%0Aif%20%28fix3%28CH%29%3Ename%29%0A%7B%0Aalert%28%22Out%20of%20Range%22%29%3B%20%0AStartnumber%3Ddatach.length-2%0A%7D%0ATBRG%3Djoint%28datanx%5BStartnumber%5D%2Cdataex%5BStartnumber%5D%2Cdatanx%5BStartnumber+1%5D%2Cdataex%5BStartnumber+1%5D%29%0ATBRG%3Ddms%28TBRG%29%0ATlength%3Djointdist%28datanx%5BStartnumber%5D%2Cdataex%5BStartnumber%5D%2Cdatanx%5BStartnumber+1%5D%2Cdataex%5BStartnumber+1%5D%29%0A%0ACHlength%3Ddatach%5BStartnumber+1%5D-datach%5BStartnumber%5D%0AUseCH%20%3D%20%28%28fix3%28CH%29%20-%20fix3%28datach%5BStartnumber%5D%29%29*%28Tlength/CHlength%29%29+fix3%28datach%5BStartnumber%5D%29%0A%0AAlign2level%20%3D%20%28fix3%28datarl%5BStartnumber+1%5D%29-fix3%28datarl%5BStartnumber%5D%29%29/Tlength*%28fix3%28UseCH%29%20-%20fix3%28datach%5BStartnumber%5D%29%29+%20fix3%28datarl%5BStartnumber%5D%29%20%0AAlign2Nx%20%3D%20fix3%28linenx%28datanx%5BStartnumber%5D%2Cdataex%5BStartnumber%5D%2Cdatach%5BStartnumber%5D%2CTBRG%2CUseCH%2C0%29%29%0AAlign2Ex%20%3D%20fix3%28ex%29%20%20%20%20%0AAlignmentdist%20%3Djointdist%28BaseN%2CBaseE%2CAlign2Nx%2CAlign2Ex%29%0ATBRG%3Djoint%28BaseN%2CBaseE%2CAlign2Nx%2CAlign2Ex%29%0ATBRG%3Ddms%28TBRG%29%0Alinelength%3Dlinech%28BaseN%2CBaseE%2C0%2CTBRG%2CCheckNx%2CCheckEx%29%0A//alert%28%22linelength%20%22+linelength%29%0ACrossFall%20%3D%20%28fix4%28Align2level%29-fix4%28Level%29%29/fix4%28Alignmentdist%29%0A//alert%28%22Level%3D%20%22+Level%29%0A//alert%28%22Align2Level%3D%20%22+Align2level%29%0A//alert%28%22CrossFall%3D%20%22+CrossFall%29%0ADesignLevel%3D%20%28linelength*CrossFall+Level%29%0A%0A%0Areturn%20DesignLevel%0A%7D%0A%0A%0A%0A%0A%0Afunction%20checkspacetxt%28tempdata%29%0A%0A%7B%0Afundusedata%20%3D%20%28tempdata.substr%280%2Ctempdata.indexOf%28%22%20%22%29%29%29%0Anewtextdata%20%3D%20%28tempdata.substr%28fundusedata.length+1%2Ctempdata.length%29%29%0A//alert%28%22newtxt%22+newtextdata%29%3B%0Areturn%20fundusedata%0A%7D%0A/////////////////End%20Function///////////////////////////%0A%0A%0A%0Afunction%20RUNIt2%28%29%0A%7B%0Adocument.STN.text6.value%3D%20%22%22%0Adocument.STN.text7.value%3D%20%22%22%0Adocument.STN.text8.value%3D%20%22%22%0A%0Avar%20datach%3Dnew%20Array%28%29%0Avar%20datanx%3Dnew%20Array%28%29%0Avar%20dataex%3Dnew%20Array%28%29%0Avar%20datarl%3Dnew%20Array%28%29%0A%0A%0Afor%20%28i%3D1%3Bi%3Cbaseline.length%3Bi++%29%0A%7B%0Adatach%5Bi%5D%3Dbaseline%5Bi%5D%5B0%5D%0Adatanx%5Bi%5D%3Dbaseline%5Bi%5D%5B1%5D%0Adataex%5Bi%5D%3Dbaseline%5Bi%5D%5B2%5D%20%20%0Adatarl%5Bi%5D%3Dbaseline%5Bi%5D%5B3%5D%0A%7D%0A%0A%0A%0A%0A%0ANX%3Ddocument.STN.text3.value%0AEX%3Ddocument.STN.text4.value%0ARL%3Ddocument.STN.text5.value%0A%0Afor%20%28i%3D1%3Bi%3Cdatach.length%3Bi++%29%0A%7B%20%0ATBRG%3Djoint%28datanx%5Bi%5D%2Cdataex%5Bi%5D%2Cdatanx%5Bi+1%5D%2Cdataex%5Bi+1%5D%29%0ATBRG%3Ddms%28TBRG%29%0ATlength%3Djointdist%28datanx%5Bi%5D%2Cdataex%5Bi%5D%2Cdatanx%5Bi+1%5D%2Cdataex%5Bi+1%5D%29%0ARUNCH%20%3D%20fix3%28linech%28datanx%5Bi%5D%2Cdataex%5Bi%5D%2C%20datach%5Bi%5D%2C%20TBRG%2C%20NX%2C%20EX%29%29%0ARUNOS%20%3D%20fix3%28os%29%0ACHlength%3Ddatach%5Bi+1%5D-datach%5Bi%5D%0AUseCH%20%3D%20fix3%28%28%28fix3%28RUNCH%29%20-%20fix3%28datach%5Bi%5D%29%29*%28CHlength/Tlength%29%29+fix3%28datach%5Bi%5D%29%29%0ACCH%3DUseCH%20%0AStartnumber%20%3D%20i%0ABaselineNx%20%3D%20fix3%28linenx%28datanx%5BStartnumber%5D%2Cdataex%5BStartnumber%5D%2Cdatach%5BStartnumber%5D%2CTBRG%2CUseCH%2C0%29%29%0ABaselineEx%20%3D%20fix3%28ex%29%0A%0A%0A%20%0Aif%20%28%20fix3%28datach%5Bi+1%5D%29%3Efix3%28UseCH%29%20%7C%7C%20i+2%3D%3Ddatach.length%29%0A%20%7B%20%0A%20i%20%3D%20datanx.length%20+%2010%0A%20%7D%0A%7D%0ABaselineLevel%20%3D%20%28fix3%28datarl%5BStartnumber+1%5D%29-fix3%28datarl%5BStartnumber%5D%29%29/Tlength*%28fix3%28UseCH%29%20-%20fix3%28datach%5BStartnumber%5D%29%29+%20fix3%28datarl%5BStartnumber%5D%29%20%0A%0A%0AName2%3Ddocument.STN.staionselect2.value%0A%0A%0Aif%20%28Name2%3D%3D%22Sencond%20Alignmnet%22%29%0A%7B%0ADesignLevel%3DBaselineLevel%0A%7D%0Aelse%0A%7B%0ADesignLevel%3DRuncrossfalllevel%28BaselineNx%2CBaselineEx%2CUseCH%2CNX%2CEX%2CBaselineLevel%29%0A%0A//Align2level%3DRuncrossfalllevel%28UseCH%2CRUNOS%29%0A//Alignmentdist%20%3Djointdist%28BaselineNx%2CBaselineEx%2CAlign2Nx%2CAlign2Ex%29%0A//CrossFall%20%3D%20%28BaselineLevel-Align2level%29/Alignmentdist%0A//DesignLevel%3D%20%28RUNOS*CrossFall+BaselineLevel%29%0A%7D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0ADiff%20%3D%20fix3%28DesignLevel%20-%20RL%29%0Aif%20%28Diff%20%3C%200%20%29%0A%7B%0ADiff%20%3D%20%22Down%3D%20%22%20+%20Math.abs%28Diff%29%0A%7D%0Aelse%0A%7B%0ADiff%20%3D%20%22%20%20Up%3D%20%22%20+%20Diff%0A%7D%0A%0Adocument.STN.text6.value%3D%20%22CH%20%3D%20%22%20+fix3%28CCH%29%0Adocument.STN.text7.value%3D%20%22OS%20%3D%20%22%20+fix3%28RUNOS%29%0Adocument.STN.text8.value%3D%20%22DL%20%3D%20%22%20+fix3%28DesignLevel%29+%22%20%20%22%20+%20Diff%0A%0A%0A%7D%0A%0A%0Afunction%20checkspacetxt%28tempdata%29%0A%0A%7B%0Afundusedata%20%3D%20%28tempdata.substr%280%2Ctempdata.indexOf%28%22%20%22%29%29%29%0Anewtextdata%20%3D%20%28tempdata.substr%28fundusedata.length+1%2Ctempdata.length%29%29%0A//alert%28%22newtxt%22+newtextdata%29%3B%0Areturn%20fundusedata%0A%7D%0A/////////////////End%20Function///////////////////////////%0Afunction%20CALL_ANSWER%28%29%0A%7B%0A%0Adocument.STN.text3.value%3DlocalStorage.ANSWER_N%3B%0Adocument.STN.text4.value%3DlocalStorage.ANSWER_E%3B%0Adocument.STN.text5.value%3DlocalStorage.ANSWER_RL%3B%0A%0A%0A%7D%0A%0A%0A%0A%0A%3C/script%3E%20%0A%0A%0A%0A%0A%3Cbody%3E%0A%3Ch3%3EKin%20Write%20Alignment%20Interpolation%0A%3Cp%3E%0AEmail%3A%20kin525@yahoo.com.hk%0A%3C/h3%3E%0A%3Cform%20name%3D%22STN%22%3E%0A%3Cp%3E%0AContract%20Number%3A%3Cselect%20name%3D%22contact%22%20%20onChange%3D%22CheckIt3%28this.selectedIndex%29%22%20%3E%0A%20%20%3Coption%20value%3D%22Select%20Site%22%3ESelect%20Site%0A%20%20%3Coption%20value%3D%22HY-2008-11%22%3EHY-2008-11%0A%20%20%3Coption%20value%3D%22HY-2013-02%22%3EHY-2013-02%0A%20%20%3Coption%20value%3D%22HY-2013-03%22%3EHY-2013-03%0A%3C/select%3E%0A%3Cp%3E%0A%0A%0A%0ABase%20Line%3A%0A%3Cp%3E%0A%3Cselect%20name%3D%22staionselect1%22%20onChange%3D%22Callalignmnetdata%28this.selectedIndex%29%22%3E%0A%20%3Coption%20value%3D%22Base%20Alignmnet%22%3EBase%20Alignmnet%0A%3C/select%3E%0A%3Cp%3E%0A%0A%0A%0ASencond%20Line%3A%0A%3Cp%3E%0A%3Cselect%20name%3D%22staionselect2%22%20onChange%3D%22CallSencondalignmnetdata%28this.selectedIndex%29%22%3E%0A%20%3Coption%20value%3D%22Sencond%20Alignmnet%22%3ESencond%20Alignmnet%0A%3C/select%3E%0A%3Cp%3E%0A%0A%0A%0A%0A%0A%0A%0A%0ACH%20%3A%20%3Cinput%20name%3D%22text1%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0AOS%20%3A%20%3Cinput%20name%3D%22text2%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22CH%20%3E%20NE%22%0AonClick%3D%22RUNIt1%28%29%22%20%3E%0A%3Cp%3E%0ANx%20%3A%20%3Cinput%20name%3D%22text3%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0AEx%20%3A%20%3Cinput%20name%3D%22text4%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0ARL%20%3A%3Cinput%20name%3D%22text5%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22CALL%20ANSWER%22%0AonClick%3D%22CALL_ANSWER%28%29%22%20%3E%0A%0A%0A%3Cp%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22NE%20%3E%20CH%22%0AonClick%3D%22RUNIt2%28%29%22%20%3E%0A%3Cp%3E%0A%3C%3C%3C%3C%3C%3C%3C%3C%3C%20OUTPUT%20DATA%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0A%3Cp%3E%0A%3Cinput%20name%3D%22text6%22%20type%3D%22text%22%20size%3D21%3E%0A%3Cp%3E%0A%3Cinput%20name%3D%22text7%22%20type%3D%22text%22%20size%3D21%3E%0A%3Cp%3E%0A%3Cinput%20name%3D%22text8%22%20type%3D%22text%22%20size%3D21%3E%0A%3Cp%3E%0A%0A%0A%3C/body%3E%0A%3C/html%3E%20%0A%0A%0A%0A"));
-// --></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="ROBOTS" content="NOARCHIVE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Luen Hing Survey Program - Alignment Interpolation</title>
+    <style>
+        /* Base reset and responsive design */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 15px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 24px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Form elements */
+        select, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: white;
+        }
+
+        select:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #007AFF;
+        }
+
+        /* Optimize number input for mobile */
+        input[type="text"][inputmode="decimal"] {
+            -webkit-user-select: text;
+            user-select: text;
+        }
+
+        /* iOS Safari optimizations */
+        @supports (-webkit-touch-callout: none) {
+            input[type="text"][inputmode="decimal"] {
+                font-size: 16px; /* Prevent zoom on iOS */
+            }
+        }
+
+        fieldset {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #fafafa;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+            color: #555;
+        }
+
+        /* Buttons */
+        input[type="button"] {
+            width: 100%;
+            padding: 12px;
+            background: #007AFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-bottom: 10px;
+        }
+
+        input[type="button"]:active {
+            background: #0056cc;
+            transform: scale(0.98);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .button-group input[type="button"] {
+            flex: 1;
+        }
+
+        /* Result section */
+        .result-section {
+            background: #e8f4ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            select, input[type="text"], input[type="button"] {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        /* Number input container */
+        .number-input-container {
+            position: relative;
+        }
+
+        .number-input-container input {
+            padding-right: 40px;
+        }
+
+        .clear-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: #999;
+            cursor: pointer;
+            display: none;
+            padding: 5px;
+            z-index: 10;
+        }
+
+        input:not(:placeholder-shown) + .clear-btn {
+            display: block;
+        }
+
+        /* Form labels */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Compact layout for coordinate inputs */
+        .input-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .input-group {
+            flex: 1;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        /* Section headers */
+        .section-header {
+            background: #f0f0f0;
+            padding: 8px 15px;
+            margin: 20px 0 15px 0;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #555;
+            text-align: center;
+        }
+    </style>
+    <script src="Data/liner.js"></script>
+    <script src="linerfunction.js"></script>
+    <script>
+        // Error handling
+        function killErrors() {
+            return true;
+        }
+        window.onerror = killErrors;
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Kin Write Alignment Interpolation</h3>
+        <p style="text-align: center; color: #666;">Email: kin525@yahoo.com.hk</p>
+
+        <form name="STN" id="interpolationForm">
+            <div class="form-group">
+                <label for="contractSelect">Contract Number:</label>
+                <select id="contractSelect" name="contact">
+                    <option value="Select Site">Select Site</option>
+                    <option value="HY-2008-11">HY-2008-11</option>
+                    <option value="HY-2013-02">HY-2013-02</option>
+                    <option value="HY-2013-03">HY-2013-03</option>
+                </select>
+            </div>
+
+            <fieldset>
+                <legend>Alignment Selection</legend>
+                <div class="form-group">
+                    <label for="baseLineSelect">Base Line:</label>
+                    <select id="baseLineSelect" name="staionselect1">
+                        <option value="Base Alignment">Base Alignment</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="secondLineSelect">Second Line:</label>
+                    <select id="secondLineSelect" name="staionselect2">
+                        <option value="Second Alignment">Second Alignment</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>CH/OS to NE Calculation</legend>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="chInput">CH:</label>
+                        <div class="number-input-container">
+                            <input id="chInput" name="text1" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter chainage"
+                                   size="12">
+                            <button type="button" class="clear-btn" onclick="clearInput('chInput')">×</button>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="osInput">OS:</label>
+                        <div class="number-input-container">
+                            <input id="osInput" name="text2" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="-?[0-9.]*" 
+                                   placeholder="Enter offset"
+                                   size="12">
+                            <button type="button" class="clear-btn" onclick="clearInput('osInput')">×</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <input type="button" value="CH/OS → NE" onclick="RUNIt1()">
+            </fieldset>
+
+            <fieldset>
+                <legend>NE to CH/OS Calculation</legend>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="nxInput">Nx:</label>
+                        <div class="number-input-container">
+                            <input id="nxInput" name="text3" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter Nx"
+                                   size="12">
+                            <button type="button" class="clear-btn" onclick="clearInput('nxInput')">×</button>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="exInput">Ex:</label>
+                        <div class="number-input-container">
+                            <input id="exInput" name="text4" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter Ex"
+                                   size="12">
+                            <button type="button" class="clear-btn" onclick="clearInput('exInput')">×</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="rlInput">RL:</label>
+                    <div class="number-input-container">
+                        <input id="rlInput" name="text5" type="text" 
+                               inputmode="decimal" 
+                               pattern="[0-9.]*" 
+                               placeholder="Enter RL"
+                               size="12">
+                        <button type="button" class="clear-btn" onclick="clearInput('rlInput')">×</button>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <input type="button" value="CALL ANSWER" onclick="CALL_ANSWER()">
+                    <input type="button" value="NE → CH/OS" onclick="RUNIt2()">
+                </div>
+            </fieldset>
+
+            <div class="section-header">OUTPUT DATA</div>
+            
+            <div class="result-section">
+                <div class="input-group">
+                    <input name="text6" type="text" readonly style="background: #f0f0f0;">
+                </div>
+                
+                <div class="input-group">
+                    <input name="text7" type="text" readonly style="background: #f0f0f0;">
+                </div>
+                
+                <div class="input-group">
+                    <input name="text8" type="text" readonly style="background: #f0f0f0;">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Input handling functions
+        function clearInput(inputId) {
+            const input = document.getElementById(inputId);
+            input.value = '';
+        }
+
+        // Initialize clear button visibility
+        function initClearButtons() {
+            const inputs = document.querySelectorAll('input[inputmode="decimal"]');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const clearBtn = this.nextElementSibling;
+                    if (clearBtn && clearBtn.classList.contains('clear-btn')) {
+                        clearBtn.style.display = this.value ? 'block' : 'none';
+                    }
+                });
+            });
+        }
+
+        // Original functions with modern improvements
+        function CheckIt3(index) {
+            const contactno = document.STN.contact.value;
+            let countnumber = 1;
+            let temp = "";
+            let j = 1;
+
+            const baseLineSelect = document.getElementById('baseLineSelect');
+            const secondLineSelect = document.getElementById('secondLineSelect');
+            
+            // Clear existing options
+            baseLineSelect.innerHTML = '<option value="Base Alignment">Base Alignment</option>';
+            secondLineSelect.innerHTML = '<option value="Second Alignment">Second Alignment</option>';
+
+            for(let i = 0; i < bslink.length; i++) {
+                temp = bslink[i][0];
+                if (temp === contactno) {
+                    countnumber = countnumber + 1;
+                    baseLineSelect.add(new Option(bslink[i][1], bslink[i][1]));
+                    secondLineSelect.add(new Option(bslink[i][1], bslink[i][1]));
+                    j = j + 1;
+                }
+            }
+            baseLineSelect.length = countnumber;
+            secondLineSelect.length = countnumber;
+        }
+
+        function js_include(script) {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = script;
+            scriptElement.type = 'text/javascript';
+            const head = document.getElementsByTagName('head').item(0);
+            head.appendChild(scriptElement);
+        }
+
+        function Callalignmnetdata() {
+            const Name = "Data/" + document.STN.staionselect1.value + ".js";
+            js_include(Name);
+            
+            // Small delay to ensure script is loaded
+            setTimeout(() => {
+                ChangeBaseinputdata("Inrerprolation.js");
+            }, 100);
+        }
+
+        function CallSencondalignmnetdata() {
+            const Name = "Data/" + document.STN.staionselect2.value + ".js";
+            js_include(Name);
+        }
+
+        function ChangeBaseinputdata(script) {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = script;
+            scriptElement.type = 'text/javascript';
+            const head = document.getElementsByTagName('head').item(0);
+            head.appendChild(scriptElement);
+        }
+
+        function RUNIt1() {
+            document.STN.text6.value = "";
+            document.STN.text7.value = "";
+            document.STN.text8.value = "";
+
+            const datach = [];
+            const datanx = [];
+            const dataex = [];
+            const datarl = [];
+
+            for (let i = 1; i < baseline.length; i++) {
+                datach[i] = baseline[i][0];
+                datanx[i] = baseline[i][1];
+                dataex[i] = baseline[i][2];
+                datarl[i] = baseline[i][3];
+            }
+
+            const CH = document.STN.text1.value;
+            const OS = document.STN.text2.value;
+            let Startnumber = 1;
+
+            for (let i = 1; i < datach.length; i++) {
+                const name = fix3(datach[i]);
+                if (name < fix3(CH)) {
+                    Startnumber = i;
+                }
+            }
+
+            const temp = datach.length - 1;
+            const name = datach[temp];
+
+            if (fix3(CH) > name) {
+                alert("Out of Range");
+                Startnumber = datach.length - 2;
+            }
+
+            let TBRG = joint(datanx[Startnumber], dataex[Startnumber], datanx[Startnumber + 1], dataex[Startnumber + 1]);
+            TBRG = dms(TBRG);
+            const Tlength = jointdist(datanx[Startnumber], dataex[Startnumber], datanx[Startnumber + 1], dataex[Startnumber + 1]);
+
+            const CHlength = datach[Startnumber + 1] - datach[Startnumber];
+            const UseCH = ((fix3(CH) - fix3(datach[Startnumber])) * (Tlength / CHlength)) + fix3(datach[Startnumber]);
+
+            const BaselineLevel = (fix3(datarl[Startnumber + 1]) - fix3(datarl[Startnumber])) / Tlength * (fix3(UseCH) - fix3(datach[Startnumber])) + fix3(datarl[Startnumber]);
+            const BaselineNx = fix3(linenx(datanx[Startnumber], dataex[Startnumber], datach[Startnumber], TBRG, UseCH, 0));
+            const BaselineEx = fix3(lineex(datanx[Startnumber], dataex[Startnumber], datach[Startnumber], TBRG, UseCH, 0));
+
+            const NX = fix3(linenx(datanx[Startnumber], dataex[Startnumber], datach[Startnumber], TBRG, UseCH, OS));
+            const EX = fix3(lineex(datanx[Startnumber], dataex[Startnumber], datach[Startnumber], TBRG, UseCH, OS));
+
+            localStorage.JOINT_N = NX;
+            localStorage.JOINT_E = EX;
+
+            document.STN.text6.value = "Nx = " + NX;
+            document.STN.text7.value = "Ex = " + EX;
+
+            const Name2 = document.STN.staionselect2.value;
+
+            if (Name2 === "Second Alignment") {
+                document.STN.text8.value = "DL = " + fix3(BaselineLevel);
+            } else {
+                const DesignLevel = Runcrossfalllevel(BaselineNx, BaselineEx, CH, NX, EX, BaselineLevel);
+                document.STN.text8.value = "DL = " + fix3(DesignLevel);
+            }
+        }
+
+        function Runcrossfalllevel(BaseN, BaseE, CH, CheckNx, CheckEx, Level) {
+            const datach = [];
+            const datanx = [];
+            const dataex = [];
+            const datarl = [];
+
+            for (let i = 1; i < lineinput.length; i++) {
+                datach[i] = lineinput[i][0];
+                datanx[i] = lineinput[i][1];
+                dataex[i] = lineinput[i][2];
+                datarl[i] = lineinput[i][3];
+            }
+
+            let Startnumber = 1;
+
+            for (let i = 1; i < datach.length; i++) {
+                const name = fix3(datach[i]);
+                if (name < fix3(CH)) {
+                    Startnumber = i;
+                }
+            }
+
+            const temp = datach.length - 1;
+            const name = datach[temp];
+
+            if (fix3(CH) > name) {
+                alert("Out of Range");
+                Startnumber = datach.length - 2;
+            }
+
+            let TBRG = joint(datanx[Startnumber], dataex[Startnumber], datanx[Startnumber + 1], dataex[Startnumber + 1]);
+            TBRG = dms(TBRG);
+            const Tlength = jointdist(datanx[Startnumber], dataex[Startnumber], datanx[Startnumber + 1], dataex[Startnumber + 1]);
+
+            const CHlength = datach[Startnumber + 1] - datach[Startnumber];
+            const UseCH = ((fix3(CH) - fix3(datach[Startnumber])) * (Tlength / CHlength)) + fix3(datach[Startnumber]);
+
+            const Align2level = (fix3(datarl[Startnumber + 1]) - fix3(datarl[Startnumber])) / Tlength * (fix3(UseCH) - fix3(datach[Startnumber])) + fix3(datarl[Startnumber]);
+            const Align2Nx = fix3(linenx(datanx[Startnumber], dataex[Startnumber], datach[Startnumber], TBRG, UseCH, 0));
+            const Align2Ex = fix3(lineex(datanx[Startnumber], dataex[Startnumber], datach[Startnumber], TBRG, UseCH, 0));
+            
+            const Alignmentdist = jointdist(BaseN, BaseE, Align2Nx, Align2Ex);
+            TBRG = joint(BaseN, BaseE, Align2Nx, Align2Ex);
+            TBRG = dms(TBRG);
+            const linelength = linech(BaseN, BaseE, 0, TBRG, CheckNx, CheckEx);
+            const CrossFall = (fix4(Align2level) - fix4(Level)) / fix4(Alignmentdist);
+            const DesignLevel = (linelength * CrossFall + Level);
+
+            return DesignLevel;
+        }
+
+        function RUNIt2() {
+            document.STN.text6.value = "";
+            document.STN.text7.value = "";
+            document.STN.text8.value = "";
+
+            const datach = [];
+            const datanx = [];
+            const dataex = [];
+            const datarl = [];
+
+            for (let i = 1; i < baseline.length; i++) {
+                datach[i] = baseline[i][0];
+                datanx[i] = baseline[i][1];
+                dataex[i] = baseline[i][2];
+                datarl[i] = baseline[i][3];
+            }
+
+            const NX = document.STN.text3.value;
+            const EX = document.STN.text4.value;
+            const RL = document.STN.text5.value;
+
+            let Startnumber = 1;
+            let RUNCH = 0;
+            let RUNOS = 0;
+            let Tlength = 0;
+
+            for (let i = 1; i < datach.length; i++) {
+                let TBRG = joint(datanx[i], dataex[i], datanx[i + 1], dataex[i + 1]);
+                TBRG = dms(TBRG);
+                Tlength = jointdist(datanx[i], dataex[i], datanx[i + 1], dataex[i + 1]);
+                RUNCH = fix3(linech(datanx[i], dataex[i], datach[i], TBRG, NX, EX));
+                RUNOS = fix3(lineos(datanx[i], dataex[i], datach[i], TBRG, NX, EX));
+                const CHlength = datach[i + 1] - datach[i];
+                const UseCH = fix3(((fix3(RUNCH) - fix3(datach[i])) * (CHlength / Tlength)) + fix3(datach[i]));
+                const CCH = UseCH;
+                Startnumber = i;
+                const BaselineNx = fix3(linenx(datanx[Startnumber], dataex[Startnumber], datach[Startnumber], TBRG, UseCH, 0));
+                const BaselineEx = fix3(lineex(datanx[Startnumber], dataex[Startnumber], datach[Startnumber], TBRG, UseCH, 0));
+
+                if (fix3(datach[i + 1]) > fix3(UseCH) || i + 2 === datach.length) {
+                    break;
+                }
+            }
+
+            const BaselineLevel = (fix3(datarl[Startnumber + 1]) - fix3(datarl[Startnumber])) / Tlength * (fix3(RUNCH) - fix3(datach[Startnumber])) + fix3(datarl[Startnumber]);
+
+            const Name2 = document.STN.staionselect2.value;
+
+            let DesignLevel;
+            if (Name2 === "Second Alignment") {
+                DesignLevel = BaselineLevel;
+            } else {
+                DesignLevel = Runcrossfalllevel(BaselineNx, BaselineEx, RUNCH, NX, EX, BaselineLevel);
+            }
+
+            let Diff = fix3(DesignLevel - RL);
+            if (Diff < 0) {
+                Diff = "Down = " + Math.abs(Diff);
+            } else {
+                Diff = "Up = " + Diff;
+            }
+
+            document.STN.text6.value = "CH = " + fix3(RUNCH);
+            document.STN.text7.value = "OS = " + fix3(RUNOS);
+            document.STN.text8.value = "DL = " + fix3(DesignLevel) + "  " + Diff;
+        }
+
+        function CALL_ANSWER() {
+            document.STN.text3.value = localStorage.ANSWER_N || '';
+            document.STN.text4.value = localStorage.ANSWER_E || '';
+            document.STN.text5.value = localStorage.ANSWER_RL || '';
+        }
+
+        // Helper functions (assuming they are defined in linerfunction.js)
+        function fix3(z) {
+            return z = Math.floor(z * 1000 + 0.5) / 1000;
+        }
+
+        function fix4(z) {
+            return z = Math.floor(z * 10000 + 0.5) / 10000;
+        }
+
+        function dms(z) {
+            const d = Math.floor(z);
+            const m = Math.floor((z - Math.floor(z)) * 60);
+            let s = Math.floor(((((z - Math.floor(z)) * 60) - Math.floor((z - Math.floor(z)) * 60)) * 60) * 10 + 0.5) / 10;
+
+            if (s >= 60) {
+                s = s - 60;
+                m = m + 1;
+            }
+            
+            if (m >= 60) {
+                m = m - 60;
+                d = d + 1;
+            }
+
+            const brg = d + (m / 100) + (s / 10000);
+            return brg;
+        }
+
+        function jointdist(n, e, n2, e2) {
+            const x = n2 - n;
+            const y = e2 - e;
+            const dist = Math.sqrt((Math.pow(x, 2)) + (Math.pow(y, 2)));
+            return dist;
+        }
+
+        function joint(n, e, n2, e2) {
+            const x = n2 - n + 1 / 100000000000;
+            const y = e2 - e;
+            let brg = Math.atan(y / x) * 180 / 3.14159265358979;
+            
+            if (x < 0) {
+                brg = brg + 180;
+            }
+            
+            if (brg < 0) {
+                brg = brg + 360;
+            }
+            
+            return brg;
+        }
+
+        // Placeholder implementations for functions from linerfunction.js
+        function linenx(bn, be, bh, tb, rh, ro) {
+            // Implementation would be in linerfunction.js
+            return 0;
+        }
+
+        function lineex(bn, be, bh, tb, rh, ro) {
+            // Implementation would be in linerfunction.js
+            return 0;
+        }
+
+        function linech(bn, be, bh, tb, nx, ex) {
+            // Implementation would be in linerfunction.js
+            return 0;
+        }
+
+        function lineos(bn, be, bh, tb, nx, ex) {
+            // Implementation would be in linerfunction.js
+            return 0;
+        }
+
+        // Page load initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            initClearButtons();
+            
+            // Add event listeners
+            document.getElementById('contractSelect').addEventListener('change', function() {
+                CheckIt3(this.selectedIndex);
+            });
+            
+            document.getElementById('baseLineSelect').addEventListener('change', Callalignmnetdata);
+            document.getElementById('secondLineSelect').addEventListener('change', CallSencondalignmnetdata);
+        });
+    </script>
+</body>
+</html>
