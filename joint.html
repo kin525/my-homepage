@@ -1,3 +1,563 @@
-<script type="text/javascript"><!--
-document.write(unescape("%0A%0A%0A%0A%0A%0A%3Chtml%3E%20%0A%0A%3Chead%3E%0A%3Cmeta%20http-equiv%3D%22Content-Type%22%20content%3D%22text/html%3B%20charset%3Dutf-8%22%3E%0A%09%3Cmeta%20name%3D%22ROBOTS%22%20content%3D%22NOARCHIVE%22%3E%0A%09%3Cmeta%20name%20%3D%20%22viewport%22%20content%20%3D%20%22width%20%3D%20device-width%22%3E%0A%09%3Ctitle%3ELuen%20Hing%20Survey%20Program%3C/title%3E%0A%0A%3C/head%3E%0A%0A%0A%0A%0A%3Cbody%20onLoad%3D%22functionfirst%28%29%3B%22%3E%0A%0A%0A%0A%3Cscript%20src%3D%22station.js%22%3E%0A%3C/script%3E%0A%0A%3Cscript%3E%0Afunction%20functionfirst%28%29%0A%7B%0A%20%20%20var%20contractnumber%3Dnew%20Array%28%29%0A%20%20%20j%3D0%0A%20%20%20temp%3D%22%22%0A%20%20%20contractnumber%5B0%5D%3Dst%5B1%5D%5B0%5D%0A%20%20%20for%28i%3D2%3Bi%3C%28st.length%29%3Bi++%29%0A%20%20%20%7B%0A%20%20%20%20%20temp%3Dst%5Bi%5D%5B0%5D%20%20%20%20%0A%20%20%20%20%20if%20%28temp%21%3Dcontractnumber%5Bj%5D%29%0A%20%20%20%20%20%7B%0A%20%20%20%20%20%20j%3Dj+1%0A%20%20%20%20%20%20contractnumber%5Bj%5D%3Dtemp%0A%20%20%20%20%20%7D%0A%20%20%20%7D//%20End%20For%0A%0A%20%20%20%20%20%20%20%20%0A%0A%0A%20%20%20%20%20%20%20%20z%3D0%20%20//%20%u8A2D%u5B9AZ%3D0%20%28%u627E%u51FA%u76F8%u540C%u6578%u76EE%20%26%20%u9664%u6E05%u7A7A%29%0A%20%20%20%20%20%20%20%20for%28i%3D%28contractnumber.length%29%3Bi%3E0%3Bi--%29%20//%20%u8A2D%u5B9ALOOP%201%20i%3D%20%u7531%u5C3E%u81F3%u982D%0A%0A%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20for%28j%3Di-1%3Bj%3E%28-1%29%3Bj--%29%20//%20%u8A2D%u5B9ALOOP%202%20%3D%20j%u7531i-1%u81F3%u982D%0A%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20if%20%28contractnumber%5Bi%5D%3D%3Dcontractnumber%5Bj%5D%29%20//%20%u5982%u679C%u51FA%u73FE%u76F8%u540C%20i%3Dj%0A%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20z%3Dz+1%20//%20%u76F8%u540C%u6B21%u6578%u52A0%u4E00%u6B21%0A%20%20%20%20%20%20%20%20%20contractnumber%5Bi%5D%3D%22%22%20%20//%20%u91CD%u8907%u4F4D%u7F6E%3D%u7A7A%0A%20%20%20%20%20%20%20%20%20break%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20%u8DF3%u51FALOOP%202%0A%20%20%20%20%20%20%20%20%20%7D//End%20if%0A%20%20%20%20%20%20%20%20%20%7D//End%20for%20%0A%20%20%20%20%20%20%20%20%20%7D//End%20for%0A%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20j%3D0%20//%20%u8A2D%u5B9Aj%3D0%20%28%u627E%u51FA%u7A7A%u683C%20%26%20NEW%20Array%29%0A%20%20%20%20%20%20%20%20%20for%28i%3D0%3Bi%3C%28contractnumber.length%29%3Bi++%29%20//%20%u8A2D%u5B9ALOOP%201%20i%3D%20%u7531%u982D%u81F3%u5C3E%0A%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20if%20%28contractnumber%5Bi%5D%21%3D%22%22%29%20//%20%u5982%u679C%u51FA%u73FE%u76F8%u540C%20i%u4E0D%u7B49%u65BC%u7A7A%u683C%0A%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20contractnumber%5Bj%5D%3Dcontractnumber%5Bi%5D%20%0A%20%20%20%20%20%20%20%20%20%20j%3Dj+1%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%7D%0A%0A%0AF%3D%20%28contractnumber.length%29%20-%20z%0A%0A%0A%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%0Aj%3D1%0Afor%28i%3D0%3Bi%3CF%3Bi++%29%0A%7B%0A//alert%28countnumber%29%3B%0Adocument.STN.contact%5Bj%5D%3Dnew%20Option%28contractnumber%5Bi%5D%2C%20contractnumber%5Bi%5D%29%3B%20%20//%20%u8A2D%u5B9A%u65B0%u9078%u9805%0A%0Aj%3Dj+1%0A%7D//End%20For%0Adocument.STN.contact.length%3DF+1%20%20//%20%u522A%u9664%u591A%u9918%u7684%u9078%u9805%0A%7D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0Afunction%20CheckIt3%28index%29%0A%7B%0Acontactno%3Ddocument.STN.contact.value%0Acountnumber%3D1%0Atemp%3D%22%22%0Aj%3D1%0Afor%28i%3D0%3Bi%3C%28st.length%29%3Bi++%29%0A%7B%0Atemp%3Dst%5Bi%5D%5B0%5D%0Aif%20%28temp%3D%3Dcontactno%29%0A%7B%0A//alert%28countnumber%29%3B%0Acountnumber%3Dcountnumber+1%0Adocument.STN.staionselect1%5Bj%5D%3Dnew%20Option%28st%5Bi%5D%5B1%5D%2C%20st%5Bi%5D%5B1%5D%29%3B%20%20//%20%u8A2D%u5B9A%u65B0%u9078%u9805%0Adocument.STN.staionselect2%5Bj%5D%3Dnew%20Option%28st%5Bi%5D%5B1%5D%2C%20st%5Bi%5D%5B1%5D%29%3B%20%20//%20%u8A2D%u5B9A%u65B0%u9078%u9805%0A%0Aj%3Dj+1%0A%7D%0A%7D//End%20For%0Adocument.STN.staionselect1.length%3Dcountnumber%20%20//%20%u522A%u9664%u591A%u9918%u7684%u9078%u9805%0Adocument.STN.staionselect2.length%3Dcountnumber%20%20//%20%u522A%u9664%u591A%u9918%u7684%u9078%u9805%0A%7D%0Afunction%20checkst%28stationname%2Ccontactno%29%0A%7B%0Ak%3D0%0Afor%20%28i%3D1%3Bi%3Cst.length%3Bi++%29%0A%7B%0Ac%3Dst%5Bi%5D%5B1%5D%0Ad%3Dst%5Bi%5D%5B0%5D%0Aif%20%28c%20%3D%3D%20stationname%20%26%26%20d%20%3D%3D%20contactno%29%0A%7B%0Ak%3Di%0A%7D%0A%7D%0A%0Areturn%20k%7D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0Afunction%20CheckIt1%28%29%0A%7B%0Ak%3D1%0AName%20%3D%20document.STN.staionselect1.value%0Acontactno%20%3D%20document.STN.contact.value%0Ak%3Dcheckst%28Name%2Ccontactno%29%0An%3Dst%5Bk%5D%5B2%5D%0Ae%3Dst%5Bk%5D%5B3%5D%0Adocument.STN.text2.value%20%3D%20n%0Adocument.STN.text3.value%20%3D%20e%0A%7D%0A%0Afunction%20CheckIt2%28%29%0A%7B%0Ak%3D1%0AName%20%3D%20document.STN.staionselect2.value%0Acontactno%20%3D%20document.STN.contact.value%0Ak%3Dcheckst%28Name%2Ccontactno%29%0An%3Dst%5Bk%5D%5B2%5D%0Ae%3Dst%5Bk%5D%5B3%5D%0Adocument.STN.text5.value%20%3D%20n%0Adocument.STN.text6.value%20%3D%20e%0A%7D%0Afunction%20checkst%28stationname%2Ccontactno%29%0A%7B%0Ak%3D0%0Afor%20%28i%3D1%3Bi%3Cst.length%3Bi++%29%0A%7B%0Ac%3Dst%5Bi%5D%5B1%5D%0Ad%3Dst%5Bi%5D%5B0%5D%0Aif%20%28c%20%3D%3D%20stationname%20%26%26%20d%20%3D%3D%20contactno%29%0A%7B%0Ak%3Di%0A%7D%0A%7D%0A%0Areturn%20k%7D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0Afunction%20RUNIt%28%20%29%0A%7B%0Astn%20%3D%20document.STN.text2.value%20%0Aste%3D%20document.STN.text3.value%0Anx%20%3D%20document.STN.text5.value%0Aex%20%3D%20document.STN.text6.value%0A%0A%0Abrg%20%3D%20joint%28stn%2Cste%2Cnx%2Cex%29%0Adist%3D%20jointdist%28stn%2Cste%2Cnx%2Cex%29%0Abrg%20%3D%20dmscode%28brg%29%0Adist%20%3D%20fix3%28dist%29%0A%0A%0A%0A%0A%0Adocument.STN.text7.value%3Dbrg%0Adocument.STN.text8.value%3Ddist%0A%7D%0A%0A//%u5C0F%u6578%u5F8C3%u4F4D%0Afunction%20fix3%28z%29%0A%7Breturn%20z%3D%28Math.floor%28z%20*%201000%20+%200.5%29%29%20/%201000%7D%0A//%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%20Function%20END%20%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0A//%u8F49%u5EA6%u6578+Code%0Afunction%20dmscode%28z%29%0A%7B%0A%20d%3D%28Math.floor%28z%29%29%0A%20m%3D%28Math.floor%28%28z%20-%20%28Math.floor%28z%29%29%29%20*%2060%29%29%20%0A%20s%3D%28Math.floor%28%28%28%28%28z%20-%20%28Math.floor%28z%29%29%29%20*%2060%29%20-%20%28Math.floor%28%28z%20-%20%28Math.floor%28z%29%29%29%20*%2060%29%29%29%20*%2060%29*10+0.5%29%29/10%0A%0Aif%20%28s%20%3E%3D%2060%29%0A%7Bs%20%3D%20s%20-%2060%20%0Am%20%3D%20m%20+%201%7D%0A%20%0Aif%20%28m%20%3E%3D%2060%29%0A%7Bm%20%3D%20m%20-%2060%0Ad%20%3D%20d%20+%201%7D%0A%0Abrg%20%3D%20d+%22%5E%22+m+%22%27%22+s+%22%5C%22%22%0Areturn%20brg%7D%0A//%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%20Function%20END%20%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0A//%u8A082%u9EDE%u8DDD%u96E2%0Afunction%20jointdist%28n%2Ce%2Cn2%2Ce2%29%0A%7Bx%20%3D%20n2%20-%20n%0A%20y%20%3D%20e2%20-%20e%0Adist%20%3D%20%28Math.sqrt%28%28Math.pow%28x%2C2%29%29%20+%20%28Math.pow%28y%2C2%29%29%29%29%0Areturn%20dist%7D%0A//%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%20Function%20END%20%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0A//%u8A082%u9EDEbrg%0Afunction%20joint%28n%2Ce%2Cn2%2Ce2%29%0A%7Bx%20%3D%20n2%20-%20n%20+%201/100000000000%0A%20y%20%3D%20e2%20-%20e%0A%20brg%20%3D%20%28Math.atan%28y%20/%20x%29%29*%20180%20/%203.14159265358979%0A%7Bif%20%28x%20%3C%200%29%0A%28brg%20%3D%20brg%20+%20180%29%3B%0A%7D%0A%7Bif%20%28brg%20%3C%200%29%0A%28brg%20%3D%20brg%20+%20360%29%3B%0A%7D%0Areturn%20brg%7D%0A//%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%20Function%20END%20%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0A%0Afunction%20CALLSINDATA%28%29%0A%7B%0A%0Adocument.STN.text2.value%3DlocalStorage.XXN%3B%0Adocument.STN.text3.value%20%3DlocalStorage.XXE%3B%0A%0A%7D%0A%0Afunction%20CALL_ANSWER%28%29%0A%0A%7B%0A%0Adocument.STN.text5.value%3DlocalStorage.JOINT_N%3B%0Adocument.STN.text6.value%3DlocalStorage.JOINT_E%3B%0A%0A%7D%0A%0Afunction%20DIST_C%28%29%0A%7B%0Avar%20HD%3Dprompt%28%22INPUT%20HD%22%2C%22%22%29%0A%20%20%20%20DIST%3Ddocument.STN.text8.value%0A%20%20%20%20a%3D%20fix3%28DIST%20-%20HD%29%0A%0Aalert%28%22DIFF%3D%22+a%29%3B%0A%0A%7D%0A%0A%0A%3C/script%3E%0A%0A%0A%3Ch3%3EKin%20Write%20Joint%0A%3Cp%3E%0AEmail%3A%20kin525@yahoo.com.hk%0A%0A%3Cp%3E%0A%3C/h3%3E%0A%3Cform%20name%3D%22STN%22%3E%0A%3Cp%3E%0AContract%20Number%3A%3Cselect%20name%3D%22contact%22%20%20onChange%3D%22CheckIt3%28this.selectedIndex%29%22%20%3E%0A%20%20%3Coption%20value%3D%22Select%20Site%22%3ESelect%20Site%0A%0A%0A%3C/select%3E%0A%0A%3Cfieldset%3E%3Clegend%3EFrom%20Station%3C/legend%3E%0A%0A%0A%0A%0A%0A%0A%3Cp%3E%0A%3Cselect%20name%3D%22staionselect1%22%20onChange%3D%22CheckIt1%28%29%22%3E%0A%20%3Coption%20value%3D%22Station%20Name%22%3EStation%20Name%0A%3C/select%3E%0A%3Cp%3E%0AST.N%20%3A%20%3Cinput%20name%3D%22text2%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0AST.E%20%20%3A%20%3Cinput%20name%3D%22text3%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22CALL%20FROM%20SINSECTION%22%0AonClick%3D%22CALLSINDATA%28%29%22%20%3E%0A%3Cp%3E%0A%0A%0A%3C/fieldset%3E%0A%3Cp%3E%0A%0A%0A%0A%0A%0A%0A%3Cfieldset%3E%3Clegend%3ETo%20Station%3C/legend%3E%0A%0A%0A%0A%0A%3Cselect%20name%3D%22staionselect2%22%20onChange%3D%22CheckIt2%28%29%22%3E%0A%20%3Coption%20value%3D%22Station%20Name%22%3EStation%20Name%0A%3C/select%3E%0A%3Cp%3E%0ANx%20%3A%20%3Cinput%20name%3D%22text5%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0AEx%20%20%3A%20%3Cinput%20name%3D%22text6%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22CALL%20ANSWER%22%0AonClick%3D%22CALL_ANSWER%28%29%22%20%3E%0A%3C/fieldset%3E%0A%0A%0A%0A%0A%0A%0A%3Cp%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22RUN%22%0AonClick%3D%22RUNIt%28%29%22%20%3E%0A%3Cp%3E%0A%3Cp%3E%0ABRG%20%3D%20%3Cinput%20name%3D%22text7%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0ADIST%20%3D%20%3Cinput%20name%3D%22text8%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22-%22%0AonClick%3D%22DIST_C%28%29%22%20%3E%0A%3Cp%3E%0A%3C/form%3E%0A%0A%0A%0A%0A%0A%3C/body%3E%0A%3C/html%3E%0A%0A%0A%0A"));
-// --></script>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="ROBOTS" content="NOARCHIVE">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Luen Hing Survey Program</title>
+  <style>
+    /* 基礎重置和響應式設計 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 15px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #2c3e50;
+      font-size: 24px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    /* 表單元素樣式 */
+    select, input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: white;
+    }
+
+    select:focus, input[type="text"]:focus {
+      outline: none;
+      border-color: #007AFF;
+    }
+
+    fieldset {
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      background: #fafafa;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 10px;
+      color: #555;
+    }
+
+    /* 按鈕樣式 */
+    input[type="button"] {
+      width: 100%;
+      padding: 12px;
+      background: #007AFF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      margin-bottom: 10px;
+    }
+
+    input[type="button"]:active {
+      background: #0056cc;
+      transform: scale(0.98);
+    }
+
+    /* 結果區域 */
+    .result-section {
+      background: #e8f4ff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    .result-section p {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* 響應式調整 */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      
+      .container {
+        padding: 15px;
+      }
+      
+      select, input[type="text"], input[type="button"] {
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+
+    /* 數字輸入容器 */
+    .number-input-container {
+      position: relative;
+    }
+
+    .number-input-container input {
+      padding-right: 40px;
+    }
+
+    .clear-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 18px;
+      color: #999;
+      cursor: pointer;
+      display: none;
+    }
+
+    input:not(:placeholder-shown) + .clear-btn {
+      display: block;
+    }
+  </style>
+  <script src="station.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h3>Luen Hing Survey Program</h3>
+    <p style="text-align: center; color: #666;">Email: kin525@yahoo.com.hk</p>
+
+    <form name="STN" id="surveyForm">
+      <div class="form-group">
+        <label for="contractSelect">Contract Number:</label>
+        <select id="contractSelect" name="contact">
+          <option value="Select Site">Select Site</option>
+        </select>
+      </div>
+
+      <fieldset>
+        <legend>From Station</legend>
+        <div class="form-group">
+          <select id="fromStationSelect" name="staionselect1">
+            <option value="Station Name">Station Name</option>
+          </select>
+        </div>
+        
+        <div class="number-input-container">
+          <label for="stnInput">ST.N :</label>
+          <input id="stnInput" name="text2" type="text" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter coordinates" size="12">
+          <button type="button" class="clear-btn" onclick="clearInput('stnInput')">×</button>
+        </div>
+        
+        <div class="number-input-container">
+          <label for="steInput">ST.E :</label>
+          <input id="steInput" name="text3" type="text" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter coordinates" size="12">
+          <button type="button" class="clear-btn" onclick="clearInput('steInput')">×</button>
+        </div>
+        
+        <input type="button" value="CALL FROM SINSECTION" onclick="CALLSINDATA()">
+      </fieldset>
+
+      <fieldset>
+        <legend>To Station</legend>
+        <div class="form-group">
+          <select id="toStationSelect" name="staionselect2">
+            <option value="Station Name">Station Name</option>
+          </select>
+        </div>
+        
+        <div class="number-input-container">
+          <label for="nxInput">Nx :</label>
+          <input id="nxInput" name="text5" type="text" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter coordinates" size="12">
+          <button type="button" class="clear-btn" onclick="clearInput('nxInput')">×</button>
+        </div>
+        
+        <div class="number-input-container">
+          <label for="exInput">Ex :</label>
+          <input id="exInput" name="text6" type="text" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter coordinates" size="12">
+          <button type="button" class="clear-btn" onclick="clearInput('exInput')">×</button>
+        </div>
+        
+        <input type="button" value="CALL ANSWER" onclick="CALL_ANSWER()">
+      </fieldset>
+
+      <input type="button" value="RUN CALCULATION" onclick="RUNIt()">
+
+      <div class="result-section">
+        <p>
+          <span>BRG =</span>
+          <input name="text7" type="text" size="12" readonly style="background: #f0f0f0;">
+        </p>
+        <p>
+          <span>DIST =</span>
+          <input name="text8" type="text" size="12" readonly style="background: #f0f0f0;">
+          <input type="button" value="DIFF CHECK" onclick="DIST_C()" style="width: auto; padding: 8px 12px;">
+        </p>
+      </div>
+    </form>
+  </div>
+
+  <!-- 數字鍵盤容器 -->
+  <div id="numberPadOverlay" class="number-pad-overlay" style="display: none;">
+    <div class="number-pad-container">
+      <div class="number-pad-header">
+        <span id="currentInputLabel">Enter Number</span>
+        <button type="button" onclick="hideNumberPad()">×</button>
+      </div>
+      <div class="number-pad" id="numberPad">
+        <!-- 數字鍵盤內容由JavaScript生成 -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 基礎功能保持不變，但改進事件處理
+    let currentInputElement = null;
+
+    function functionfirst() {
+      let contractnumber = [];
+      let j = 0;
+      let temp = "";
+
+      contractnumber[0] = st[1][0];
+
+      for (let i = 2; i < st.length; i++) {
+        temp = st[i][0];
+        if (temp !== contractnumber[j]) {
+          j++;
+          contractnumber[j] = temp;
+        }
+      }
+
+      let z = 0;
+      for (let i = contractnumber.length - 1; i > 0; i--) {
+        for (let j = i - 1; j >= 0; j--) {
+          if (contractnumber[i] === contractnumber[j]) {
+            z++;
+            contractnumber[i] = "";
+            break;
+          }
+        }
+      }
+
+      j = 0;
+      for (let i = 0; i < contractnumber.length; i++) {
+        if (contractnumber[i] !== "") {
+          contractnumber[j] = contractnumber[i];
+          j++;
+        }
+      }
+
+      let F = contractnumber.length - z;
+      const contractSelect = document.getElementById('contractSelect');
+      
+      for (let i = 0; i < F; i++) {
+        const option = new Option(contractnumber[i], contractnumber[i]);
+        contractSelect.add(option);
+      }
+    }
+
+    // 其他原有函數保持不變，但添加現代事件監聽
+    document.addEventListener('DOMContentLoaded', function() {
+      // 初始化
+      functionfirst();
+      
+      // 添加事件監聽器
+      document.getElementById('contractSelect').addEventListener('change', function() {
+        CheckIt3(this.selectedIndex);
+      });
+      
+      document.getElementById('fromStationSelect').addEventListener('change', CheckIt1);
+      document.getElementById('toStationSelect').addEventListener('change', CheckIt2);
+      
+      // 為數字輸入框添加數字鍵盤觸發
+      const numberInputs = document.querySelectorAll('input[inputmode="decimal"]');
+      numberInputs.forEach(input => {
+        input.addEventListener('focus', function() {
+          showNumberPad(this);
+        });
+      });
+      
+      // 初始化數字鍵盤
+      initNumberPad();
+    });
+
+    // 數字鍵盤功能
+    function initNumberPad() {
+      const numberPad = document.getElementById('numberPad');
+      const buttons = [
+        '7', '8', '9',
+        '4', '5', '6', 
+        '1', '2', '3',
+        '0', '.', '⌫'
+      ];
+      
+      buttons.forEach(value => {
+        const button = document.createElement('button');
+        button.textContent = value;
+        button.className = 'num-btn';
+        button.onclick = () => handleNumberInput(value);
+        numberPad.appendChild(button);
+      });
+    }
+
+    function showNumberPad(inputElement) {
+      currentInputElement = inputElement;
+      document.getElementById('currentInputLabel').textContent = 'Enter ' + inputElement.previousElementSibling.textContent.trim();
+      document.getElementById('numberPadOverlay').style.display = 'block';
+    }
+
+    function hideNumberPad() {
+      document.getElementById('numberPadOverlay').style.display = 'none';
+      currentInputElement = null;
+    }
+
+    function handleNumberInput(value) {
+      if (!currentInputElement) return;
+      
+      if (value === '⌫') {
+        currentInputElement.value = currentInputElement.value.slice(0, -1);
+      } else if (value === '.' && currentInputElement.value.includes('.')) {
+        // 防止多個小數點
+        return;
+      } else {
+        currentInputElement.value += value;
+      }
+    }
+
+    function clearInput(inputId) {
+      document.getElementById(inputId).value = '';
+    }
+
+    // 原有函數保持不變
+    function CheckIt3(index) {
+      let contactno = document.STN.contact.value;
+      let countnumber = 1;
+      let temp = "";
+      let j = 1;
+
+      const fromSelect = document.getElementById('fromStationSelect');
+      const toSelect = document.getElementById('toStationSelect');
+      
+      // 清空現有選項
+      fromSelect.innerHTML = '<option value="Station Name">Station Name</option>';
+      toSelect.innerHTML = '<option value="Station Name">Station Name</option>';
+
+      for (let i = 0; i < st.length; i++) {
+        temp = st[i][0];
+        if (temp === contactno) {
+          countnumber++;
+          fromSelect.add(new Option(st[i][1], st[i][1]));
+          toSelect.add(new Option(st[i][1], st[i][1]));
+          j++;
+        }
+      }
+    }
+
+    function checkst(stationname, contactno) {
+      let k = 0;
+      for (let i = 1; i < st.length; i++) {
+        let c = st[i][1];
+        let d = st[i][0];
+        if (c === stationname && d === contactno) {
+          k = i;
+        }
+      }
+      return k;
+    }
+
+    function CheckIt1() {
+      let Name = document.STN.staionselect1.value;
+      let contactno = document.STN.contact.value;
+      let k = checkst(Name, contactno);
+      document.STN.text2.value = st[k][2];
+      document.STN.text3.value = st[k][3];
+    }
+
+    function CheckIt2() {
+      let Name = document.STN.staionselect2.value;
+      let contactno = document.STN.contact.value;
+      let k = checkst(Name, contactno);
+      document.STN.text5.value = st[k][2];
+      document.STN.text6.value = st[k][3];
+    }
+
+    function RUNIt() {
+      let stn = parseFloat(document.STN.text2.value);
+      let ste = parseFloat(document.STN.text3.value);
+      let nx = parseFloat(document.STN.text5.value);
+      let ex = parseFloat(document.STN.text6.value);
+
+      let brg = joint(stn, ste, nx, ex);
+      let dist = jointdist(stn, ste, nx, ex);
+      brg = dmscode(brg);
+      dist = fix3(dist);
+
+      document.STN.text7.value = brg;
+      document.STN.text8.value = dist;
+    }
+
+    function fix3(z) {
+      return Math.floor(z * 1000 + 0.5) / 1000;
+    }
+
+    function dmscode(z) {
+      let d = Math.floor(z);
+      let m = Math.floor((z - d) * 60);
+      let s = Math.floor((((z - d) * 60 - m) * 60) * 10 + 0.5) / 10;
+
+      if (s >= 60) {
+        s -= 60;
+        m += 1;
+      }
+      if (m >= 60) {
+        m -= 60;
+        d += 1;
+      }
+
+      return `${d}^${m}'${s}"`;
+    }
+
+    function jointdist(n, e, n2, e2) {
+      let x = n2 - n;
+      let y = e2 - e;
+      return Math.sqrt(x * x + y * y);
+    }
+
+    function joint(n, e, n2, e2) {
+      let x = n2 - n + 1e-12;
+      let y = e2 - e;
+      let brg = Math.atan(y / x) * 180 / Math.PI;
+      if (x < 0) brg += 180;
+      if (brg < 0) brg += 360;
+      return brg;
+    }
+
+    function CALLSINDATA() {
+      document.STN.text2.value = localStorage.XXN || '';
+      document.STN.text3.value = localStorage.XXE || '';
+    }
+
+    function CALL_ANSWER() {
+      document.STN.text5.value = localStorage.JOINT_N || '';
+      document.STN.text6.value = localStorage.JOINT_E || '';
+    }
+
+    function DIST_C() {
+      let HD = parseFloat(prompt("INPUT HD", ""));
+      if (isNaN(HD)) return;
+      
+      let DIST = parseFloat(document.STN.text8.value);
+      if (isNaN(DIST)) {
+        alert("Please calculate DIST first");
+        return;
+      }
+      
+      let a = fix3(DIST - HD);
+      alert("DIFF = " + a);
+    }
+  </script>
+
+  <style>
+    /* 數字鍵盤樣式 */
+    .number-pad-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .number-pad-container {
+      background: white;
+      width: 100%;
+      border-radius: 20px 20px 0 0;
+      padding: 20px;
+    }
+
+    .number-pad-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .number-pad-header button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #666;
+    }
+
+    .number-pad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .num-btn {
+      aspect-ratio: 1;
+      font-size: 20px;
+      border: none;
+      border-radius: 8px;
+      background: #f0f0f0;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .num-btn:active {
+      background: #ddd;
+    }
+
+    @media (min-width: 768px) {
+      .number-pad-overlay {
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .number-pad-container {
+        width: 300px;
+        border-radius: 12px;
+      }
+    }
+  </style>
+</body>
+</html>
