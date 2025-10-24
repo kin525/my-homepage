@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="ROBOTS" content="NOARCHIVE">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Luen Hing Survey Program</title>
   <style>
-    /* 基礎重置和響應式設計 */
+    /* Base reset and responsive design */
     * {
       margin: 0;
       padding: 0;
@@ -42,7 +42,7 @@
       margin-bottom: 15px;
     }
 
-    /* 表單元素樣式 */
+    /* Form elements */
     select, input[type="text"] {
       width: 100%;
       padding: 12px;
@@ -74,7 +74,7 @@
       color: #555;
     }
 
-    /* 按鈕樣式 */
+    /* Buttons */
     input[type="button"] {
       width: 100%;
       padding: 12px;
@@ -93,7 +93,7 @@
       transform: scale(0.98);
     }
 
-    /* 結果區域 */
+    /* Result section */
     .result-section {
       background: #e8f4ff;
       padding: 15px;
@@ -108,7 +108,7 @@
       align-items: center;
     }
 
-    /* 響應式調整 */
+    /* Responsive adjustments */
     @media (max-width: 480px) {
       body {
         padding: 10px;
@@ -124,7 +124,7 @@
       }
     }
 
-    /* 數字輸入容器 */
+    /* Number input container */
     .number-input-container {
       position: relative;
     }
@@ -144,10 +144,155 @@
       color: #999;
       cursor: pointer;
       display: none;
+      padding: 5px;
+      z-index: 10;
     }
 
     input:not(:placeholder-shown) + .clear-btn {
       display: block;
+    }
+
+    /* Number pad styles - SMALLER SIZE */
+    .number-pad-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .number-pad-container {
+      background: white;
+      width: 100%;
+      max-width: 400px; /* Smaller max width */
+      border-radius: 15px 15px 0 0;
+      padding: 15px; /* Reduced padding */
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+    }
+
+    .number-pad-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px; /* Reduced margin */
+      padding-bottom: 8px; /* Reduced padding */
+      border-bottom: 1px solid #eee;
+    }
+
+    .number-pad-header span {
+      font-weight: bold;
+      color: #333;
+      font-size: 16px; /* Smaller font */
+    }
+
+    .number-pad-header button {
+      background: none;
+      border: none;
+      font-size: 20px; /* Smaller close button */
+      cursor: pointer;
+      color: #666;
+      padding: 5px;
+    }
+
+    .number-display {
+      background: #f9f9f9;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      padding: 12px; /* Reduced padding */
+      margin-bottom: 12px; /* Reduced margin */
+      font-size: 16px; /* Smaller font */
+      text-align: center;
+      min-height: 46px; /* Smaller height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: monospace;
+    }
+
+    .number-pad {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 columns for more compact layout */
+      gap: 8px; /* Smaller gap */
+      margin-bottom: 10px;
+    }
+
+    .num-btn {
+      height: 45px; /* Fixed smaller height */
+      font-size: 16px; /* Smaller font */
+      border: none;
+      border-radius: 6px;
+      background: #f0f0f0;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .num-btn:active {
+      background: #ddd;
+      transform: scale(0.95);
+    }
+
+    .num-btn.zero {
+      grid-column: span 2;
+    }
+
+    .num-btn.backspace {
+      background: #ff6b6b;
+      color: white;
+    }
+
+    .num-btn.decimal {
+      background: #4ecdc4;
+      color: white;
+    }
+
+    .num-btn.clear {
+      background: #ffa726;
+      color: white;
+    }
+
+    .num-btn.input {
+      background: #007AFF;
+      color: white;
+    }
+
+    @media (min-width: 768px) {
+      .number-pad-overlay {
+        align-items: center;
+      }
+      
+      .number-pad-container {
+        width: 350px; /* Smaller desktop width */
+        border-radius: 12px;
+      }
+    }
+
+    /* Input touch area */
+    .input-touch-area {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    /* Form labels */
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
     }
   </style>
   <script src="station.js"></script>
@@ -169,21 +314,24 @@
       <fieldset>
         <legend>From Station</legend>
         <div class="form-group">
+          <label for="fromStationSelect">Station:</label>
           <select id="fromStationSelect" name="staionselect1">
             <option value="Station Name">Station Name</option>
           </select>
         </div>
         
         <div class="number-input-container">
-          <label for="stnInput">ST.N :</label>
-          <input id="stnInput" name="text2" type="text" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter coordinates" size="12">
-          <button type="button" class="clear-btn" onclick="clearInput('stnInput')">×</button>
+          <label for="stnInput">N :</label>
+          <input id="stnInput" name="text2" type="text" inputmode="none" readonly placeholder="Tap to enter coordinates" size="12">
+          <div class="input-touch-area" onclick="showNumberPad('stnInput', 'N Coordinate')"></div>
+          <button type="button" class="clear-btn" onclick="clearInput('stnInput')">��</button>
         </div>
         
         <div class="number-input-container">
-          <label for="steInput">ST.E :</label>
-          <input id="steInput" name="text3" type="text" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter coordinates" size="12">
-          <button type="button" class="clear-btn" onclick="clearInput('steInput')">×</button>
+          <label for="steInput">E :</label>
+          <input id="steInput" name="text3" type="text" inputmode="none" readonly placeholder="Tap to enter coordinates" size="12">
+          <div class="input-touch-area" onclick="showNumberPad('steInput', 'E Coordinate')"></div>
+          <button type="button" class="clear-btn" onclick="clearInput('steInput')">��</button>
         </div>
         
         <input type="button" value="CALL FROM SINSECTION" onclick="CALLSINDATA()">
@@ -192,6 +340,7 @@
       <fieldset>
         <legend>To Station</legend>
         <div class="form-group">
+          <label for="toStationSelect">Station:</label>
           <select id="toStationSelect" name="staionselect2">
             <option value="Station Name">Station Name</option>
           </select>
@@ -199,14 +348,16 @@
         
         <div class="number-input-container">
           <label for="nxInput">Nx :</label>
-          <input id="nxInput" name="text5" type="text" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter coordinates" size="12">
-          <button type="button" class="clear-btn" onclick="clearInput('nxInput')">×</button>
+          <input id="nxInput" name="text5" type="text" inputmode="none" readonly placeholder="Tap to enter coordinates" size="12">
+          <div class="input-touch-area" onclick="showNumberPad('nxInput', 'Nx Coordinate')"></div>
+          <button type="button" class="clear-btn" onclick="clearInput('nxInput')">��</button>
         </div>
         
         <div class="number-input-container">
           <label for="exInput">Ex :</label>
-          <input id="exInput" name="text6" type="text" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter coordinates" size="12">
-          <button type="button" class="clear-btn" onclick="clearInput('exInput')">×</button>
+          <input id="exInput" name="text6" type="text" inputmode="none" readonly placeholder="Tap to enter coordinates" size="12">
+          <div class="input-touch-area" onclick="showNumberPad('exInput', 'Ex Coordinate')"></div>
+          <button type="button" class="clear-btn" onclick="clearInput('exInput')">��</button>
         </div>
         
         <input type="button" value="CALL ANSWER" onclick="CALL_ANSWER()">
@@ -228,23 +379,150 @@
     </form>
   </div>
 
-  <!-- 數字鍵盤容器 -->
+  <!-- Number Pad Overlay - Compact Design -->
   <div id="numberPadOverlay" class="number-pad-overlay" style="display: none;">
     <div class="number-pad-container">
       <div class="number-pad-header">
         <span id="currentInputLabel">Enter Number</span>
-        <button type="button" onclick="hideNumberPad()">×</button>
+        <button type="button" onclick="hideNumberPad()">��</button>
       </div>
+      
+      <div class="number-display" id="numberDisplay">0</div>
+      
       <div class="number-pad" id="numberPad">
-        <!-- 數字鍵盤內容由JavaScript生成 -->
+        <!-- Number pad content will be generated by JavaScript -->
       </div>
     </div>
   </div>
 
   <script>
-    // 基礎功能保持不變，但改進事件處理
+    // Number pad state management
     let currentInputElement = null;
+    let currentDisplayValue = '0';
 
+    // Initialize number pad with compact layout
+    function initNumberPad() {
+      const numberPad = document.getElementById('numberPad');
+      numberPad.innerHTML = ''; // Clear existing content
+      
+      // More compact layout with 4 columns
+      const buttons = [
+        { value: '7', display: '7' },
+        { value: '8', display: '8' },
+        { value: '9', display: '9' },
+        { value: 'backspace', display: '?', class: 'backspace' },
+        { value: '4', display: '4' },
+        { value: '5', display: '5' },
+        { value: '6', display: '6' },
+        { value: 'clear', display: 'CLEAR', class: 'clear' },
+        { value: '1', display: '1' },
+        { value: '2', display: '2' },
+        { value: '3', display: '3' },
+        { value: 'input', display: 'INPUT', class: 'input' },
+        { value: '0', display: '0', class: 'zero' },
+        { value: '.', display: '.', class: 'decimal' }
+      ];
+      
+      buttons.forEach(btn => {
+        const button = document.createElement('button');
+        button.textContent = btn.display;
+        button.className = `num-btn ${btn.class || ''}`;
+        button.onclick = () => handleNumberInput(btn.value);
+        numberPad.appendChild(button);
+      });
+    }
+
+    function showNumberPad(inputId, label) {
+      currentInputElement = document.getElementById(inputId);
+      const currentValue = currentInputElement.value;
+      
+      document.getElementById('currentInputLabel').textContent = label;
+      
+      // Set display value
+      if (currentValue && currentValue !== '0') {
+        currentDisplayValue = currentValue;
+      } else {
+        currentDisplayValue = '0';
+      }
+      
+      updateNumberDisplay();
+      document.getElementById('numberPadOverlay').style.display = 'flex';
+    }
+
+    function hideNumberPad() {
+      document.getElementById('numberPadOverlay').style.display = 'none';
+      currentInputElement = null;
+      currentDisplayValue = '0';
+    }
+
+    function handleNumberInput(value) {
+      switch(value) {
+        case 'backspace':
+          currentDisplayValue = currentDisplayValue.slice(0, -1);
+          if (currentDisplayValue === '' || currentDisplayValue === '-') {
+            currentDisplayValue = '0';
+          }
+          break;
+          
+        case 'clear':
+          currentDisplayValue = '0';
+          break;
+          
+        case 'input':
+          confirmNumberInput();
+          return;
+          
+        case '.':
+          if (!currentDisplayValue.includes('.')) {
+            if (currentDisplayValue === '0') {
+              currentDisplayValue = '0.';
+            } else {
+              currentDisplayValue += '.';
+            }
+          }
+          break;
+          
+        default:
+          if (currentDisplayValue === '0') {
+            currentDisplayValue = value;
+          } else {
+            currentDisplayValue += value;
+          }
+      }
+      
+      updateNumberDisplay();
+    }
+
+    function updateNumberDisplay() {
+      const display = document.getElementById('numberDisplay');
+      display.textContent = currentDisplayValue;
+      
+      // Visual feedback
+      display.style.color = currentDisplayValue === '0' ? '#999' : '#333';
+      display.style.fontWeight = currentDisplayValue === '0' ? 'normal' : 'bold';
+    }
+
+    function confirmNumberInput() {
+      if (currentInputElement) {
+        currentInputElement.value = currentDisplayValue === '0' ? '' : currentDisplayValue;
+        
+        // Trigger input event to update related logic
+        const event = new Event('input', { bubbles: true });
+        currentInputElement.dispatchEvent(event);
+      }
+      hideNumberPad();
+    }
+
+    function clearInput(inputId) {
+      const input = document.getElementById(inputId);
+      input.value = '';
+      
+      // Trigger input event
+      const event = new Event('input', { bubbles: true });
+      input.dispatchEvent(event);
+    }
+
+    // Original functions (unchanged core logic)
     function functionfirst() {
       let contractnumber = [];
       let j = 0;
@@ -282,85 +560,15 @@
       let F = contractnumber.length - z;
       const contractSelect = document.getElementById('contractSelect');
       
+      // Clear existing options
+      contractSelect.innerHTML = '<option value="Select Site">Select Site</option>';
+      
       for (let i = 0; i < F; i++) {
         const option = new Option(contractnumber[i], contractnumber[i]);
         contractSelect.add(option);
       }
     }
 
-    // 其他原有函數保持不變，但添加現代事件監聽
-    document.addEventListener('DOMContentLoaded', function() {
-      // 初始化
-      functionfirst();
-      
-      // 添加事件監聽器
-      document.getElementById('contractSelect').addEventListener('change', function() {
-        CheckIt3(this.selectedIndex);
-      });
-      
-      document.getElementById('fromStationSelect').addEventListener('change', CheckIt1);
-      document.getElementById('toStationSelect').addEventListener('change', CheckIt2);
-      
-      // 為數字輸入框添加數字鍵盤觸發
-      const numberInputs = document.querySelectorAll('input[inputmode="decimal"]');
-      numberInputs.forEach(input => {
-        input.addEventListener('focus', function() {
-          showNumberPad(this);
-        });
-      });
-      
-      // 初始化數字鍵盤
-      initNumberPad();
-    });
-
-    // 數字鍵盤功能
-    function initNumberPad() {
-      const numberPad = document.getElementById('numberPad');
-      const buttons = [
-        '7', '8', '9',
-        '4', '5', '6', 
-        '1', '2', '3',
-        '0', '.', '⌫'
-      ];
-      
-      buttons.forEach(value => {
-        const button = document.createElement('button');
-        button.textContent = value;
-        button.className = 'num-btn';
-        button.onclick = () => handleNumberInput(value);
-        numberPad.appendChild(button);
-      });
-    }
-
-    function showNumberPad(inputElement) {
-      currentInputElement = inputElement;
-      document.getElementById('currentInputLabel').textContent = 'Enter ' + inputElement.previousElementSibling.textContent.trim();
-      document.getElementById('numberPadOverlay').style.display = 'block';
-    }
-
-    function hideNumberPad() {
-      document.getElementById('numberPadOverlay').style.display = 'none';
-      currentInputElement = null;
-    }
-
-    function handleNumberInput(value) {
-      if (!currentInputElement) return;
-      
-      if (value === '⌫') {
-        currentInputElement.value = currentInputElement.value.slice(0, -1);
-      } else if (value === '.' && currentInputElement.value.includes('.')) {
-        // 防止多個小數點
-        return;
-      } else {
-        currentInputElement.value += value;
-      }
-    }
-
-    function clearInput(inputId) {
-      document.getElementById(inputId).value = '';
-    }
-
-    // 原有函數保持不變
     function CheckIt3(index) {
       let contactno = document.STN.contact.value;
       let countnumber = 1;
@@ -370,7 +578,7 @@
       const fromSelect = document.getElementById('fromStationSelect');
       const toSelect = document.getElementById('toStationSelect');
       
-      // 清空現有選項
+      // Clear existing options
       fromSelect.innerHTML = '<option value="Station Name">Station Name</option>';
       toSelect.innerHTML = '<option value="Station Name">Station Name</option>';
 
@@ -401,23 +609,27 @@
       let Name = document.STN.staionselect1.value;
       let contactno = document.STN.contact.value;
       let k = checkst(Name, contactno);
-      document.STN.text2.value = st[k][2];
-      document.STN.text3.value = st[k][3];
+      if (k > 0) {
+        document.STN.text2.value = st[k][2];
+        document.STN.text3.value = st[k][3];
+      }
     }
 
     function CheckIt2() {
       let Name = document.STN.staionselect2.value;
       let contactno = document.STN.contact.value;
       let k = checkst(Name, contactno);
-      document.STN.text5.value = st[k][2];
-      document.STN.text6.value = st[k][3];
+      if (k > 0) {
+        document.STN.text5.value = st[k][2];
+        document.STN.text6.value = st[k][3];
+      }
     }
 
     function RUNIt() {
-      let stn = parseFloat(document.STN.text2.value);
-      let ste = parseFloat(document.STN.text3.value);
-      let nx = parseFloat(document.STN.text5.value);
-      let ex = parseFloat(document.STN.text6.value);
+      let stn = parseFloat(document.STN.text2.value) || 0;
+      let ste = parseFloat(document.STN.text3.value) || 0;
+      let nx = parseFloat(document.STN.text5.value) || 0;
+      let ex = parseFloat(document.STN.text6.value) || 0;
 
       let brg = joint(stn, ste, nx, ex);
       let dist = jointdist(stn, ste, nx, ex);
@@ -487,77 +699,27 @@
       let a = fix3(DIST - HD);
       alert("DIFF = " + a);
     }
-  </script>
 
-  <style>
-    /* 數字鍵盤樣式 */
-    .number-pad-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 1000;
-      display: flex;
-      align-items: flex-end;
-    }
-
-    .number-pad-container {
-      background: white;
-      width: 100%;
-      border-radius: 20px 20px 0 0;
-      padding: 20px;
-    }
-
-    .number-pad-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .number-pad-header button {
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: #666;
-    }
-
-    .number-pad {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .num-btn {
-      aspect-ratio: 1;
-      font-size: 20px;
-      border: none;
-      border-radius: 8px;
-      background: #f0f0f0;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-
-    .num-btn:active {
-      background: #ddd;
-    }
-
-    @media (min-width: 768px) {
-      .number-pad-overlay {
-        align-items: center;
-        justify-content: center;
-      }
+    // Page load initialization
+    document.addEventListener('DOMContentLoaded', function() {
+      functionfirst();
+      initNumberPad();
       
-      .number-pad-container {
-        width: 300px;
-        border-radius: 12px;
-      }
-    }
-  </style>
+      // Add event listeners
+      document.getElementById('contractSelect').addEventListener('change', function() {
+        CheckIt3(this.selectedIndex);
+      });
+      
+      document.getElementById('fromStationSelect').addEventListener('change', CheckIt1);
+      document.getElementById('toStationSelect').addEventListener('change', CheckIt2);
+      
+      // Click on overlay to close number pad
+      document.getElementById('numberPadOverlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+          hideNumberPad();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
