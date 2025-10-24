@@ -1,3 +1,598 @@
-<script type="text/javascript"><!--
-document.write(unescape("%0A%0A%3Chtml%3E%20%0A%0A%3Chead%3E%0A%3Cmeta%20http-equiv%3D%22Content-Type%22%20content%3D%22text/html%3B%20charset%3Dutf-8%22%3E%0A%09%3Cmeta%20name%3D%22ROBOTS%22%20content%3D%22NOARCHIVE%22%3E%0A%09%3Cmeta%20name%20%3D%20%22viewport%22%20content%20%3D%20%22width%20%3D%20device-width%22%3E%0A%09%3Ctitle%3ELuen%20Hing%20Survey%20Program%3C/title%3E%0A%0A%3C/head%3E%0A%0A%0A%0A%0A%3Cbody%20onLoad%3D%22functionfirst%28%29%3B%22%3E%0A%0A%3Cscript%20src%3D%22station.js%22%3E%0A%3C/script%3E%0A%0A%0A%0A%3Cscript%3E%0Afunction%20functionfirst%28%29%0A%7B%0A%20%20%20var%20contractnumber%3Dnew%20Array%28%29%0A%20%20%20j%3D0%0A%20%20%20temp%3D%22%22%0A%20%20%20contractnumber%5B0%5D%3Dst%5B1%5D%5B0%5D%0A%20%20%20for%28i%3D2%3Bi%3C%28st.length%29%3Bi++%29%0A%20%20%20%7B%0A%20%20%20%20%20temp%3Dst%5Bi%5D%5B0%5D%20%20%20%20%0A%20%20%20%20%20if%20%28temp%21%3Dcontractnumber%5Bj%5D%29%0A%20%20%20%20%20%7B%0A%20%20%20%20%20%20j%3Dj+1%0A%20%20%20%20%20%20contractnumber%5Bj%5D%3Dtemp%0A%20%20%20%20%20%7D%0A%20%20%20%7D//%20End%20For%0A%0A%20%20%20%20%20%20%20%20%0A%0A%0A%20%20%20%20%20%20%20%20z%3D0%20%20//%20%u8A2D%u5B9AZ%3D0%20%28%u627E%u51FA%u76F8%u540C%u6578%u76EE%20%26%20%u9664%u6E05%u7A7A%29%0A%20%20%20%20%20%20%20%20for%28i%3D%28contractnumber.length%29%3Bi%3E0%3Bi--%29%20//%20%u8A2D%u5B9ALOOP%201%20i%3D%20%u7531%u5C3E%u81F3%u982D%0A%0A%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20for%28j%3Di-1%3Bj%3E%28-1%29%3Bj--%29%20//%20%u8A2D%u5B9ALOOP%202%20%3D%20j%u7531i-1%u81F3%u982D%0A%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20if%20%28contractnumber%5Bi%5D%3D%3Dcontractnumber%5Bj%5D%29%20//%20%u5982%u679C%u51FA%u73FE%u76F8%u540C%20i%3Dj%0A%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20z%3Dz+1%20//%20%u76F8%u540C%u6B21%u6578%u52A0%u4E00%u6B21%0A%20%20%20%20%20%20%20%20%20contractnumber%5Bi%5D%3D%22%22%20%20//%20%u91CD%u8907%u4F4D%u7F6E%3D%u7A7A%0A%20%20%20%20%20%20%20%20%20break%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20%u8DF3%u51FALOOP%202%0A%20%20%20%20%20%20%20%20%20%7D//End%20if%0A%20%20%20%20%20%20%20%20%20%7D//End%20for%20%0A%20%20%20%20%20%20%20%20%20%7D//End%20for%0A%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20j%3D0%20//%20%u8A2D%u5B9Aj%3D0%20%28%u627E%u51FA%u7A7A%u683C%20%26%20NEW%20Array%29%0A%20%20%20%20%20%20%20%20%20for%28i%3D0%3Bi%3C%28contractnumber.length%29%3Bi++%29%20//%20%u8A2D%u5B9ALOOP%201%20i%3D%20%u7531%u982D%u81F3%u5C3E%0A%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20if%20%28contractnumber%5Bi%5D%21%3D%22%22%29%20//%20%u5982%u679C%u51FA%u73FE%u76F8%u540C%20i%u4E0D%u7B49%u65BC%u7A7A%u683C%0A%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20contractnumber%5Bj%5D%3Dcontractnumber%5Bi%5D%20%0A%20%20%20%20%20%20%20%20%20%20j%3Dj+1%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%7D%0A%0A%0AF%3D%20%28contractnumber.length%29%20-%20z%0A%0A%0A%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%0Aj%3D1%0Afor%28i%3D0%3Bi%3CF%3Bi++%29%0A%7B%0A//alert%28countnumber%29%3B%0Adocument.STN.contact%5Bj%5D%3Dnew%20Option%28contractnumber%5Bi%5D%2C%20contractnumber%5Bi%5D%29%3B%20%20//%20%u8A2D%u5B9A%u65B0%u9078%u9805%0A%0Aj%3Dj+1%0A%7D//End%20For%0Adocument.STN.contact.length%3DF+1%20%20//%20%u522A%u9664%u591A%u9918%u7684%u9078%u9805%0A%7D%0A%0Afunction%20CheckIt3%28index%29%0A%7B%0Acontactno%3Ddocument.STN.contact.value%0Acountnumber%3D1%0Atemp%3D%22%22%0Aj%3D1%0Afor%28i%3D0%3Bi%3C%28st.length%29%3Bi++%29%0A%7B%0Atemp%3Dst%5Bi%5D%5B0%5D%0Aif%20%28temp%3D%3Dcontactno%29%0A%7B%0A//alert%28countnumber%29%3B%0Acountnumber%3Dcountnumber+1%0Adocument.STN.staionselect1%5Bj%5D%3Dnew%20Option%28st%5Bi%5D%5B1%5D%2C%20st%5Bi%5D%5B1%5D%29%3B%20%20//%20%u8A2D%u5B9A%u65B0%u9078%u9805%0A%0Aj%3Dj+1%0A%7D%0A%7D//End%20For%0Adocument.STN.staionselect1.length%3Dcountnumber%20%20//%20%u522A%u9664%u591A%u9918%u7684%u9078%u9805%0A%0A%7D%0A%0A%0A%0Afunction%20CheckIt1%28%29%0A%7B%0Ak%3D1%0AName%20%3D%20document.STN.staionselect1.value%0Acontactno%20%3D%20document.STN.contact.value%0Ak%3Dcheckst%28Name%2Ccontactno%29%0An%3Dst%5Bk%5D%5B2%5D%0Ae%3Dst%5Bk%5D%5B3%5D%0Arl%3Dst%5Bk%5D%5B4%5D%0Adocument.STN.text2.value%20%3D%20n%0Adocument.STN.text3.value%20%3D%20e%0Adocument.STN.text4.value%20%3D%20rl%0A%0A%0A%0A%0A%0A%0A%0A%7D%0A%0Afunction%20CLSIt2%28%29%0A%7B%0Adocument.STN.text8.value%3D%22%22%0Adocument.STN.text9.value%3D%22%22%0Adocument.STN.text10.value%3D%22%22%0Adocument.STN.text12.value%3D%22%22%0Adocument.STN.text13.value%3D%22%22%0Adocument.STN.text14.value%3D%22%22%0A%0A%7D%0A%0Afunction%20RUNIt%28%20%29%0A%7B%0Astn%20%3D%20document.STN.text2.value%20%0Aste%3D%20document.STN.text3.value%0ASRL%20%3D%20document.STN.text4.value%0AHI%20%3D%20document.STN.text5.value%0ABSTB%20%3Ddocument.STN.text6.value%0ABSB%20%3D%20document.STN.text7.value%0ABRG%20%3D%20document.STN.text8.value%0AVA%20%3D%20document.STN.text9.value%0ASD%20%3D%20document.STN.text10.value%0APH%20%3D%20document.STN.text11.value%0A%0ACOLL%20%3D%20fix4%28SRL%29+fix4%28HI%29%0AVA%20%3D%20deg%28VA%29%0ARL%20%3D%20fcos%28VA%29*SD%20+%20fix4%28COLL%29%20-%20fix3%28PH%29%0AHD%20%3D%20%28Math.abs%28fsin%28VA%29*SD%29%29%0ATB%20%3D%20deg%28BSTB%29-deg%28BSB%29+deg%28BRG%29%0ANX%20%3D%20fcos%28TB%29*HD+fix4%28stn%29%0AEX%20%3D%20fsin%28TB%29*HD+fix4%28ste%29%0Adocument.STN.text12.value%3Dfix4%28NX%29%0Adocument.STN.text13.value%3Dfix4%28EX%29%0Adocument.STN.text14.value%3Dfix3%28RL%29%0A%0A%0AlocalStorage.ANSWER_N%3Dfix4%28NX%29%3B%0AlocalStorage.ANSWER_E%3Dfix4%28EX%29%3B%0AlocalStorage.ANSWER_RL%3Dfix4%28RL%29%3B%0A%0A%0A%0A%7D%0A%0Afunction%20checkst%28stationname%2Ccontactno%29%0A%7B%0Ak%3D0%0Afor%20%28i%3D1%3Bi%3Cst.length%3Bi++%29%0A%7B%0Ac%3Dst%5Bi%5D%5B1%5D%0Ad%3Dst%5Bi%5D%5B0%5D%0Aif%20%28c%20%3D%3D%20stationname%20%26%26%20d%20%3D%3D%20contactno%29%0A%7B%0Ak%3Di%0A%7D%0A%7D%0A%0Areturn%20k%7D%0A%0A%0A%0A//%u5C0F%u6578%u5F8C3%u4F4D%0Afunction%20fix3%28z%29%0A%7Breturn%20z%3D%28Math.floor%28z%20*%201000%20+%200.5%29%29%20/%201000%7D%0A//%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%20Function%20END%20%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0A%0A%0A//%u5C0F%u6578%u5F8C4%u4F4D%0Afunction%20fix4%28z%29%0A%7Breturn%20z%3D%28Math.floor%28z%20*%2010000%20+%200.5%29%29%20/%2010000%7D%0A//%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%20Function%20END%20%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0A%0A//%u8F49%u5C0F%u6578%0Afunction%20deg%28z%29%0A%7B%20return%20z%3D%28Math.floor%28z%29%29%20+%20%28Math.floor%28%28z%20-%20%28Math.floor%28z%29%29%29%20*%20100%29%29%20/%2060%20+%20%28%28100%20*%20z%20-%20%28Math.floor%28100%20*%20z%29%29%29%20*%20100%29%20/%203600%7D%0A//%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%20Function%20END%20%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0A%0A//Sin%20Fucction%0Afunction%20fsin%28z%29%0A%7Breturn%20z%3D%28Math.sin%28z*%203.14159265358979/180%29%29%7D%0A//%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%20Function%20END%20%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0A%0A%0A%0A//cos%20Fucction%0Afunction%20fcos%28z%29%0A%7Breturn%20z%3D%28Math.cos%28z*%203.14159265358979/180%29%29%7D%0A//%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%20Function%20END%20%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0Afunction%20CALLSINDATA%28%29%0A%7B%0A%0Adocument.STN.text2.value%3DlocalStorage.XXN%3B%0Adocument.STN.text3.value%20%3DlocalStorage.XXE%3B%0Adocument.STN.text4.value%20%3DlocalStorage.XXL%3B%0Adocument.STN.text5.value%20%3D0%0A%7D%0A%0A%0A%3C/script%3E%0A%0A%0A%0A%3Ch3%3EKin%20Write%20Tachy%0A%3Cp%3E%0AEmail%3A%20kin525@yahoo.com.hk%0A%3Cp%3E%0A%3C/h3%3E%0A%3Cform%20name%3D%22STN%22%3E%0A%3Cp%3E%0A%0A%0A%3C/script%3E%0A%3Cp%3E%0AContract%20Number%3A%3Cselect%20name%3D%22contact%22%20%20onChange%3D%22CheckIt3%28this.selectedIndex%29%22%20%3E%0A%20%20%3Coption%20value%3D%22Select%20Site%22%3ESelect%20Site%0A%0A%3C/select%3E%0A%0A%0A%3Cp%3E%0A%3Cselect%20name%3D%22staionselect1%22%20onChange%3D%22CheckIt1%28%29%22%3E%0A%20%3Coption%20value%3D%22Station%20Name%22%3EStation%20Name%0A%3C/select%3E%0A%3Cp%3E%0ASTN%20%3A%20%3Cinput%20name%3D%22text2%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0ASTE%20%3A%20%3Cinput%20name%3D%22text3%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0ARL%20%3A%20%3Cinput%20name%3D%22text4%22%20type%3D%22text%22%20size%3D6%3E%0A%3Cp%3E%0AHI%20%3A%20%3Cinput%20name%3D%22text5%22%20type%3D%22text%22%20size%3D6%3E%0A%3Cp%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22CALL%20FROM%20SINSECTION%22%0AonClick%3D%22CALLSINDATA%28%29%22%20%3E%0A%0A%3Cp%3E%0ABS.T/Brg%3A%3Cinput%20name%3D%22text6%22%20type%3D%22text%22%20size%3D10%3E%0A%3Cp%3E%0ABS.Brg%3A%3Cinput%20name%3D%22text7%22%20type%3D%22text%22%20size%3D10%3E%0A%3Cp%3E%0A%0A%3C%3C%3C%3C%3C%3C%3C%3C%3C%20SETTING%20OUT%20INPUT%20DATA%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0A%3Cp%3E%0ABrg%20%20%3A%20%3Cinput%20name%3D%22text8%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0AVA%20%20%3A%20%3Cinput%20name%3D%22text9%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0AS.Dist%20%20%3A%20%3Cinput%20name%3D%22text10%22%20type%3D%22text%22%20size%3D10%3E%0A%3Cp%3E%0APH%20%3A%3Cinput%20name%3D%22text11%22%20type%3D%22text%22%20size%3D8%3E%0A%3Cp%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22RUN%22%0AonClick%3D%22RUNIt%28%29%22%20%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22CLS%22%0AonClick%3D%22CLSIt2%28%29%22%20%3E%0A%3Cp%3E%0A%3C%3C%3C%3C%3C%3C%3C%3C%3C%20ANSWER%20DATA%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0A%3Cp%3E%0ANx%20%3D%20%3Cinput%20name%3D%22text12%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0AEx%20%3D%20%3Cinput%20name%3D%22text13%22%20type%3D%22text%22%20size%3D12%3E%0A%3Cp%3E%0ARL%3D%3Cinput%20name%3D%22text14%22%20type%3D%22text%22%20size%3D12%3E%0A%3C/form%3E%0A%0A%0A%0A%0A%0A%3C/body%3E%0A%3C/html%3E%0A%0A"));
-// --></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="ROBOTS" content="NOARCHIVE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Luen Hing Survey Program - Tachy Calculation</title>
+    <style>
+        /* Base reset and responsive design */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 15px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 24px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Form elements */
+        select, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: white;
+        }
+
+        select:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #007AFF;
+        }
+
+        /* Optimize number input for mobile */
+        input[type="text"][inputmode="decimal"] {
+            -webkit-user-select: text;
+            user-select: text;
+        }
+
+        /* iOS Safari optimizations */
+        @supports (-webkit-touch-callout: none) {
+            input[type="text"][inputmode="decimal"] {
+                font-size: 16px; /* Prevent zoom on iOS */
+            }
+        }
+
+        fieldset {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #fafafa;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+            color: #555;
+        }
+
+        /* Buttons */
+        input[type="button"] {
+            width: 100%;
+            padding: 12px;
+            background: #007AFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-bottom: 10px;
+        }
+
+        input[type="button"]:active {
+            background: #0056cc;
+            transform: scale(0.98);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .button-group input[type="button"] {
+            flex: 1;
+        }
+
+        /* Result section */
+        .result-section {
+            background: #e8f4ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            select, input[type="text"], input[type="button"] {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        /* Number input container */
+        .number-input-container {
+            position: relative;
+        }
+
+        .number-input-container input {
+            padding-right: 40px;
+        }
+
+        .clear-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: #999;
+            cursor: pointer;
+            display: none;
+            padding: 5px;
+            z-index: 10;
+        }
+
+        input:not(:placeholder-shown) + .clear-btn {
+            display: block;
+        }
+
+        /* Form labels */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Compact layout for coordinate inputs */
+        .input-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .input-group {
+            flex: 1;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        /* Section headers */
+        .section-header {
+            background: #f0f0f0;
+            padding: 8px 15px;
+            margin: 20px 0 15px 0;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #555;
+            text-align: center;
+        }
+    </style>
+    <script src="station.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Kin Write Tachy</h3>
+        <p style="text-align: center; color: #666;">Email: kin525@yahoo.com.hk</p>
+
+        <form name="STN" id="surveyForm">
+            <div class="form-group">
+                <label for="contractSelect">Contract Number:</label>
+                <select id="contractSelect" name="contact">
+                    <option value="Select Site">Select Site</option>
+                </select>
+            </div>
+
+            <fieldset>
+                <legend>Station Data</legend>
+                <div class="form-group">
+                    <label for="fromStationSelect">Station:</label>
+                    <select id="fromStationSelect" name="staionselect1">
+                        <option value="Station Name">Station Name</option>
+                    </select>
+                </div>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="stnInput">STN:</label>
+                        <div class="number-input-container">
+                            <input id="stnInput" name="text2" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter STN"
+                                   size="12">
+                            <button type="button" class="clear-btn" onclick="clearInput('stnInput')">×</button>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="steInput">STE:</label>
+                        <div class="number-input-container">
+                            <input id="steInput" name="text3" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter STE"
+                                   size="12">
+                            <button type="button" class="clear-btn" onclick="clearInput('steInput')">×</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="rlInput">RL:</label>
+                        <div class="number-input-container">
+                            <input id="rlInput" name="text4" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter RL"
+                                   size="6">
+                            <button type="button" class="clear-btn" onclick="clearInput('rlInput')">×</button>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="hiInput">HI:</label>
+                        <div class="number-input-container">
+                            <input id="hiInput" name="text5" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter HI"
+                                   size="6">
+                            <button type="button" class="clear-btn" onclick="clearInput('hiInput')">×</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <input type="button" value="CALL FROM SINSECTION" onclick="CALLSINDATA()">
+            </fieldset>
+
+            <div class="section-header">BACKSIGHT DATA</div>
+            
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="bstbInput">BS T/Brg:</label>
+                    <div class="number-input-container">
+                        <input id="bstbInput" name="text6" type="text" 
+                               inputmode="decimal" 
+                               pattern="[0-9.]*" 
+                               placeholder="Enter BS T/Brg"
+                               size="10">
+                        <button type="button" class="clear-btn" onclick="clearInput('bstbInput')">×</button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="bsbInput">BS Brg:</label>
+                    <div class="number-input-container">
+                        <input id="bsbInput" name="text7" type="text" 
+                               inputmode="decimal" 
+                               pattern="[0-9.]*" 
+                               placeholder="Enter BS Brg"
+                               size="10">
+                        <button type="button" class="clear-btn" onclick="clearInput('bsbInput')">×</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">SETTING OUT INPUT DATA</div>
+            
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="brgInput">Brg:</label>
+                    <div class="number-input-container">
+                        <input id="brgInput" name="text8" type="text" 
+                               inputmode="decimal" 
+                               pattern="[0-9.]*" 
+                               placeholder="Enter bearing"
+                               size="12">
+                        <button type="button" class="clear-btn" onclick="clearInput('brgInput')">×</button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="vaInput">VA:</label>
+                    <div class="number-input-container">
+                        <input id="vaInput" name="text9" type="text" 
+                               inputmode="decimal" 
+                               pattern="[0-9.]*" 
+                               placeholder="Enter VA"
+                               size="12">
+                        <button type="button" class="clear-btn" onclick="clearInput('vaInput')">×</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="sdistInput">S.Dist:</label>
+                    <div class="number-input-container">
+                        <input id="sdistInput" name="text10" type="text" 
+                               inputmode="decimal" 
+                               pattern="[0-9.]*" 
+                               placeholder="Enter slope distance"
+                               size="10">
+                        <button type="button" class="clear-btn" onclick="clearInput('sdistInput')">×</button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="phInput">PH:</label>
+                    <div class="number-input-container">
+                        <input id="phInput" name="text11" type="text" 
+                               inputmode="decimal" 
+                               pattern="[0-9.]*" 
+                               placeholder="Enter PH"
+                               size="8">
+                        <button type="button" class="clear-btn" onclick="clearInput('phInput')">×</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <input type="button" value="RUN CALCULATION" onclick="RUNIt()">
+                <input type="button" value="CLEAR DATA" onclick="CLSIt2()">
+            </div>
+
+            <div class="section-header">ANSWER DATA</div>
+            
+            <div class="result-section">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Nx:</label>
+                        <input name="text12" type="text" readonly style="background: #f0f0f0;">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Ex:</label>
+                        <input name="text13" type="text" readonly style="background: #f0f0f0;">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label>RL:</label>
+                    <input name="text14" type="text" readonly style="background: #f0f0f0;">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Input handling functions
+        function clearInput(inputId) {
+            const input = document.getElementById(inputId);
+            input.value = '';
+            
+            // Trigger input event
+            const event = new Event('input', { bubbles: true });
+            input.dispatchEvent(event);
+        }
+
+        // Initialize clear button visibility
+        function initClearButtons() {
+            const inputs = document.querySelectorAll('input[inputmode="decimal"]');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const clearBtn = this.nextElementSibling;
+                    if (clearBtn && clearBtn.classList.contains('clear-btn')) {
+                        clearBtn.style.display = this.value ? 'block' : 'none';
+                    }
+                });
+            });
+        }
+
+        // Original functions with modern improvements
+        function functionfirst() {
+            var contractnumber = new Array();
+            var j = 0;
+            var temp = "";
+            
+            contractnumber[0] = st[1][0];
+            
+            for(var i = 2; i < st.length; i++) {
+                temp = st[i][0];
+                if (temp != contractnumber[j]) {
+                    j = j + 1;
+                    contractnumber[j] = temp;
+                }
+            }
+
+            var z = 0;
+            for(var i = contractnumber.length - 1; i > 0; i--) {
+                for(var j = i - 1; j >= 0; j--) {
+                    if (contractnumber[i] == contractnumber[j]) {
+                        z = z + 1;
+                        contractnumber[i] = "";
+                        break;
+                    }
+                }
+            }
+
+            j = 0;
+            for(var i = 0; i < contractnumber.length; i++) {
+                if (contractnumber[i] != "") {
+                    contractnumber[j] = contractnumber[i];
+                    j = j + 1;
+                }
+            }
+
+            var F = contractnumber.length - z;
+            const contractSelect = document.getElementById('contractSelect');
+            
+            // Clear existing options
+            contractSelect.innerHTML = '<option value="Select Site">Select Site</option>';
+            
+            for(var i = 0; i < F; i++) {
+                const option = new Option(contractnumber[i], contractnumber[i]);
+                contractSelect.add(option);
+            }
+        }
+
+        function CheckIt3(index) {
+            var contactno = document.STN.contact.value;
+            var countnumber = 1;
+            var temp = "";
+            var j = 1;
+
+            const fromSelect = document.getElementById('fromStationSelect');
+            
+            // Clear existing options
+            fromSelect.innerHTML = '<option value="Station Name">Station Name</option>';
+
+            for(var i = 0; i < st.length; i++) {
+                temp = st[i][0];
+                if (temp == contactno) {
+                    countnumber = countnumber + 1;
+                    fromSelect.add(new Option(st[i][1], st[i][1]));
+                    j = j + 1;
+                }
+            }
+            fromSelect.length = countnumber;
+        }
+
+        function checkst(stationname, contactno) {
+            var k = 0;
+            for (var i = 1; i < st.length; i++) {
+                var c = st[i][1];
+                var d = st[i][0];
+                if (c == stationname && d == contactno) {
+                    k = i;
+                }
+            }
+            return k;
+        }
+
+        function CLSIt2() {
+            document.STN.text8.value = "";
+            document.STN.text9.value = "";
+            document.STN.text10.value = "";
+            document.STN.text12.value = "";
+            document.STN.text13.value = "";
+            document.STN.text14.value = "";
+        }
+
+        function CheckIt1() {
+            var k = 1;
+            var Name = document.STN.staionselect1.value;
+            var contactno = document.STN.contact.value;
+            k = checkst(Name, contactno);
+            var n = st[k][2];
+            var e = st[k][3];
+            var rl = st[k][4];
+            document.STN.text2.value = n;
+            document.STN.text3.value = e;
+            document.STN.text4.value = rl;
+        }
+
+        function RUNIt() {
+            var stn = parseFloat(document.STN.text2.value) || 0;
+            var ste = parseFloat(document.STN.text3.value) || 0;
+            var SRL = parseFloat(document.STN.text4.value) || 0;
+            var HI = parseFloat(document.STN.text5.value) || 0;
+            var BSTB = parseFloat(document.STN.text6.value) || 0;
+            var BSB = parseFloat(document.STN.text7.value) || 0;
+            var BRG = parseFloat(document.STN.text8.value) || 0;
+            var VA = parseFloat(document.STN.text9.value) || 0;
+            var SD = parseFloat(document.STN.text10.value) || 0;
+            var PH = parseFloat(document.STN.text11.value) || 0;
+
+            var COLL = fix4(SRL) + fix4(HI);
+            VA = deg(VA);
+            var RL = fcos(VA) * SD + fix4(COLL) - fix3(PH);
+            var HD = (Math.abs(fsin(VA) * SD));
+            var TB = deg(BSTB) - deg(BSB) + deg(BRG);
+            var NX = fcos(TB) * HD + fix4(stn);
+            var EX = fsin(TB) * HD + fix4(ste);
+            
+            document.STN.text12.value = fix4(NX);
+            document.STN.text13.value = fix4(EX);
+            document.STN.text14.value = fix3(RL);
+
+            localStorage.ANSWER_N = fix4(NX);
+            localStorage.ANSWER_E = fix4(EX);
+            localStorage.ANSWER_RL = fix4(RL);
+        }
+
+        // 3 decimal places
+        function fix3(z) {
+            return z = (Math.floor(z * 1000 + 0.5)) / 1000;
+        }
+
+        // 4 decimal places
+        function fix4(z) {
+            return z = (Math.floor(z * 10000 + 0.5)) / 10000;
+        }
+
+        // Convert to decimal degrees
+        function deg(z) {
+            return z = (Math.floor(z)) + (Math.floor((z - (Math.floor(z))) * 100)) / 60 + ((100 * z - (Math.floor(100 * z))) * 100) / 3600;
+        }
+
+        // Sine function
+        function fsin(z) {
+            return z = (Math.sin(z * 3.14159265358979 / 180));
+        }
+
+        // Cosine function
+        function fcos(z) {
+            return z = (Math.cos(z * 3.14159265358979 / 180));
+        }
+
+        function CALLSINDATA() {
+            document.STN.text2.value = localStorage.XXN || '';
+            document.STN.text3.value = localStorage.XXE || '';
+            document.STN.text4.value = localStorage.XXL || '';
+            document.STN.text5.value = 0;
+        }
+
+        // Page load initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            functionfirst();
+            initClearButtons();
+            
+            // Add event listeners
+            document.getElementById('contractSelect').addEventListener('change', function() {
+                CheckIt3(this.selectedIndex);
+            });
+            
+            document.getElementById('fromStationSelect').addEventListener('change', CheckIt1);
+        });
+    </script>
+</body>
+</html>
