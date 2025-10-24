@@ -1,258 +1,484 @@
-
-
-<html> 
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="ROBOTS" content="NOARCHIVE">
-	<meta name = "viewport" content = "width = device-width">
-	<title>Luen Hing Survey Program</title>
+    <meta charset="UTF-8">
+    <meta name="ROBOTS" content="NOARCHIVE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Luen Hing Survey Program - Polar Calculation</title>
+    <style>
+        /* Base reset and responsive design */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 15px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 24px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Form elements */
+        select, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: white;
+        }
+
+        select:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #007AFF;
+        }
+
+        /* Optimize number input for mobile */
+        input[type="text"][inputmode="decimal"] {
+            -webkit-user-select: text;
+            user-select: text;
+        }
+
+        /* iOS Safari optimizations */
+        @supports (-webkit-touch-callout: none) {
+            input[type="text"][inputmode="decimal"] {
+                font-size: 16px; /* Prevent zoom on iOS */
+            }
+        }
+
+        fieldset {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #fafafa;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+            color: #555;
+        }
+
+        /* Buttons */
+        input[type="button"] {
+            width: 100%;
+            padding: 12px;
+            background: #007AFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-bottom: 10px;
+        }
+
+        input[type="button"]:active {
+            background: #0056cc;
+            transform: scale(0.98);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .button-group input[type="button"] {
+            flex: 1;
+        }
+
+        /* Result section */
+        .result-section {
+            background: #e8f4ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .result-section p {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            select, input[type="text"], input[type="button"] {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        /* Number input container */
+        .number-input-container {
+            position: relative;
+        }
+
+        .number-input-container input {
+            padding-right: 40px;
+        }
+
+        .clear-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: #999;
+            cursor: pointer;
+            display: none;
+            padding: 5px;
+            z-index: 10;
+        }
+
+        input:not(:placeholder-shown) + .clear-btn {
+            display: block;
+        }
+
+        /* Form labels */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Compact layout for coordinate inputs */
+        .coordinate-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .coordinate-input {
+            flex: 1;
+        }
+
+        .coordinate-input label {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: #ddd;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: "Calculation Input";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 10px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+    <script src="station.js"></script>
 </head>
 
-
-
-
-
-
-
-
-
-
-
-
-<body onLoad="functionfirst();">
-<script src="station.js">
-</script>
-
-<script>
-
-
-
-function functionfirst()
-{
-   var contractnumber=new Array()
-   j=0
-   temp=""
-   contractnumber[0]=st[1][0]
-   for(i=2;i<(st.length);i++)
-   {
-     temp=st[i][0]    
-     if (temp!=contractnumber[j])
-     {
-      j=j+1
-      contractnumber[j]=temp
-     }
-   }// End For
-
-        
-
-
-        z=0  // 設定Z=0 (找出相同數目 & 除清空)
-        for(i=(contractnumber.length);i>0;i--) // 設定LOOP 1 i= 由尾至頭
-
-        {
-          for(j=i-1;j>(-1);j--) // 設定LOOP 2 = j由i-1至頭
-        {
-           
-         
-        if (contractnumber[i]==contractnumber[j]) // 如果出現相同 i=j
-         {
-      
-         z=z+1 // 相同次數加一次
-         contractnumber[i]=""  // 重複位置=空
-         break;                // 跳出LOOP 2
-         }//End if
-         }//End for 
-         }//End for
-         
-         j=0 // 設定j=0 (找出空格 & NEW Array)
-         for(i=0;i<(contractnumber.length);i++) // 設定LOOP 1 i= 由頭至尾
-          {
-          if (contractnumber[i]!="") // 如果出現相同 i不等於空格
-          {
-          contractnumber[j]=contractnumber[i] 
-          j=j+1
-          }
-           }
-
-
-F= (contractnumber.length) - z
-
-
-  
-              
-
-j=1
-for(i=0;i<F;i++)
-{
-//alert(countnumber);
-document.STN.contact[j]=new Option(contractnumber[i], contractnumber[i]);  // 設定新選項
-
-j=j+1
-}//End For
-document.STN.contact.length=F+1  // 刪除多餘的選項
-}
-
-
-
-
-
-
-
-
-
-
-
-
-function CheckIt3(index)
-{
-contactno=document.STN.contact.value
-countnumber=1
-temp=""
-j=1
-for(i=0;i<(st.length);i++)
-{
-temp=st[i][0]
-if (temp==contactno)
-{
-//alert(countnumber);
-countnumber=countnumber+1
-document.STN.staionselect1[j]=new Option(st[i][1], st[i][1]);  // 設定新選項
-
-j=j+1
-}
-}//End For
-document.STN.staionselect1.length=countnumber  // 刪除多餘的選項
-
-}
-function checkst(stationname,contactno)
-{
-k=0
-for (i=1;i<st.length;i++)
-{
-c=st[i][1]
-d=st[i][0]
-if (c == stationname && d == contactno)
-{
-k=i
-}
-}
-
-return k}
-
-function CLSIt2()
-{
-document.STN.text4.value = ""
-document.STN.text5.value = ""
-document.STN.text6.value = ""
-document.STN.text7.value = ""
-}
-
-function CheckIt1()
-{
-k=1
-Name = document.STN.staionselect1.value
-contactno = document.STN.contact.value
-k=checkst(Name,contactno)
-n=st[k][2]
-e=st[k][3]
-document.STN.text2.value = n
-document.STN.text3.value = e
-}
-
-function RUNIt( )
-
-
-{
-pi = 3.14159265358979
-stn = document.STN.text2.value 
-ste= document.STN.text3.value
-b = document.STN.text4.value
-d = document.STN.text5.value
-
-b = deg(b)
-
-
-nx = fix4((Math.cos(b*pi/180))*d+fix4(stn))
-ex = fix4((Math.sin(b*pi/180))*d+fix4(ste))
-
-
-
-
-
-document.STN.text6.value=nx
-document.STN.text7.value=ex
-}
-
-function deg(z)
-{ return z=(Math.floor(z)) + (Math.floor((z - (Math.floor(z))) * 100)) / 60 + ((100 * z - (Math.floor(100 * z))) * 100) / 3600}
-
-function fix4(z)
-{return z=(Math.floor(z * 10000 + 0.5)) / 10000}
-
-
-
-
-
-
-</script>
-
-
-
-<h3>Kin Write Polar
-<p>
-Email: kin525@yahoo.com.hk
-<p>
-</h3>
-<form name="STN">
-<p>
-
-
-</script>
-<p>
-Contract Number:<select name="contact"  onChange="CheckIt3(this.selectedIndex)" >
-  <option value="Select Site">Select Site
-
-
-</select>
-
-
-<p>
-<select name="staionselect1" onChange="CheckIt1()">
- <option value="Station Name">Station Name
-</select>
-<p>
-STN : <input name="text2" type="text" size=12>
-<p>
-STE : <input name="text3" type="text" size=12>
-
-<p>
-____________________
-<p>
-Brg  : <input name="text4" type="text" size=12>
-<p>
-Dist  : <input name="text5" type="text" size=12>
-<p>
-<input name="submit" type="button" value="RUN"
-onClick="RUNIt()" >
-<input name="submit" type="button" value="CLS"
-onClick="CLSIt2()" >
-<p>
-<p>
-<p>
-Nx = <input name="text6" type="text" size=12>
-<p>
-Ex = <input name="text7" type="text" size=12>
-<p>
-</form>
-
-
-
-
-
-</body></html>
-
-
-
-
+<body>
+    <div class="container">
+        <h3>Kin Write Polar</h3>
+        <p style="text-align: center; color: #666;">Email: kin525@yahoo.com.hk</p>
+
+        <form name="STN" id="surveyForm">
+            <div class="form-group">
+                <label for="contractSelect">Contract Number:</label>
+                <select id="contractSelect" name="contact">
+                    <option value="Select Site">Select Site</option>
+                </select>
+            </div>
+
+            <fieldset>
+                <legend>From Station</legend>
+                <div class="form-group">
+                    <label for="fromStationSelect">Station:</label>
+                    <select id="fromStationSelect" name="staionselect1">
+                        <option value="Station Name">Station Name</option>
+                    </select>
+                </div>
+                
+                <div class="coordinate-row">
+                    <div class="coordinate-input">
+                        <label for="stnInput">STN:</label>
+                        <div class="number-input-container">
+                            <input id="stnInput" name="text2" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter STN"
+                                   size="12">
+                            <button type="button" class="clear-btn" onclick="clearInput('stnInput')">×</button>
+                        </div>
+                    </div>
+                    
+                    <div class="coordinate-input">
+                        <label for="steInput">STE:</label>
+                        <div class="number-input-container">
+                            <input id="steInput" name="text3" type="text" 
+                                   inputmode="decimal" 
+                                   pattern="[0-9.]*" 
+                                   placeholder="Enter STE"
+                                   size="12">
+                            <button type="button" class="clear-btn" onclick="clearInput('steInput')">×</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="divider"></div>
+
+            <div class="coordinate-row">
+                <div class="coordinate-input">
+                    <label for="brgInput">Brg:</label>
+                    <div class="number-input-container">
+                        <input id="brgInput" name="text4" type="text" 
+                               inputmode="decimal" 
+                               pattern="[0-9.]*" 
+                               placeholder="Enter bearing"
+                               size="12">
+                        <button type="button" class="clear-btn" onclick="clearInput('brgInput')">×</button>
+                    </div>
+                </div>
+                
+                <div class="coordinate-input">
+                    <label for="distInput">Dist:</label>
+                    <div class="number-input-container">
+                        <input id="distInput" name="text5" type="text" 
+                               inputmode="decimal" 
+                               pattern="[0-9.]*" 
+                               placeholder="Enter distance"
+                               size="12">
+                        <button type="button" class="clear-btn" onclick="clearInput('distInput')">×</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <input type="button" value="RUN" onclick="RUNIt()">
+                <input type="button" value="CLS" onclick="CLSIt2()">
+            </div>
+
+            <div class="result-section">
+                <div class="coordinate-row">
+                    <div class="coordinate-input">
+                        <label>Nx:</label>
+                        <input name="text6" type="text" readonly style="background: #f0f0f0;">
+                    </div>
+                    
+                    <div class="coordinate-input">
+                        <label>Ex:</label>
+                        <input name="text7" type="text" readonly style="background: #f0f0f0;">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Input handling functions
+        function clearInput(inputId) {
+            const input = document.getElementById(inputId);
+            input.value = '';
+            
+            // Trigger input event
+            const event = new Event('input', { bubbles: true });
+            input.dispatchEvent(event);
+        }
+
+        // Initialize clear button visibility
+        function initClearButtons() {
+            const inputs = document.querySelectorAll('input[inputmode="decimal"]');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const clearBtn = this.nextElementSibling;
+                    if (clearBtn && clearBtn.classList.contains('clear-btn')) {
+                        clearBtn.style.display = this.value ? 'block' : 'none';
+                    }
+                });
+            });
+        }
+
+        // Original functions with modern improvements
+        function functionfirst() {
+            var contractnumber = new Array();
+            var j = 0;
+            var temp = "";
+            
+            contractnumber[0] = st[1][0];
+            
+            for(var i = 2; i < st.length; i++) {
+                temp = st[i][0];
+                if (temp != contractnumber[j]) {
+                    j = j + 1;
+                    contractnumber[j] = temp;
+                }
+            }
+
+            var z = 0;
+            for(var i = contractnumber.length - 1; i > 0; i--) {
+                for(var j = i - 1; j >= 0; j--) {
+                    if (contractnumber[i] == contractnumber[j]) {
+                        z = z + 1;
+                        contractnumber[i] = "";
+                        break;
+                    }
+                }
+            }
+
+            j = 0;
+            for(var i = 0; i < contractnumber.length; i++) {
+                if (contractnumber[i] != "") {
+                    contractnumber[j] = contractnumber[i];
+                    j = j + 1;
+                }
+            }
+
+            var F = contractnumber.length - z;
+            const contractSelect = document.getElementById('contractSelect');
+            
+            // Clear existing options
+            contractSelect.innerHTML = '<option value="Select Site">Select Site</option>';
+            
+            for(var i = 0; i < F; i++) {
+                const option = new Option(contractnumber[i], contractnumber[i]);
+                contractSelect.add(option);
+            }
+        }
+
+        function CheckIt3(index) {
+            var contactno = document.STN.contact.value;
+            var countnumber = 1;
+            var temp = "";
+            var j = 1;
+
+            const fromSelect = document.getElementById('fromStationSelect');
+            
+            // Clear existing options
+            fromSelect.innerHTML = '<option value="Station Name">Station Name</option>';
+
+            for(var i = 0; i < st.length; i++) {
+                temp = st[i][0];
+                if (temp == contactno) {
+                    countnumber = countnumber + 1;
+                    fromSelect.add(new Option(st[i][1], st[i][1]));
+                    j = j + 1;
+                }
+            }
+            fromSelect.length = countnumber;
+        }
+
+        function checkst(stationname, contactno) {
+            var k = 0;
+            for (var i = 1; i < st.length; i++) {
+                var c = st[i][1];
+                var d = st[i][0];
+                if (c == stationname && d == contactno) {
+                    k = i;
+                }
+            }
+            return k;
+        }
+
+        function CLSIt2() {
+            document.STN.text4.value = "";
+            document.STN.text5.value = "";
+            document.STN.text6.value = "";
+            document.STN.text7.value = "";
+        }
+
+        function CheckIt1() {
+            var k = 1;
+            var Name = document.STN.staionselect1.value;
+            var contactno = document.STN.contact.value;
+            k = checkst(Name, contactno);
+            var n = st[k][2];
+            var e = st[k][3];
+            document.STN.text2.value = n;
+            document.STN.text3.value = e;
+        }
+
+        function RUNIt() {
+            var pi = 3.14159265358979;
+            var stn = parseFloat(document.STN.text2.value) || 0;
+            var ste = parseFloat(document.STN.text3.value) || 0;
+            var b = parseFloat(document.STN.text4.value) || 0;
+            var d = parseFloat(document.STN.text5.value) || 0;
+
+            b = deg(b);
+
+            var nx = fix4((Math.cos(b * pi / 180)) * d + fix4(stn));
+            var ex = fix4((Math.sin(b * pi / 180)) * d + fix4(ste));
+
+            document.STN.text6.value = nx;
+            document.STN.text7.value = ex;
+        }
+
+        function deg(z) {
+            return z = (Math.floor(z)) + (Math.floor((z - (Math.floor(z))) * 100)) / 60 + ((100 * z - (Math.floor(100 * z))) * 100) / 3600;
+        }
+
+        function fix4(z) {
+            return z = (Math.floor(z * 10000 + 0.5)) / 10000;
+        }
+
+        // Page load initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            functionfirst();
+            initClearButtons();
+            
+            // Add event listeners
+            document.getElementById('contractSelect').addEventListener('change', function() {
+                CheckIt3(this.selectedIndex);
+            });
+            
+            document.getElementById('fromStationSelect').addEventListener('change', CheckIt1);
+        });
+    </script>
+</body>
+</html>
