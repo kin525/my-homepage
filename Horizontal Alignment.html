@@ -33,34 +33,34 @@
         <legend>Alignment Data</legend>
         <div class="input-group" style="margin-bottom:10px;">
           <label for="startCh">Start CH:</label>
-          <input id="startCh" name="text1" type="text" placeholder="Start chainage">
+          <input id="startCh" name="text1" type="text" inputmode="decimal" pattern="[0-9.]*" placeholder="Start chainage">
         </div>
 
         <div class="input-row">
           <div class="input-group">
             <label for="startN">Start N:</label>
-            <input id="startN" name="text2" type="text" placeholder="Start northing">
+            <input id="startN" name="text2" type="text" inputmode="decimal" pattern="[0-9.]*" placeholder="Start northing">
           </div>
           <div class="input-group">
             <label for="startE">Start E:</label>
-            <input id="startE" name="text3" type="text" placeholder="Start easting">
+            <input id="startE" name="text3" type="text" inputmode="decimal" pattern="[0-9.]*" placeholder="Start easting">
           </div>
         </div>
 
         <div class="input-row">
           <div class="input-group">
             <label for="tBrg">T.Brg (deg):</label>
-            <input id="tBrg" name="text4" type="text" placeholder="Tangent bearing">
+            <input id="tBrg" name="text4" type="text" inputmode="decimal" pattern="[0-9.]*" placeholder="Tangent bearing">
           </div>
           <div class="input-group">
             <label for="radius">R(+/-):</label>
-            <input id="radius" name="text5" type="text" placeholder="Radius (empty = line)">
+            <input id="radius" name="text5" type="text" inputmode="decimal" pattern="-?[0-9.]*" placeholder="Radius (empty = line)">
           </div>
         </div>
 
         <div class="input-group">
           <label for="spl">SPL(+/-):</label>
-          <input id="spl" name="text6" type="text" placeholder="Spiral length (optional)">
+          <input id="spl" name="text6" type="text" inputmode="decimal" pattern="-?[0-9.]*" placeholder="Spiral length (optional)">
         </div>
       </fieldset>
 
@@ -69,17 +69,17 @@
         <div class="input-row">
           <div class="input-group">
             <label for="nx">Nx:</label>
-            <input id="nx" name="text7" type="text" placeholder="Enter Nx or offset">
+            <input id="nx" name="text7" type="text" inputmode="decimal" pattern="-?[0-9.]*" placeholder="Enter Nx or offset">
           </div>
           <div class="input-group">
             <label for="ex">Ex:</label>
-            <input id="ex" name="text8" type="text" placeholder="Enter Ex or offset">
+            <input id="ex" name="text8" type="text" inputmode="decimal" pattern="-?[0-9.]*" placeholder="Enter Ex or offset">
           </div>
         </div>
 
         <div class="input-group" style="margin-bottom:8px;">
           <label for="tBrgResult">T.Brg:</label>
-          <input id="tBrgResult" name="text9" type="text" readonly style="background:#f0f0f0;">
+          <input id="tBrgResult" name="text9" type="text" readonly style="background:#f0f0f0;" inputmode="decimal" pattern="[0-9.]*">
         </div>
 
         <div class="button-row">
@@ -93,17 +93,17 @@
         <div class="input-row">
           <div class="input-group">
             <label for="ch">CH:</label>
-            <input id="ch" name="text10" type="text" placeholder="Enter chainage">
+            <input id="ch" name="text10" type="text" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter chainage">
           </div>
           <div class="input-group">
             <label for="os">OS:</label>
-            <input id="os" name="text11" type="text" placeholder="Enter offset">
+            <input id="os" name="text11" type="text" inputmode="decimal" pattern="-?[0-9.]*" placeholder="Enter offset">
           </div>
         </div>
 
         <div class="input-group" style="margin-bottom:8px;">
           <label for="finalTBrg">T.Brg:</label>
-          <input id="finalTBrg" name="text12" type="text" readonly style="background:#f0f0f0;">
+          <input id="finalTBrg" name="text12" type="text" readonly style="background:#f0f0f0;" inputmode="decimal" pattern="[0-9.]*">
         </div>
 
         <div class="button-row">
@@ -334,7 +334,6 @@
             - (Math.pow(l1, 13)) / (599040 * Math.pow(rl, 6))
             + (Math.pow(l1, 17)) / (175472640 * Math.pow(rl, 8));
     const nx = fix5(bn) + (y * fcos(tb1)) - (x * fsin(tb1));
-    // ex is computed but not returned here
     const ex = fix5(be) + (y * fsin(tb1)) + (x * fcos(tb1));
     const tb2 = (Math.pow(l1, 2)) / (2 * r * spl) * 180 / PI + tb1;
     return fix4(fcos(tb2 + 90) * os + fix5(nx));
