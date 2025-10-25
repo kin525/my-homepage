@@ -1,3 +1,538 @@
-<script type="text/javascript"><!--
-document.write(unescape("%0A%0A%3Chtml%3E%0A%3Chead%3E%0A%3Cmeta%20http-equiv%3D%22Content-Type%22%20content%3D%22text/html%3B%20charset%3Dutf-8%22%3E%0A%09%3Cmeta%20name%3D%22ROBOTS%22%20content%3D%22NOARCHIVE%22%3E%0A%09%3Cmeta%20name%20%3D%20%22viewport%22%20content%20%3D%20%22width%20%3D%20device-width%22%3E%0A%09%3Ctitle%3ELuen%20Hing%20Survey%20Program%3C/title%3E%0A%0A%3Cstyle%20type%3D%22text/css%22%3E%0A%0Adiv.line%20%7Bposition%3Arelative%3B%20%20left%3A80px%3Btop%3A-20px%3B%20%7D%0A%3C/style%3E%0A%0A%0A%0A%3C/head%3E%0A%0A%3Cscript%3E%0A%0Afunction%20CLSIt2%28%29%0A%7B%0Adocument.STN.text6.value%3D%22%22%0Adocument.getElementById%28%22p1%22%29.innerHTML%3D%22%22%0A%7D%0A%0A%0A%0A%0A%0A%0Afunction%20RUNIt%28%20%29%0A%0A%0A%7B%0Ap%3Ddocument.STN.text1.value%0Aq%3Ddocument.STN.text2.value%0Avcl%3Ddocument.STN.text3.value%0Astch%3Ddocument.STN.text4.value%0Astlevel%3Ddocument.STN.text5.value%0Aendch%3Dfix3%28stch%29+fix3%28vcl%29%0Areqch%3Ddocument.STN.text6.value%0Ax%3Dreqch-stch%0Ay%3D%28%28q-p%29*Math.pow%28x%2C2%29%29/%28200*vcl%29%0Areqlevel%3Dfix3%28stlevel%29+%28x*p/100%29+y%0Adocument.getElementById%28%22p1%22%29.innerHTML%3D%22Req.%20Level%3D%20%20%20%20%20%20%20%22+fix3%28reqlevel%29%0A%0Aif%20%28fix3%28x%29%20%3E%20fix3%28vcl%29%29%0A%7B%0A%0Adocument.getElementById%28%22p1%22%29.innerHTML%3D%22Out%20of%20range%20%21%21%20%20%20%20%20%20%22+fix3%28reqlevel%29%0A%7D%0A%7D%0A%0A%0A%0A%0A%0A%0A//%u5C0F%u6578%u5F8C3%u4F4D%0Afunction%20fix3%28z%29%0A%7Breturn%20z%3D%28Math.floor%28z%20*%201000%20+%200.5%29%29%20/%201000%7D%0A//%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%20Function%20END%20%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0A%0A%3C/script%3E%0A%0A%0A%0A%3Cbody%3E%0A%0A%3Ch3%3E%0AEmail%3A%20kin525@yahoo.com.hk%0A%3Cbr%20/%3E%0AVertical%20Curve%0A%3Cp%3E%0A%3Cimg%20src%3D%22Vertical_curve.jpg%22height%3D110%20width%3D320%3E%0A%3C/h3%3E%0A%0A%3Cp%3E%0A%0A%3Cform%20name%3D%22STN%22%3E%0A%0A%0A%0A%0A%3Cbr%20/%3E%0A%0Ap%25%3D%20%3A%3Cdiv%20class%3D%22line%22%3E%3Cinput%20name%3D%22text1%22%20type%3D%22text%22%20size%3D10%20%3E%3C/div%3E%0Aq%25%3D%20%20%3A%20%3Cdiv%20class%3D%22line%22%3E%3Cinput%20name%3D%22text2%22%20type%3D%22text%22%20size%3D10%20%3E%3C/div%3E%0AVCL%3D%20%3A%20%3Cdiv%20class%3D%22line%22%3E%3Cinput%20name%3D%22text3%22%20type%3D%22text%22%20size%3D10%20%3E%3C/div%3E%0ASt.Ch%3D%20%3A%20%3Cdiv%20class%3D%22line%22%3E%3Cinput%20name%3D%22text4%22%20type%3D%22text%22%20size%3D10%20%3E%3C/div%3E%0ASt.Level%3D%20%3A%20%3Cdiv%20class%3D%22line%22%3E%3Cinput%20name%3D%22text5%22%20type%3D%22text%22%20size%3D10%20%3E%3C/div%3E%0A%3Chr%20size%3D%222%22%20align%3D%22left%22%20noshade%20width%3D%2290%25%22%20%3E%0AReq.Ch%3D%20%3A%20%3Cdiv%20class%3D%22line%22%3E%3Cinput%20name%3D%22text6%22%20type%3D%22text%22%20size%3D10%20%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22RUN%22onClick%3D%22RUNIt%28%29%22%20%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22CLS%22onClick%3D%22CLSIt2%28%29%22%20%3E%3C/div%3E%0A%3Cp%20id%3D%22p1%22%3E%3C/p%3E%0A%0A%3C/form%3E%0A%0A%0A%0A%0A%0A%3C/body%3E%0A%3C/html%3E%0A%0A%0A"));
-// --></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Curve Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #e63946;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 25px;
+        }
+        
+        .visualization {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .curve-image {
+            width: 100%;
+            max-width: 320px;
+            height: 110px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        .curve-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .formula {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            padding: 10px;
+            background-color: var(--light);
+            border-radius: 8px;
+        }
+        
+        .input-section {
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            margin-bottom: 18px;
+            position: relative;
+        }
+        
+        .input-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .input-label i {
+            margin-right: 8px;
+            color: var(--primary);
+        }
+        
+        .input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 14px 45px 14px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: var(--transition);
+            background-color: white;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+        }
+        
+        .clear-btn {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 18px;
+            cursor: pointer;
+            display: none;
+            padding: 4px;
+            transition: var(--transition);
+        }
+        
+        input:not(:placeholder-shown) + .clear-btn {
+            display: block;
+        }
+        
+        .clear-btn:hover {
+            color: var(--dark);
+        }
+        
+        .divider {
+            height: 2px;
+            background-color: #e1e5e9;
+            margin: 25px 0;
+            border: none;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-calculate {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-calculate:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-clear {
+            background-color: #f1f3f5;
+            color: var(--dark);
+        }
+        
+        .btn-clear:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+        }
+        
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--dark);
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .result-value {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        
+        .result-error {
+            color: var(--danger);
+            font-weight: 700;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--light);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .instructions {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #e7f5ff;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            input[type="text"] {
+                padding: 12px 40px 12px 12px;
+                font-size: 16px;
+            }
+        }
+        
+        /* iOS Safari specific optimizations */
+        @supports (-webkit-touch-callout: none) {
+            input[type="text"] {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Vertical Curve Calculator</h1>
+            <p>Calculate required level for vertical curve</p>
+        </div>
+        
+        <div class="content">
+            <div class="visualization">
+                <div class="curve-image">
+                    <!-- 使用原竖曲线图像链接 -->
+                    <img src="Vertical_curve.jpg" alt="Vertical Curve Diagram">
+                </div>
+                <div class="formula">
+                    Vertical Curve Calculation
+                </div>
+            </div>
+            
+            <div class="input-section">
+                <div class="instructions">
+                    <i class="fas fa-info-circle"></i> Enter the parameters for the vertical curve calculation
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-label">
+                        <i class="fas fa-percentage"></i>
+                        Initial Grade (p%)
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="pPercent" inputmode="decimal" pattern="-?[0-9.]*" placeholder="Enter p%">
+                        <button class="clear-btn" onclick="clearInput('pPercent')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-label">
+                        <i class="fas fa-percentage"></i>
+                        Final Grade (q%)
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="qPercent" inputmode="decimal" pattern="-?[0-9.]*" placeholder="Enter q%">
+                        <button class="clear-btn" onclick="clearInput('qPercent')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-label">
+                        <i class="fas fa-ruler"></i>
+                        Vertical Curve Length (VCL)
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="vcl" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter VCL">
+                        <button class="clear-btn" onclick="clearInput('vcl')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-label">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Start Chainage (St.Ch)
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="stCh" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter St.Ch">
+                        <button class="clear-btn" onclick="clearInput('stCh')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-label">
+                        <i class="fas fa-arrow-up"></i>
+                        Start Level (St.Level)
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="stLevel" inputmode="decimal" pattern="-?[0-9.]*" placeholder="Enter St.Level">
+                        <button class="clear-btn" onclick="clearInput('stLevel')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <hr class="divider">
+                
+                <div class="input-group">
+                    <div class="input-label">
+                        <i class="fas fa-question-circle"></i>
+                        Required Chainage (Req.Ch)
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="reqCh" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter Req.Ch">
+                        <button class="clear-btn" onclick="clearInput('reqCh')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculate()">
+                    <i class="fas fa-calculator"></i>
+                    Calculate
+                </button>
+                <button class="btn-clear" onclick="clearForm()">
+                    <i class="fas fa-eraser"></i>
+                    Clear All
+                </button>
+            </div>
+            
+            <div class="result" id="result">
+                <div>Enter values and click Calculate</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Email: kin525@yahoo.com.hk</p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize clear button visibility
+        function initClearButtons() {
+            const inputs = document.querySelectorAll('input[type="text"]');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const clearBtn = this.nextElementSibling;
+                    if (clearBtn && clearBtn.classList.contains('clear-btn')) {
+                        clearBtn.style.display = this.value ? 'block' : 'none';
+                    }
+                });
+                
+                // Initialize visibility on page load
+                const clearBtn = input.nextElementSibling;
+                if (clearBtn && clearBtn.classList.contains('clear-btn')) {
+                    clearBtn.style.display = input.value ? 'block' : 'none';
+                }
+            });
+        }
+        
+        // Clear a specific input
+        function clearInput(inputId) {
+            const input = document.getElementById(inputId);
+            input.value = '';
+            input.focus();
+            
+            // Hide the clear button
+            const clearBtn = input.nextElementSibling;
+            if (clearBtn && clearBtn.classList.contains('clear-btn')) {
+                clearBtn.style.display = 'none';
+            }
+        }
+        
+        // Clear all inputs
+        function clearForm() {
+            // Clear input fields
+            document.getElementById('pPercent').value = '';
+            document.getElementById('qPercent').value = '';
+            document.getElementById('vcl').value = '';
+            document.getElementById('stCh').value = '';
+            document.getElementById('stLevel').value = '';
+            document.getElementById('reqCh').value = '';
+            
+            // Clear result
+            document.getElementById('result').innerHTML = '<div>Enter values and click Calculate</div>';
+            
+            // Hide all clear buttons
+            document.querySelectorAll('.clear-btn').forEach(btn => {
+                btn.style.display = 'none';
+            });
+        }
+        
+        // Calculate the required level
+        function calculate() {
+            // Get input values
+            const p = parseFloat(document.getElementById('pPercent').value) || 0;
+            const q = parseFloat(document.getElementById('qPercent').value) || 0;
+            const vcl = parseFloat(document.getElementById('vcl').value) || 0;
+            const stch = parseFloat(document.getElementById('stCh').value) || 0;
+            const stlevel = parseFloat(document.getElementById('stLevel').value) || 0;
+            const reqch = parseFloat(document.getElementById('reqCh').value) || 0;
+            
+            // Check if we have all required values
+            if (!p || !q || !vcl || !stch || !stlevel || !reqch) {
+                document.getElementById('result').innerHTML = '<div style="color: var(--danger);">Please enter all required values</div>';
+                return;
+            }
+            
+            // Calculate end chainage
+            const endch = fix3(stch) + fix3(vcl);
+            
+            // Calculate required level
+            const x = reqch - stch;
+            const y = ((q - p) * Math.pow(x, 2)) / (200 * vcl);
+            const reqlevel = fix3(stlevel) + (x * p / 100) + y;
+            
+            // Check if within range
+            if (fix3(x) > fix3(vcl)) {
+                document.getElementById('result').innerHTML = `
+                    <div class="result-error">Out of range!</div>
+                    <div>Req. Level = <span class="result-value">${fix3(reqlevel)}</span></div>
+                `;
+            } else {
+                document.getElementById('result').innerHTML = `
+                    <div>Required Level</div>
+                    <div class="result-value">${fix3(reqlevel)}</div>
+                `;
+            }
+        }
+        
+        // Round to 3 decimal places
+        function fix3(z) {
+            return (Math.floor(z * 1000 + 0.5)) / 1000;
+        }
+        
+        // Add keyboard support
+        document.addEventListener('DOMContentLoaded', function() {
+            initClearButtons();
+            
+            const inputs = document.querySelectorAll('input[type="text"]');
+            inputs.forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        calculate();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

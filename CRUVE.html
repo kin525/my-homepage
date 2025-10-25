@@ -1,3 +1,653 @@
-<script type="text/javascript"><!--
-document.write(unescape("%0A%0A%0A%0A%0A%3Chead%3E%0A%3Cmeta%20http-equiv%3D%22Content-Type%22%20content%3D%22text/html%3B%20charset%3Dutf-8%22%3E%0A%09%3Cmeta%20name%3D%22ROBOTS%22%20content%3D%22NOARCHIVE%22%3E%0A%09%3Cmeta%20name%20%3D%20%22viewport%22%20content%20%3D%20%22width%20%3D%20device-width%22%3E%0A%09%3Ctitle%3ELuen%20Hing%20Survey%20Program%3C/title%3E%3C/head%3E%0A%0A%0A%0A%3Cbody%3E%0A%0A%0A%0A%3Cscript%20type%3D%22text/javascript%22%3E%0A%0A%0A%0A%0A%0A//%u5C0F%u6578%u5F8C3%u4F4D%0Afunction%20fix3%28z%29%0A%7Breturn%20z%3D%28Math.floor%28z%20*%201000%20+%200.5%29%29%20/%201000%7D%0A//%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%20Function%20END%20%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0A%0A%0A%0Afunction%20RUNIt2%28%20%29%0A%7B%0A%0ADist%20%3D%20document.myform.text1.value%0A%0AR%20%3D%20document.myform.text2.value%20%0A%0AX8%20%3D%20document.myform.text3.value%20%0A%0A%0Aa%20%3D%20Dist%20/%202%20%0Ab%20%3D%20-1*%20%28Math.sqrt%28%28Math.pow%28R%2C2%29%29%20-%20%28Math.pow%28a%2C2%29%29%29%29%0A%0AY8%20%3D%20fix3%28%28Math.sqrt%28%28Math.pow%28R%2C2%29%29%20-%20%28Math.pow%28%28X8%20-%20a%29%2C2%29%29%29%29+b%29%0A%0Adocument.myform.text4.value%20%3D%20Y8%0A%7D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0Afunction%20RUNIt%28%20%29%0A%7B%0A%0A%20//%28X-a%29%5E2%20+%20%28Y-b%29%5E2%20%3D%20R%5E2%0A%0ADist%20%3D%20document.myform.text1.value%0A%0AR%20%3D%20document.myform.text2.value%20%0A%0Aa%20%3D%20Dist%20/%202%20%0Ab%20%3D%20-1*%20%28Math.sqrt%28%28Math.pow%28R%2C2%29%29%20-%20%28Math.pow%28a%2C2%29%29%29%29%0A%0AX1%20%3D%20fix3%20%28Dist%20/%208%29%0AX2%20%3D%20fix3%28X1%20*%202%29%0AX3%20%3D%20fix3%28X1%20*%203%29%0AX4%20%3D%20fix3%28X1%20*%204%29%0AX5%20%3D%20fix3%28X1%20*%205%29%0AX6%20%3D%20fix3%28X1%20*%206%29%0AX7%20%3D%20fix3%28X1%20*%207%29%0A%0A%0A%0A%0AY1%20%3D%20fix3%28%28Math.sqrt%28%28Math.pow%28R%2C2%29%29%20-%20%28Math.pow%28%28X1%20-%20a%29%2C2%29%29%29%29+b%29%0AY2%20%3D%20fix3%28%28Math.sqrt%28%28Math.pow%28R%2C2%29%29%20-%20%28Math.pow%28%28X2%20-%20a%29%2C2%29%29%29%29+b%29%0AY3%20%3D%20fix3%28%28Math.sqrt%28%28Math.pow%28R%2C2%29%29%20-%20%28Math.pow%28%28X3%20-%20a%29%2C2%29%29%29%29+b%29%0AY4%20%3D%20fix3%28%28Math.sqrt%28%28Math.pow%28R%2C2%29%29%20-%20%28Math.pow%28%28X4%20-%20a%29%2C2%29%29%29%29+b%29%0AY5%20%3D%20fix3%28%28Math.sqrt%28%28Math.pow%28R%2C2%29%29%20-%20%28Math.pow%28%28X5%20-%20a%29%2C2%29%29%29%29+b%29%0AY6%20%3D%20fix3%28%28Math.sqrt%28%28Math.pow%28R%2C2%29%29%20-%20%28Math.pow%28%28X6%20-%20a%29%2C2%29%29%29%29+b%29%0AY7%20%3D%20fix3%28%28Math.sqrt%28%28Math.pow%28R%2C2%29%29%20-%20%28Math.pow%28%28X7%20-%20a%29%2C2%29%29%29%29+b%29%0A%0A%0A%0Aline%20%3D%20%22DIST%20%20%20%22+%20X1%20+%20%22%20%20%20%22%20+%20X2%20+%20%20%22%20%20%20%22%20+%20X3+%20%20%22%20%20%20%22%20+%20X4+%20%20%22%20%20%20%22%20+%20X5+%20%20%22%20%20%20%22%20+%20X6+%20%20%22%20%20%20%22%20+%20X7%0Aline1%20%3D%20%22Y%20%20%20%22+%20Y1%20+%20%20%22%20%20%20%22%20+%20Y2%20+%20%22%20%20%20%22%20+%20Y3+%20%20%22%20%20%20%22%20+%20Y4+%20%20%22%20%20%20%22%20+%20Y5+%20%20%22%20%20%20%22%20+%20Y6+%20%20%22%20%20%20%22%20+%20Y7%0A%0A%0A%0A%0A%0Adocument.myform.comment1.value%20%3Dline%0Adocument.myform.comment2.value%20%3Dline1%0A%0A%0A%0A%0A%7D%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%3C/script%3E%0A%0A%0A%3Ch3%3EKin%20CURVE%20SETTING%20OUT%20DATA%0A%3Cp%3E%0AEmail%3A%20kin525@yahoo.com.hk%0A%3Cp%3E%0A%3Cimg%20src%3D%22Curve.jpg%22%3E%0A%0A%0A%3Cp%3E%0A%3Cp%3E%0A%3C/h3%3E%0A%3Cform%20name%3D%22myform%22%3E%0A%0A%3Cp%3E%0ATotal%20Dist%20%20%3D%20%3Cinput%20name%3D%22text1%22%20type%3D%22TEL%22%20size%3D8%3E%0A%3Cp%3E%0ARadius%20%3A%3Cinput%20name%3D%22text2%22%20type%3D%22TEL%22%20size%3D8%3E%0A%3Cp%3E%0A%0A%0A%0A%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22RUN%22onClick%3D%22RUNIt%28%29%22%20%3E%20%20%0A%3Cp%3E%0A%0A%0A%3Cp%3E%0A%3Ctextarea%20name%3D%22comment1%22%20rows%3D%229%22%20cols%3D%226%22%3E%20%3C/textarea%3E%0A%3Ctextarea%20name%3D%22comment2%22%20rows%3D%229%22%20cols%3D%226%22%3E%20%3C/textarea%3E%0A%0A%3Cp%3E%0ADist%20%20%3D%20%3Cinput%20name%3D%22text3%22%20type%3D%22TEL%22%20size%3D8%3E%0A%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22RUN%22onClick%3D%22RUNIt2%28%29%22%20%3E%0A%3Cp%3E%0AAnswer%20Y%20%3A%3Cinput%20name%3D%22text4%22%20type%3D%22TEL%22%20size%3D8%3E%0A%3Cp%3E%0A%0A%0A%0A%0A%0A%0A%0A%3C/form%3E%0A%0A%0A%0A%0A%0A%3C/body%3E%0A%3C/html%3E%0A"));
-// --></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curve Setting Out Data Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #e63946;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 25px;
+        }
+        
+        .visualization {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .curve-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        .curve-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .formula {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            padding: 10px;
+            background-color: var(--light);
+            border-radius: 8px;
+        }
+        
+        .input-section {
+            margin-bottom: 20px;
+        }
+        
+        .input-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            flex: 1;
+            position: relative;
+        }
+        
+        .input-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 14px 45px 14px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: var(--transition);
+            background-color: white;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+        }
+        
+        .clear-btn {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 18px;
+            cursor: pointer;
+            display: none;
+            padding: 4px;
+            transition: var(--transition);
+        }
+        
+        input:not(:placeholder-shown) + .clear-btn {
+            display: block;
+        }
+        
+        .clear-btn:hover {
+            color: var(--dark);
+        }
+        
+        .divider {
+            height: 2px;
+            background-color: #e1e5e9;
+            margin: 25px 0;
+            border: none;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-calculate {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-calculate:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-clear {
+            background-color: #f1f3f5;
+            color: var(--dark);
+        }
+        
+        .btn-clear:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+        }
+        
+        .results-section {
+            margin-top: 30px;
+        }
+        
+        .section-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 1.2rem;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        .result-group {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .result-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+        
+        .result-item {
+            flex: 1;
+        }
+        
+        .result-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+        
+        .result-value {
+            width: 100%;
+            padding: 10px 12px;
+            background-color: white;
+            border: 2px solid #e1e5e9;
+            border-radius: 6px;
+            font-size: 16px;
+            color: var(--dark);
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #e1e5e9;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--light);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .instructions {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #e7f5ff;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+        
+        @media (max-width: 768px) {
+            .input-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .result-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            input[type="text"] {
+                padding: 12px 40px 12px 12px;
+                font-size: 16px;
+            }
+        }
+        
+        /* iOS Safari specific optimizations */
+        @supports (-webkit-touch-callout: none) {
+            input[type="text"] {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Curve Setting Out Data Calculator</h1>
+            <p>Calculate curve coordinates and offsets</p>
+        </div>
+        
+        <div class="content">
+            <div class="visualization">
+                <div class="curve-image">
+                    <!-- 使用原曲线图像链接 -->
+                    <img src="Curve.jpg" alt="Curve Diagram">
+                </div>
+                <div class="formula">
+                    Calculate curve coordinates and offsets
+                </div>
+            </div>
+            
+            <div class="input-section">
+                <div class="instructions">
+                    <i class="fas fa-info-circle"></i> Enter total distance and radius to calculate curve coordinates
+                </div>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label class="input-label">Total Distance</label>
+                        <div class="input-container">
+                            <input type="text" id="totalDist" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter total distance">
+                            <button class="clear-btn" onclick="clearInput('totalDist')">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label">Radius</label>
+                        <div class="input-container">
+                            <input type="text" id="radius" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter radius">
+                            <button class="clear-btn" onclick="clearInput('radius')">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculateEightPoints()">
+                        <i class="fas fa-calculator"></i>
+                        Calculate 8 Points
+                    </button>
+                    <button class="btn-clear" onclick="clearForm()">
+                        <i class="fas fa-eraser"></i>
+                        Clear All
+                    </button>
+                </div>
+                
+                <hr class="divider">
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label class="input-label">Distance (for single point)</label>
+                        <div class="input-container">
+                            <input type="text" id="singleDist" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter distance">
+                            <button class="clear-btn" onclick="clearInput('singleDist')">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label">Answer Y</label>
+                        <div class="input-container">
+                            <input type="text" id="answerY" class="result-value" readonly>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculateSinglePoint()">
+                        <i class="fas fa-calculator"></i>
+                        Calculate Single Point
+                    </button>
+                </div>
+            </div>
+            
+            <div class="results-section">
+                <div class="section-title">8 Points Calculation Results</div>
+                
+                <div class="result-group">
+                    <div class="table-container">
+                        <table id="eightPointsTable">
+                            <thead>
+                                <tr>
+                                    <th>Point</th>
+                                    <th>Distance</th>
+                                    <th>Y Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Results will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Email: kin525@yahoo.com.hk</p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize clear button visibility
+        function initClearButtons() {
+            const inputs = document.querySelectorAll('input[type="text"]:not(.result-value)');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const clearBtn = this.nextElementSibling;
+                    if (clearBtn && clearBtn.classList.contains('clear-btn')) {
+                        clearBtn.style.display = this.value ? 'block' : 'none';
+                    }
+                });
+                
+                // Initialize visibility on page load
+                const clearBtn = input.nextElementSibling;
+                if (clearBtn && clearBtn.classList.contains('clear-btn')) {
+                    clearBtn.style.display = input.value ? 'block' : 'none';
+                }
+            });
+        }
+        
+        // Clear a specific input
+        function clearInput(inputId) {
+            const input = document.getElementById(inputId);
+            input.value = '';
+            input.focus();
+            
+            // Hide the clear button
+            const clearBtn = input.nextElementSibling;
+            if (clearBtn && clearBtn.classList.contains('clear-btn')) {
+                clearBtn.style.display = 'none';
+            }
+        }
+        
+        // Clear all inputs
+        function clearForm() {
+            // Clear input fields
+            document.getElementById('totalDist').value = '';
+            document.getElementById('radius').value = '';
+            document.getElementById('singleDist').value = '';
+            document.getElementById('answerY').value = '';
+            
+            // Clear table
+            const tableBody = document.querySelector('#eightPointsTable tbody');
+            tableBody.innerHTML = '';
+            
+            // Hide all clear buttons
+            document.querySelectorAll('.clear-btn').forEach(btn => {
+                btn.style.display = 'none';
+            });
+        }
+        
+        // Calculate 8 points
+        function calculateEightPoints() {
+            // Get input values
+            const totalDist = parseFloat(document.getElementById('totalDist').value) || 0;
+            const radius = parseFloat(document.getElementById('radius').value) || 0;
+            
+            // Check if we have all required values
+            if (!totalDist || !radius) {
+                alert('Please enter both Total Distance and Radius');
+                return;
+            }
+            
+            // Calculate center of circle
+            const a = totalDist / 2;
+            const b = -1 * (Math.sqrt((Math.pow(radius, 2)) - (Math.pow(a, 2))));
+            
+            // Calculate 8 points
+            const x1 = fix3(totalDist / 8);
+            const x2 = fix3(x1 * 2);
+            const x3 = fix3(x1 * 3);
+            const x4 = fix3(x1 * 4);
+            const x5 = fix3(x1 * 5);
+            const x6 = fix3(x1 * 6);
+            const x7 = fix3(x1 * 7);
+            
+            const y1 = fix3((Math.sqrt((Math.pow(radius, 2)) - (Math.pow((x1 - a), 2)))) + b);
+            const y2 = fix3((Math.sqrt((Math.pow(radius, 2)) - (Math.pow((x2 - a), 2)))) + b);
+            const y3 = fix3((Math.sqrt((Math.pow(radius, 2)) - (Math.pow((x3 - a), 2)))) + b);
+            const y4 = fix3((Math.sqrt((Math.pow(radius, 2)) - (Math.pow((x4 - a), 2)))) + b);
+            const y5 = fix3((Math.sqrt((Math.pow(radius, 2)) - (Math.pow((x5 - a), 2)))) + b);
+            const y6 = fix3((Math.sqrt((Math.pow(radius, 2)) - (Math.pow((x6 - a), 2)))) + b);
+            const y7 = fix3((Math.sqrt((Math.pow(radius, 2)) - (Math.pow((x7 - a), 2)))) + b);
+            
+            // Update table
+            const tableBody = document.querySelector('#eightPointsTable tbody');
+            tableBody.innerHTML = `
+                <tr>
+                    <td>Point 1</td>
+                    <td>${x1}</td>
+                    <td>${y1}</td>
+                </tr>
+                <tr>
+                    <td>Point 2</td>
+                    <td>${x2}</td>
+                    <td>${y2}</td>
+                </tr>
+                <tr>
+                    <td>Point 3</td>
+                    <td>${x3}</td>
+                    <td>${y3}</td>
+                </tr>
+                <tr>
+                    <td>Point 4</td>
+                    <td>${x4}</td>
+                    <td>${y4}</td>
+                </tr>
+                <tr>
+                    <td>Point 5</td>
+                    <td>${x5}</td>
+                    <td>${y5}</td>
+                </tr>
+                <tr>
+                    <td>Point 6</td>
+                    <td>${x6}</td>
+                    <td>${y6}</td>
+                </tr>
+                <tr>
+                    <td>Point 7</td>
+                    <td>${x7}</td>
+                    <td>${y7}</td>
+                </tr>
+                <tr>
+                    <td>Point 8</td>
+                    <td>${fix3(totalDist)}</td>
+                    <td>0.000</td>
+                </tr>
+            `;
+        }
+        
+        // Calculate single point
+        function calculateSinglePoint() {
+            // Get input values
+            const totalDist = parseFloat(document.getElementById('totalDist').value) || 0;
+            const radius = parseFloat(document.getElementById('radius').value) || 0;
+            const singleDist = parseFloat(document.getElementById('singleDist').value) || 0;
+            
+            // Check if we have all required values
+            if (!totalDist || !radius || !singleDist) {
+                alert('Please enter Total Distance, Radius, and Distance for single point');
+                return;
+            }
+            
+            // Calculate center of circle
+            const a = totalDist / 2;
+            const b = -1 * (Math.sqrt((Math.pow(radius, 2)) - (Math.pow(a, 2))));
+            
+            // Calculate Y value for single point
+            const y8 = fix3((Math.sqrt((Math.pow(radius, 2)) - (Math.pow((singleDist - a), 2)))) + b);
+            
+            // Update answer
+            document.getElementById('answerY').value = y8;
+        }
+        
+        // Round to 3 decimal places
+        function fix3(z) {
+            return (Math.floor(z * 1000 + 0.5)) / 1000;
+        }
+        
+        // Add keyboard support
+        document.addEventListener('DOMContentLoaded', function() {
+            initClearButtons();
+            
+            const inputs = document.querySelectorAll('input[type="text"]:not(.result-value)');
+            inputs.forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        if (input.id === 'singleDist') {
+                            calculateSinglePoint();
+                        } else {
+                            calculateEightPoints();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

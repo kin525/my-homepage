@@ -1,3 +1,525 @@
-<script type="text/javascript"><!--
-document.write(unescape("%0A%0A%3Chtml%3E%0A%3Chead%3E%0A%3Cmeta%20http-equiv%3D%22Content-Type%22%20content%3D%22text/html%3B%20charset%3Dutf-8%22%3E%0A%09%3Cmeta%20name%3D%22ROBOTS%22%20content%3D%22NOARCHIVE%22%3E%0A%09%3Cmeta%20name%20%3D%20%22viewport%22%20content%20%3D%20%22width%20%3D%20device-width%22%3E%0A%09%3Ctitle%3ELuen%20Hing%20Survey%20Program%3C/title%3E%0A%0A%3C/head%3E%0A%0A%3Cscript%3E%0A%0Afunction%20CLSIt2%28%29%0A%7B%0Adocument.STN.text1.value%3D%22%22%0Adocument.STN.text2.value%3D%22%22%0Adocument.STN.text3.value%3D%22%22%0Adocument.getElementById%28%22p1%22%29.innerHTML%3D%22%22%0A%7D%0A%0A%0A%0A%0A%0A%0Afunction%20RUNIt%28%20%29%0A%0A%0A%7B%0Aa%20%3D%20document.STN.text1.value%20%0Ab%3D%20document.STN.text2.value%0Ac%20%3D%20document.STN.text3.value%0A%0Aif%20%28c%20%3D%3D%20%22%22%29%0A%7B%0Ac%3D%28Math.sqrt%28%28Math.pow%28a%2C2%29%29%20+%20%28Math.pow%28b%2C2%29%29%29%29%0Adocument.STN.text3.value%3Dfix3%28c%29%0A%7D%0A%0Aif%20%28a%20%3D%3D%20%22%22%29%0A%7B%0Aa%3D%28Math.sqrt%28%28Math.pow%28c%2C2%29%29-%28Math.pow%28b%2C2%29%29%29%29%0Adocument.STN.text1.value%3Dfix3%28a%29%0A%7D%0A%0Aif%20%28b%20%3D%3D%20%22%22%29%0A%7B%0Ab%3D%28Math.sqrt%28%28Math.pow%28c%2C2%29%29-%28Math.pow%28a%2C2%29%29%29%29%0Adocument.STN.text2.value%3Dfix3%28b%29%0A%7D%0Ad%3DMath.atan%28a/b%29*180/3.141592654%0Ad%3D%28Math.floor%28d%20*%20100000%20+%200.5%29%29%20/%20100000%0A%0Adocument.getElementById%28%22p1%22%29.innerHTML%3D%22%3F%3D%20%22+d%0A%7D%0A%0A%0A%0A%0A%0A%0A//%u5C0F%u6578%u5F8C3%u4F4D%0Afunction%20fix3%28z%29%0A%7Breturn%20z%3D%28Math.floor%28z%20*%201000%20+%200.5%29%29%20/%201000%7D%0A//%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%3C%20Function%20END%20%20%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%3E%0A%0A%3C/script%3E%0A%0A%0A%0A%3Cbody%3E%0A%0A%3Ch3%3E%0AEmail%3A%20kin525@yahoo.com.hk%0A%3Cp%3E%0APythagoras%27%20Theorem%0A%3Cp%3E%0A%3Cimg%20src%3D%22triangle-abc.gif%22%3E%0A%0A%0A%3Cp%3E%0A%0A%3Cform%20name%3D%22STN%22%3E%0A%0A%0A%0A%0A%3Cp%3E%0Aa%3D%20%3A%20%3Cinput%20name%3D%22text1%22%20type%3D%22NUMBER%22%20size%3D12%3E%0A%3Cp%3E%0Ab%3D%20%20%3A%20%3Cinput%20name%3D%22text2%22%20type%3D%22NUMBER%22%20size%3D12%3E%0A%3Cp%3E%0Ac%3D%20%3A%20%3Cinput%20name%3D%22text3%22%20type%3D%22NUMBER%22%20size%3D12%3E%0A%3Cp%3E%0A%3Cp%20id%3D%22p1%22%3E%3C/p%3E%0A%3C/h3%3E%0A%3Cp%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22RUN%22%0AonClick%3D%22RUNIt%28%29%22%20%3E%0A%3Cinput%20name%3D%22submit%22%20type%3D%22button%22%20value%3D%22CLS%22%0AonClick%3D%22CLSIt2%28%29%22%20%3E%0A%3Cp%3E%0A%3C/form%3E%0A%0A%0A%0A%0A%0A%3C/body%3E%0A%3C/html%3E%0A%0A%0A"));
-// --></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pythagorean Theorem Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --success: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 25px;
+        }
+        
+        .visualization {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .triangle-image {
+            width: 200px;
+            height: 150px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        .triangle-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .formula {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark);
+            padding: 10px;
+            background-color: var(--light);
+            border-radius: 8px;
+        }
+        
+        .input-section {
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            margin-bottom: 18px;
+            position: relative;
+        }
+        
+        .input-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .input-label i {
+            margin-right: 8px;
+            color: var(--primary);
+        }
+        
+        .input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 14px 45px 14px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: var(--transition);
+            background-color: white;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+        }
+        
+        .clear-btn {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 18px;
+            cursor: pointer;
+            display: none;
+            padding: 4px;
+            transition: var(--transition);
+        }
+        
+        input:not(:placeholder-shown) + .clear-btn {
+            display: block;
+        }
+        
+        .clear-btn:hover {
+            color: var(--dark);
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-calculate {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-calculate:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-clear {
+            background-color: #f1f3f5;
+            color: var(--dark);
+        }
+        
+        .btn-clear:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+        }
+        
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--dark);
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .result-value {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--light);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .instructions {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #e7f5ff;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            input[type="text"] {
+                padding: 12px 40px 12px 12px;
+                font-size: 16px; /* Prevent zoom on iOS */
+            }
+        }
+        
+        /* iOS Safari specific optimizations */
+        @supports (-webkit-touch-callout: none) {
+            input[type="text"] {
+                font-size: 16px; /* Prevent zoom on focus */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Pythagorean Theorem Calculator</h1>
+            <p>Calculate the missing side of a right triangle</p>
+        </div>
+        
+        <div class="content">
+            <div class="visualization">
+                <div class="triangle-image">
+                    <!-- triangle-abc.gif -->
+                    <img src="triangle-abc.gif" alt="Right Triangle Diagram">
+                </div>
+                <div class="formula">
+                    a² + b² = c²
+                </div>
+            </div>
+            
+            <div class="input-section">
+                <div class="input-group">
+                    <div class="input-label">
+                        <i class="fas fa-ruler-vertical"></i>
+                        Side A (Height)
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="sideA" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter side a">
+                        <button class="clear-btn" onclick="clearInput('sideA')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-label">
+                        <i class="fas fa-ruler-horizontal"></i>
+                        Side B (Base)
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="sideB" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter side b">
+                        <button class="clear-btn" onclick="clearInput('sideB')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-label">
+                        <i class="fas fa-ruler-combined"></i>
+                        Hypotenuse C
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="sideC" inputmode="decimal" pattern="[0-9.]*" placeholder="Enter hypotenuse c">
+                        <button class="clear-btn" onclick="clearInput('sideC')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="instructions">
+                    <i class="fas fa-info-circle"></i> Enter any two values to calculate the third
+                </div>
+            </div>
+            
+            <div class="buttons">
+                <button class="btn-calculate" onclick="calculate()">
+                    <i class="fas fa-calculator"></i>
+                    Calculate
+                </button>
+                <button class="btn-clear" onclick="clearForm()">
+                    <i class="fas fa-eraser"></i>
+                    Clear All
+                </button>
+            </div>
+            
+            <div class="result" id="result">
+                <div>Enter two values and click Calculate</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Email: kin525@yahoo.com.hk</p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize clear button visibility
+        function initClearButtons() {
+            const inputs = document.querySelectorAll('input[type="text"]');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const clearBtn = this.nextElementSibling;
+                    if (clearBtn && clearBtn.classList.contains('clear-btn')) {
+                        clearBtn.style.display = this.value ? 'block' : 'none';
+                    }
+                });
+                
+                // Initialize visibility on page load
+                const clearBtn = input.nextElementSibling;
+                if (clearBtn && clearBtn.classList.contains('clear-btn')) {
+                    clearBtn.style.display = input.value ? 'block' : 'none';
+                }
+            });
+        }
+        
+        // Clear a specific input
+        function clearInput(inputId) {
+            const input = document.getElementById(inputId);
+            input.value = '';
+            input.focus();
+            
+            // Hide the clear button
+            const clearBtn = input.nextElementSibling;
+            if (clearBtn && clearBtn.classList.contains('clear-btn')) {
+                clearBtn.style.display = 'none';
+            }
+        }
+        
+        // Clear all inputs
+        function clearForm() {
+            document.getElementById('sideA').value = '';
+            document.getElementById('sideB').value = '';
+            document.getElementById('sideC').value = '';
+            
+            // Hide all clear buttons
+            document.querySelectorAll('.clear-btn').forEach(btn => {
+                btn.style.display = 'none';
+            });
+            
+            document.getElementById('result').innerHTML = '<div>Enter two values and click Calculate</div>';
+        }
+        
+        // Calculate the missing side and angle
+        function calculate() {
+            const a = parseFloat(document.getElementById('sideA').value) || 0;
+            const b = parseFloat(document.getElementById('sideB').value) || 0;
+            const c = parseFloat(document.getElementById('sideC').value) || 0;
+            
+            let resultHTML = "";
+            
+            // Count how many values are provided
+            const providedValues = [a, b, c].filter(val => val > 0).length;
+            
+            if (providedValues < 2) {
+                resultHTML = '<div style="color: #e74c3c;">Please enter at least two values</div>';
+            } else if (providedValues === 3) {
+                // Verify if it's a valid right triangle
+                const tolerance = 0.001;
+                const expectedC = Math.sqrt(a*a + b*b);
+                
+                if (Math.abs(c - expectedC) < tolerance) {
+                    const angle = Math.atan(a/b) * 180 / Math.PI;
+                    resultHTML = `
+                        <div>Valid right triangle!</div>
+                        <div>Angle θ = <span class="result-value">${fix5(angle)}°</span></div>
+                    `;
+                } else {
+                    resultHTML = '<div style="color: #e74c3c;">These values do not form a right triangle</div>';
+                }
+            } else {
+                // Calculate missing side
+                if (a && b && !c) {
+                    // Calculate hypotenuse
+                    const hypotenuse = Math.sqrt(a*a + b*b);
+                    document.getElementById('sideC').value = fix3(hypotenuse);
+                    
+                    // Calculate angle
+                    const angle = Math.atan(a/b) * 180 / Math.PI;
+                    resultHTML = `
+                        <div>Hypotenuse (c) = <span class="result-value">${fix3(hypotenuse)}</span></div>
+                        <div>Angle θ = <span class="result-value">${fix5(angle)}°</span></div>
+                    `;
+                } 
+                else if (a && c && !b) {
+                    // Calculate side b
+                    if (c > a) {
+                        const sideB = Math.sqrt(c*c - a*a);
+                        document.getElementById('sideB').value = fix3(sideB);
+                        
+                        // Calculate angle
+                        const angle = Math.atan(a/sideB) * 180 / Math.PI;
+                        resultHTML = `
+                            <div>Side b = <span class="result-value">${fix3(sideB)}</span></div>
+                            <div>Angle θ = <span class="result-value">${fix5(angle)}°</span></div>
+                        `;
+                    } else {
+                        resultHTML = '<div style="color: #e74c3c;">Error: Hypotenuse must be longer than side a</div>';
+                    }
+                } 
+                else if (b && c && !a) {
+                    // Calculate side a
+                    if (c > b) {
+                        const sideA = Math.sqrt(c*c - b*b);
+                        document.getElementById('sideA').value = fix3(sideA);
+                        
+                        // Calculate angle
+                        const angle = Math.atan(sideA/b) * 180 / Math.PI;
+                        resultHTML = `
+                            <div>Side a = <span class="result-value">${fix3(sideA)}</span></div>
+                            <div>Angle θ = <span class="result-value">${fix5(angle)}°</span></div>
+                        `;
+                    } else {
+                        resultHTML = '<div style="color: #e74c3c;">Error: Hypotenuse must be longer than side b</div>';
+                    }
+                }
+                
+                // Update clear buttons for filled inputs
+                initClearButtons();
+            }
+            
+            document.getElementById('result').innerHTML = resultHTML;
+        }
+        
+        // Round to 3 decimal places
+        function fix3(z) {
+            return (Math.floor(z * 1000 + 0.5)) / 1000;
+        }
+        
+        // Round to 5 decimal places (for angle)
+        function fix5(z) {
+            return (Math.floor(z * 100000 + 0.5)) / 100000;
+        }
+        
+        // Add keyboard support
+        document.addEventListener('DOMContentLoaded', function() {
+            initClearButtons();
+            
+            const inputs = document.querySelectorAll('input[type="text"]');
+            inputs.forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        calculate();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
