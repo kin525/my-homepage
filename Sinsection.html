@@ -565,8 +565,9 @@
             var bse = parseFloat(document.STN.text11.value) || 0;
             var bsb = parseFloat(document.STN.text12.value) || 0;
 
-            var nx = sinsection(stn, ste, brg1, va1, sd1, bsn, bse, bsb);
-            var ex = ex;
+            var result = sinsection(stn, ste, brg1, va1, sd1, bsn, bse, bsb);
+            var nx = result.nx;
+            var ex = result.ex;
             var coll = sinsectioncoll(rl, va1, sd1, ph1);
             var tb1 = joint(nx, ex, stn, ste);
             var tb2 = joint(nx, ex, bsn, bse);
