@@ -253,12 +253,12 @@
 
                 <div class="input-row">
                     <div class="input-group">
-                        <label for="tBrgInput">T.Brg:</label>
+                        <label for="tBrgInput">T.Brg (deg):</label>
                         <div class="number-input-container">
                             <input id="tBrgInput" name="text4" type="text" 
                                    inputmode="decimal" 
                                    pattern="[0-9.]*" 
-                                   placeholder="Enter tangent bearing"
+                                   placeholder="Enter tangent bearing (decimal degrees)"
                                    size="9">
                             <button type="button" class="clear-btn" onclick="clearInput('tBrgInput')">×</button>
                         </div>
@@ -270,7 +270,7 @@
                             <input id="radiusInput" name="text5" type="text" 
                                    inputmode="decimal" 
                                    pattern="-?[0-9.]*" 
-                                   placeholder="Enter radius"
+                                   placeholder="Enter radius (leave empty for straight line)"
                                    size="10">
                             <button type="button" class="clear-btn" onclick="clearInput('radiusInput')">×</button>
                         </div>
@@ -283,7 +283,7 @@
                         <input id="spiralInput" name="text6" type="text" 
                                inputmode="decimal" 
                                pattern="-?[0-9.]*" 
-                               placeholder="Enter spiral length"
+                               placeholder="Enter spiral length (optional)"
                                size="10">
                         <button type="button" class="clear-btn" onclick="clearInput('spiralInput')">×</button>
                     </div>
@@ -373,138 +373,65 @@
         function clearInput(inputId) {
             const input = document.getElementById(inputId);
             input.value = '';
+            // trigger input events for clear button visibility
+            input.dispatchEvent(new Event('input'));
         }
 
         // Initialize clear button visibility
         function initClearButtons() {
-            const inputs = document.querySelectorAll('input[inputmode="decimal"]');
+            const inputs = document.querySelectorAll('input[inputmode="decimal"], input[type="text"]');
             inputs.forEach(input => {
+                const clearBtn = input.nextElementSibling;
+                if (clearBtn && clearBtn.classList && clearBtn.classList.contains('clear-btn')) {
+                    // set initial visibility
+                    clearBtn.style.display = input.value ? 'block' : 'none';
+                }
                 input.addEventListener('input', function() {
-                    const clearBtn = this.nextElementSibling;
-                    if (clearBtn && clearBtn.classList.contains('clear-btn')) {
-                        clearBtn.style.display = this.value ? 'block' : 'none';
+                    const btn = this.nextElementSibling;
+                    if (btn && btn.classList && btn.classList.contains('clear-btn')) {
+                        btn.style.display = this.value ? 'block' : 'none';
                     }
                 });
             });
         }
 
-        // Original functions with modern improvements
-        function RUNIt1() {
-            let CH = 0;
-            let OS = 0;
-            let PTB = 0;
-
-            const STCH = document.STN.text1.value;
-            const TN = document.STN.text2.value;
-            const TE = document.STN.text3.value;
-            const TB = document.STN.text4.value;
-            const R = document.STN.text5.value;
-            const SPL = document.STN.text6.value;
-            const NX = document.STN.text7.value;
-            const EX = document.STN.text8.value;
-            
-            document.STN.text9.value = "";
-
-            if (SPL === "" && R !== "") {
-                // Curve calculation
-                CH = curvech(TN, TE, TB, R, STCH, NX, EX);
-                OS = curveos(TN, TE, TB, R, STCH, NX, EX);
-                const tb = curvetb(TN, TE, TB, R, STCH, CH, OS);
-                document.STN.text12.value = dmscode(tb);
-            } else if (SPL !== "") {
-                // Spiral calculation
-                CH = spiralch(STCH, TN, TE, TB, R, SPL, NX, EX);
-                OS = spiralos(STCH, TN, TE, TB, R, SPL, NX, EX);
-                const tb = spiralcheckbrg(STCH, TN, TE, TB, R, SPL, NX, EX);
-                document.STN.text12.value = dmscode(tb);
-            } else {
-                // Line calculation
-                CH = linech(TN, TE, STCH, TB, NX, EX);
-                OS = lineos(TN, TE, STCH, TB, NX, EX);
-                const tb = deg(TB);
-                document.STN.text12.value = dmscode(tb);
-            }
-
-            document.STN.text10.value = fix3(CH);
-            document.STN.text11.value = fix3(OS);
+        // --- Helper numeric parsing and angle parsing ---
+        function parseNum(v) {
+            if (v === null || v === undefined) return NaN;
+            const s = String(v).trim();
+            if (s === "") return NaN;
+            // try to handle comma as decimal
+            const s2 = s.replace(',', '.');
+            const n = parseFloat(s2);
+            return isNaN(n) ? NaN : n;
         }
 
-        function CLSIt2() {
-            document.STN.text7.value = "";
-            document.STN.text8.value = "";
-            document.STN.text9.value = "";
-            document.STN.text10.value = "";
-            document.STN.text11.value = "";
-            document.STN.text12.value = "";
+        // Accept decimal degrees or DMS formatted as 123^45'6.7"
+        function parseBearing(v) {
+            if (v === null || v === undefined) return NaN;
+            const s = String(v).trim();
+            if (s === "") return NaN;
+            if (s.indexOf('^') >= 0 || s.indexOf("'") >= 0 || s.indexOf('"') >= 0) {
+                // parse D^M'S"
+                const re = /(\d+)[\^\s°]?(\d+)?['\s]?([\d.]+)?["]?/;
+                const m = s.match(re);
+                if (!m) return NaN;
+                const d = parseInt(m[1] || 0, 10);
+                const mm = parseInt(m[2] || 0, 10);
+                const ss = parseFloat(m[3] || 0);
+                return d + mm / 60 + ss / 3600;
+            }
+            // fallback to float
+            return parseNum(s);
         }
 
-        function RUNIt2() {
-            let NX = 0;
-            let EX = 0;
-            let PTB = 0;
+        // Degree to radians
+        function toRad(d) { return d * Math.PI / 180; }
+        function toDeg(r) { return r * 180 / Math.PI; }
 
-            const STCH = fix3(document.STN.text1.value);
-            const TN = fix4(document.STN.text2.value);
-            const TE = fix4(document.STN.text3.value);
-            const TB = fix5(document.STN.text4.value);
-            const R = document.STN.text5.value;
-            const SPL = document.STN.text6.value;
-            const CH = document.STN.text10.value;
-            const OS = document.STN.text11.value;
-            
-            document.STN.text12.value = "";
-
-            if (SPL === "" && R !== "") {
-                // Curve calculation
-                const nx = curvenx(TN, TE, TB, R, STCH, CH, OS);
-                const ex = curveex(TN, TE, TB, R, STCH, CH, OS);
-                const tb = curvetb(TN, TE, TB, R, STCH, CH, OS);
-                document.STN.text7.value = fix4(nx);
-                document.STN.text8.value = fix4(ex);
-                document.STN.text9.value = dmscode(tb);
-            } else if (SPL !== "") {
-                // Spiral calculation
-                const nx = spiralnx(STCH, TN, TE, TB, R, SPL, CH, OS);
-                const ex = spiralex(STCH, TN, TE, TB, R, SPL, CH, OS);
-                const tb = spiralbrg(STCH, TN, TE, TB, R, SPL, CH, OS);
-                document.STN.text7.value = fix4(nx);
-                document.STN.text8.value = fix4(ex);
-                document.STN.text9.value = dmscode(tb);
-            } else {
-                // Line calculation
-                const nx = linenx(TN, TE, STCH, TB, CH, OS);
-                const ex = lineex(TN, TE, STCH, TB, CH, OS);
-                const tb = deg(TB);
-                document.STN.text7.value = fix4(nx);
-                document.STN.text8.value = fix4(ex);
-                document.STN.text9.value = dmscode(tb);
-            }
-
-            localStorage.JOINT_N = fix4(document.STN.text7.value);
-            localStorage.JOINT_E = fix4(document.STN.text8.value);
-        }
-
-        // Helper functions
-        function dms(z) {
-            let d = Math.floor(z);
-            let m = Math.floor((z - Math.floor(z)) * 60);
-            let s = Math.floor(((((z - Math.floor(z)) * 60) - Math.floor((z - Math.floor(z)) * 60)) * 60) * 10 + 0.5) / 10;
-
-            if (s >= 60) {
-                s = s - 60;
-                m = m + 1;
-            }
-            
-            if (m >= 60) {
-                m = m - 60;
-                d = d + 1;
-            }
-
-            const brg = d + (m / 100) + (s / 10000);
-            return brg;
-        }
-
+        // formatting helpers used elsewhere
         function dmscode(z) {
+            if (isNaN(z)) return "";
             let d = Math.floor(z);
             let m = Math.floor((z - Math.floor(z)) * 60);
             let s = Math.floor(((((z - Math.floor(z)) * 60) - Math.floor((z - Math.floor(z)) * 60)) * 60) * 10 + 0.5) / 10;
@@ -524,69 +451,199 @@
         }
 
         function fix3(z) {
-            return z = Math.floor(z * 1000 + 0.5) / 1000;
+            z = parseNum(z);
+            if (isNaN(z)) return "";
+            return (Math.floor(z * 1000 + 0.5) / 1000).toFixed(3);
         }
 
         function fix4(z) {
-            return z = Math.floor(z * 10000 + 0.5) / 10000;
+            z = parseNum(z);
+            if (isNaN(z)) return "";
+            return (Math.floor(z * 10000 + 0.5) / 10000).toFixed(4);
         }
 
         function fix5(z) {
-            return z = Math.floor(z * 100000 + 0.5) / 100000;
+            z = parseNum(z);
+            if (isNaN(z)) return "";
+            return (Math.floor(z * 100000 + 0.5) / 100000).toFixed(5);
         }
 
-        function deg(z) {
-            return z = Math.floor(z) + (Math.floor((z - Math.floor(z)) * 100)) / 60 + ((100 * z - Math.floor(100 * z)) * 100) / 3600;
+        // --- Implemented straight-line geometric functions ---
+        // Alignment is a straight line starting at (bn, be) with bearing tb (degrees, azimuth from North).
+        // Coordinates: N = northing, E = easting.
+        // linech: given an external point (nx,ex), returns chainage along alignment measured from bh (start chainage)
+        function linech(bn, be, bh, tb, nx, ex) {
+            const TN = parseNum(bn), TE = parseNum(be);
+            const STCH = parseNum(bh);
+            const NX = parseNum(nx), EX = parseNum(ex);
+            if (isNaN(TN) || isNaN(TE) || isNaN(STCH) || isNaN(NX) || isNaN(EX)) return NaN;
+            const tbDeg = parseBearing(tb);
+            if (isNaN(tbDeg)) return NaN;
+
+            const rad = toRad(tbDeg);
+            const dn_dir = Math.cos(rad); // north component
+            const de_dir = Math.sin(rad); // east component
+
+            const dN = NX - TN;
+            const dE = EX - TE;
+
+            const proj = dN * dn_dir + dE * de_dir; // distance along
+            const CH = STCH + proj;
+            return CH;
         }
 
-        function fsin(z) {
-            return z = Math.sin(z * 3.14159265358979 / 180);
+        // lineos: perpendicular offset (signed). Positive offset = to the right of alignment (90° clockwise)
+        function lineos(bn, be, bh, tb, nx, ex) {
+            const TN = parseNum(bn), TE = parseNum(be);
+            const NX = parseNum(nx), EX = parseNum(ex);
+            if (isNaN(TN) || isNaN(TE) || isNaN(NX) || isNaN(EX)) return NaN;
+            const tbDeg = parseBearing(tb);
+            if (isNaN(tbDeg)) return NaN;
+
+            const rad = toRad(tbDeg);
+            const dn_dir = Math.cos(rad);
+            const de_dir = Math.sin(rad);
+
+            const dN = NX - TN;
+            const dE = EX - TE;
+
+            const offset = dN * de_dir - dE * dn_dir; // signed offset
+            return offset;
         }
 
-        function fcos(z) {
-            return z = Math.cos(z * 3.14159265358979 / 180);
+        // linenx: given CH & OS compute NX
+        function linenx(bn, be, bh, tb, rh, ro) {
+            const TN = parseNum(bn), TE = parseNum(be);
+            const STCH = parseNum(bh);
+            const CH = parseNum(rh);
+            const OS = parseNum(ro);
+            if (isNaN(TN) || isNaN(TE) || isNaN(STCH) || isNaN(CH) || isNaN(OS)) return NaN;
+            const tbDeg = parseBearing(tb);
+            if (isNaN(tbDeg)) return NaN;
+
+            const rad = toRad(tbDeg);
+            const dn_dir = Math.cos(rad);
+            const de_dir = Math.sin(rad);
+
+            const delta = CH - STCH;
+            // right unit vector (north component = de_dir)
+            const rn = de_dir;
+            const nx = TN + delta * dn_dir + OS * rn;
+            return nx;
         }
 
-        function ftan(z) {
-            return z = Math.tan(z * 3.14159265358979 / 180);
+        // lineex: given CH & OS compute EX
+        function lineex(bn, be, bh, tb, rh, ro) {
+            const TN = parseNum(bn), TE = parseNum(be);
+            const STCH = parseNum(bh);
+            const CH = parseNum(rh);
+            const OS = parseNum(ro);
+            if (isNaN(TN) || isNaN(TE) || isNaN(STCH) || isNaN(CH) || isNaN(OS)) return NaN;
+            const tbDeg = parseBearing(tb);
+            if (isNaN(tbDeg)) return NaN;
+
+            const rad = toRad(tbDeg);
+            const dn_dir = Math.cos(rad);
+            const de_dir = Math.sin(rad);
+
+            const delta = CH - STCH;
+            // right unit vector (east component = -dn_dir)
+            const re = -dn_dir;
+            const ex = TE + delta * de_dir + OS * re;
+            return ex;
         }
 
-        function jointdist(n, e, n2, e2) {
-            const x = n2 - n;
-            const y = e2 - e;
-            const dist = Math.sqrt((Math.pow(x, 2)) + (Math.pow(y, 2)));
-            return dist;
+        // For now we do not implement curve/spiral math — show a clear message.
+        function unsupportedCurve(mode) {
+            alert("Curve/Spiral calculations are not implemented in this build.\nMode: " + mode + "\nPlease use straight-line inputs or request implementation.");
         }
 
-        function joint(n, e, n2, e2) {
-            const x = n2 - n + 1 / 100000000000;
-            const y = e2 - e;
-            let brg = Math.atan(y / x) * 180 / 3.14159265358979;
+        // Original main functions with modern improvements
+        function RUNIt1() {
+            let CH = 0;
+            let OS = 0;
+
+            const STCH = document.STN.text1.value;
+            const TN = document.STN.text2.value;
+            const TE = document.STN.text3.value;
+            const TB = document.STN.text4.value;
+            const R = document.STN.text5.value;
+            const SPL = document.STN.text6.value;
+            const NX = document.STN.text7.value;
+            const EX = document.STN.text8.value;
             
-            if (x < 0) {
-                brg = brg + 180;
+            document.STN.text9.value = "";
+
+            // If radius or spiral provided: not implemented here
+            if ((SPL === "" || SPL === null || SPL === undefined) && R !== "") {
+                unsupportedCurve("curve");
+                return;
+            } else if (SPL !== "") {
+                unsupportedCurve("spiral");
+                return;
+            } else {
+                // Line calculation
+                const ch = linech(TN, TE, STCH, TB, NX, EX);
+                const os = lineos(TN, TE, STCH, TB, NX, EX);
+                if (isNaN(ch) || isNaN(os)) {
+                    alert("Invalid inputs for line calculation. Please check Start N/E, Start CH, T.Brg, and Nx/Ex.");
+                    return;
+                }
+                const tbDeg = parseBearing(TB);
+                document.STN.text12.value = dmscode(tbDeg || 0);
+                document.STN.text10.value = fix3(ch);
+                document.STN.text11.value = fix3(os);
             }
-            
-            if (brg < 0) {
-                brg = brg + 360;
-            }
-            
-            return brg;
         }
 
-        function atan2(x, y) {
-            x = x + 1 / 100000000000;
-            let brg = Math.atan(y / x) * 180 / 3.14159265358979;
-            
-            if (x < 0) {
-                brg = brg + 180;
-            }
+        function CLSIt2() {
+            document.STN.text7.value = "";
+            document.STN.text8.value = "";
+            document.STN.text9.value = "";
+            document.STN.text10.value = "";
+            document.STN.text11.value = "";
+            document.STN.text12.value = "";
+        }
 
-            if (brg < 0) {
-                brg = brg + 360;
-            }
+        function RUNIt2() {
+            const STCH_raw = document.STN.text1.value;
+            const TN = document.STN.text2.value;
+            const TE = document.STN.text3.value;
+            const TB = document.STN.text4.value;
+            const R = document.STN.text5.value;
+            const SPL = document.STN.text6.value;
+            const CH = document.STN.text10.value;
+            const OS = document.STN.text11.value;
             
-            return brg;
+            document.STN.text12.value = "";
+
+            if ((SPL === "" || SPL === null || SPL === undefined) && R !== "") {
+                unsupportedCurve("curve");
+                return;
+            } else if (SPL !== "") {
+                unsupportedCurve("spiral");
+                return;
+            } else {
+                // Line calculation
+                const nx = linenx(TN, TE, STCH_raw, TB, CH, OS);
+                const ex = lineex(TN, TE, STCH_raw, TB, CH, OS);
+                if (isNaN(nx) || isNaN(ex)) {
+                    alert("Invalid inputs for CH/OS calculation. Please check Start N/E, Start CH, T.Brg, CH and OS.");
+                    return;
+                }
+                const tbDeg = parseBearing(TB);
+                document.STN.text7.value = fix4(nx);
+                document.STN.text8.value = fix4(ex);
+                document.STN.text9.value = dmscode(tbDeg || 0);
+
+                // Save last joint coords (as previously)
+                try {
+                    localStorage.JOINT_N = fix4(nx);
+                    localStorage.JOINT_E = fix4(ex);
+                } catch (e) {
+                    // ignore localStorage errors in restricted environments
+                }
+            }
         }
 
         function CALL_ANSWER() {
@@ -595,87 +652,18 @@
             document.STN.text9.value = "";
         }
 
-        // Note: The following functions (linech, lineos, curvetb, curvenx, curveex, curvech, curveos, 
-        // spiralnx, spiralex, spiralbrg, spiralch, spiralos, spiralcheckbrg, linenx, lineex) 
-        // are complex mathematical functions that would typically be in separate library files.
-        // For this example, I'm keeping the original function signatures but they would need to be implemented
-        // or imported from external files in a real application.
-
-        // Placeholder implementations for the complex functions
-        function linech(bn, be, bh, tb, nx, ex) {
-            // Implementation would go here
-            return 0;
-        }
-
-        function lineos(bn, be, bh, tb, nx, ex) {
-            // Implementation would go here
-            return 0;
-        }
-
-        function curvetb(bn, be, tb, r, bh, rh, ro) {
-            // Implementation would go here
-            return 0;
-        }
-
-        function curvenx(bn, be, tb, r, bh, rh, ro) {
-            // Implementation would go here
-            return 0;
-        }
-
-        function curveex(bn, be, tb, r, bh, rh, ro) {
-            // Implementation would go here
-            return 0;
-        }
-
-        function curvech(bn, be, tb, r, bh, nx, ex) {
-            // Implementation would go here
-            return 0;
-        }
-
-        function curveos(bn, be, tb, r, bh, nx, ex) {
-            // Implementation would go here
-            return 0;
-        }
-
-        function spiralnx(bh, bn, be, tb, r, spl, ch, os) {
-            // Implementation would go here
-            return 0;
-        }
-
-        function spiralex(bh, bn, be, tb, r, spl, ch, os) {
-            // Implementation would go here
-            return 0;
-        }
-
-        function spiralbrg(bh, bn, be, tb, r, spl, ch, os) {
-            // Implementation would go here
-            return 0;
-        }
-
-        function spiralch(bh, bn, be, tb, r, spl, n, e) {
-            // Implementation would go here
-            return 0;
-        }
-
-        function spiralos(bh, bn, be, tb, r, spl, n, e) {
-            // Implementation would go here
-            return 0;
-        }
-
-        function spiralcheckbrg(bh, bn, be, tb, r, spl, n, e) {
-            // Implementation would go here
-            return 0;
-        }
-
-        function linenx(bn, be, bh, tb, rh, ro) {
-            // Implementation would go here
-            return 0;
-        }
-
-        function lineex(bn, be, bh, tb, rh, ro) {
-            // Implementation would go here
-            return 0;
-        }
+        // Stubbed complex functions remain but are not used for straight-line mode
+        function curvetb(){ return NaN; }
+        function curvenx(){ return NaN; }
+        function curveex(){ return NaN; }
+        function curvech(){ return NaN; }
+        function curveos(){ return NaN; }
+        function spiralnx(){ return NaN; }
+        function spiralex(){ return NaN; }
+        function spiralbrg(){ return NaN; }
+        function spiralch(){ return NaN; }
+        function spiralos(){ return NaN; }
+        function spiralcheckbrg(){ return NaN; }
 
         // Page load initialization
         document.addEventListener('DOMContentLoaded', function() {
