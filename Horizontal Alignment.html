@@ -552,50 +552,52 @@
             const ex = TE + delta * de_dir + OS * re;
             return ex;
         }
-
+<script src="function.js"></script>
         // For now we do not implement curve/spiral math — show a clear message.
         function unsupportedCurve(mode) {
             alert("Curve/Spiral calculations are not implemented in this build.\nMode: " + mode + "\nPlease use straight-line inputs or request implementation.");
         }
 
         // Original main functions with modern improvements
-        function RUNIt1() {
-            let CH = 0;
-            let OS = 0;
+ function RUNIt1() {
+    let CH = 0;
+    let OS = 0;
+    let PTB = 0;
 
-            const STCH = document.STN.text1.value;
-            const TN = document.STN.text2.value;
-            const TE = document.STN.text3.value;
-            const TB = document.STN.text4.value;
-            const R = document.STN.text5.value;
-            const SPL = document.STN.text6.value;
-            const NX = document.STN.text7.value;
-            const EX = document.STN.text8.value;
-            
-            document.STN.text9.value = "";
+    const STCH = document.STN.text1.value;
+    const TN = document.STN.text2.value;
+    const TE = document.STN.text3.value;
+    const TB = document.STN.text4.value;
+    const R = document.STN.text5.value;
+    const SPL = document.STN.text6.value;
+    const NX = document.STN.text7.value;
+    const EX = document.STN.text8.value;
+    
+    document.STN.text9.value = "";
 
-            // If radius or spiral provided: not implemented here
-            if ((SPL === "" || SPL === null || SPL === undefined) && R !== "") {
-                unsupportedCurve("curve");
-                return;
-            } else if (SPL !== "") {
-                unsupportedCurve("spiral");
-                return;
-            } else {
-                // Line calculation
-                const ch = linech(TN, TE, STCH, TB, NX, EX);
-                const os = lineos(TN, TE, STCH, TB, NX, EX);
-                if (isNaN(ch) || isNaN(os)) {
-                    alert("Invalid inputs for line calculation. Please check Start N/E, Start CH, T.Brg, and Nx/Ex.");
-                    return;
-                }
-                const tbDeg = parseBearing(TB);
-                document.STN.text12.value = dmscode(tbDeg || 0);
-                document.STN.text10.value = fix3(ch);
-                document.STN.text11.value = fix3(os);
-            }
-        }
+    if (SPL === "" && R !== "") {
+        // Curve calculation (uses functions from function.js)
+        CH = curvech(TN, TE, TB, parseFloat(R), STCH, NX, EX);
+        OS = curveos(TN, TE, TB, parseFloat(R), STCH, NX, EX);
+        const tb = curvetb(TN, TE, TB, parseFloat(R), STCH, CH, OS);
+        document.STN.text12.value = dmscode(tb);
+    } else if (SPL !== "") {
+        // Spiral calculation (uses functions from function.js)
+        CH = spiralch(STCH, TN, TE, TB, parseFloat(R), parseFloat(SPL), NX, EX);
+        OS = spiralos(STCH, TN, TE, TB, parseFloat(R), parseFloat(SPL), NX, EX);
+        const tb = spiralcheckbrg(STCH, TN, TE, TB, parseFloat(R), parseFloat(SPL), NX, EX);
+        document.STN.text12.value = dmscode(tb);
+    } else {
+        // Line calculation
+        CH = linech(TN, TE, STCH, TB, NX, EX);
+        OS = lineos(TN, TE, STCH, TB, NX, EX);
+        const tb = deg(TB);
+        document.STN.text12.value = dmscode(tb);
+    }
 
+    document.STN.text10.value = fix3(CH);
+    document.STN.text11.value = fix3(OS);
+}
         function CLSIt2() {
             document.STN.text7.value = "";
             document.STN.text8.value = "";
@@ -605,46 +607,53 @@
             document.STN.text12.value = "";
         }
 
-        function RUNIt2() {
-            const STCH_raw = document.STN.text1.value;
-            const TN = document.STN.text2.value;
-            const TE = document.STN.text3.value;
-            const TB = document.STN.text4.value;
-            const R = document.STN.text5.value;
-            const SPL = document.STN.text6.value;
-            const CH = document.STN.text10.value;
-            const OS = document.STN.text11.value;
-            
-            document.STN.text12.value = "";
+   function RUNIt2() {
+    let NX = 0;
+    let EX = 0;
+    let PTB = 0;
 
-            if ((SPL === "" || SPL === null || SPL === undefined) && R !== "") {
-                unsupportedCurve("curve");
-                return;
-            } else if (SPL !== "") {
-                unsupportedCurve("spiral");
-                return;
-            } else {
-                // Line calculation
-                const nx = linenx(TN, TE, STCH_raw, TB, CH, OS);
-                const ex = lineex(TN, TE, STCH_raw, TB, CH, OS);
-                if (isNaN(nx) || isNaN(ex)) {
-                    alert("Invalid inputs for CH/OS calculation. Please check Start N/E, Start CH, T.Brg, CH and OS.");
-                    return;
-                }
-                const tbDeg = parseBearing(TB);
-                document.STN.text7.value = fix4(nx);
-                document.STN.text8.value = fix4(ex);
-                document.STN.text9.value = dmscode(tbDeg || 0);
+    const STCH = fix3(document.STN.text1.value);
+    const TN = fix4(document.STN.text2.value);
+    const TE = fix4(document.STN.text3.value);
+    const TB = fix5(document.STN.text4.value);
+    const R = document.STN.text5.value;
+    const SPL = document.STN.text6.value;
+    const CH = document.STN.text10.value;
+    const OS = document.STN.text11.value;
+    
+    document.STN.text12.value = "";
 
-                // Save last joint coords (as previously)
-                try {
-                    localStorage.JOINT_N = fix4(nx);
-                    localStorage.JOINT_E = fix4(ex);
-                } catch (e) {
-                    // ignore localStorage errors in restricted environments
-                }
-            }
-        }
+    if (SPL === "" && R !== "") {
+        // Curve calculation
+        const nx = curvenx(TN, TE, TB, parseFloat(R), STCH, CH, OS);
+        const ex = curveex(TN, TE, TB, parseFloat(R), STCH, CH, OS);
+        const tb = curvetb(TN, TE, TB, parseFloat(R), STCH, CH, OS);
+        document.STN.text7.value = fix4(nx);
+        document.STN.text8.value = fix4(ex);
+        document.STN.text9.value = dmscode(tb);
+    } else if (SPL !== "") {
+        // Spiral calculation
+        const nx = spiralnx(STCH, TN, TE, TB, parseFloat(R), parseFloat(SPL), CH, OS);
+        const ex = spiralex(STCH, TN, TE, TB, parseFloat(R), parseFloat(SPL), CH, OS);
+        const tb = spiralbrg(STCH, TN, TE, TB, parseFloat(R), parseFloat(SPL), CH, OS);
+        document.STN.text7.value = fix4(nx);
+        document.STN.text8.value = fix4(ex);
+        document.STN.text9.value = dmscode(tb);
+    } else {
+        // Line calculation
+        const nx = linenx(TN, TE, STCH, TB, CH, OS);
+        const ex = lineex(TN, TE, STCH, TB, CH, OS);
+        const tb = deg(TB);
+        document.STN.text7.value = fix4(nx);
+        document.STN.text8.value = fix4(ex);
+        document.STN.text9.value = dmscode(tb);
+    }
+
+    try {
+        localStorage.JOINT_N = fix4(document.STN.text7.value);
+        localStorage.JOINT_E = fix4(document.STN.text8.value);
+    } catch(e){}
+}
 
         function CALL_ANSWER() {
             document.STN.text7.value = localStorage.ANSWER_N || '';
